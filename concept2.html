@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zephirin's Bakery — Concept 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ============================================================
+       RESET & TOKENS
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #ff6824;
+      --orange-hover: #d1651d;
+      --orange-pale:  #fff0e8;
+      --orange-muted: #ffaa7f;
+      --brown-dark:   #5e3200;
+      --brown-text:   #42340b;
+      --brown-deep:   #2c1503;
+      --cream:        #fff8f2;
+      --cream-mid:    #fdf0e4;
+      --cream-dark:   #f5e6d3;
+      --white:        #ffffff;
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-sans:    'Inter', -apple-system, sans-serif;
+      --max:          1260px;
+      --r:            4px;   /* editorial — tighter radius than concept 1 */
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--brown-text);
+      background: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .875rem 2rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: .875rem;
+      letter-spacing: .04em;
+      border: 2px solid transparent;
+      border-radius: 3px; /* barely rounded — editorial feel */
+      transition: all .25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+    }
+    .btn-orange:hover {
+      background: var(--orange-hover);
+      border-color: var(--orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,104,36,.35);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--brown-text);
+      border-color: var(--white);
+    }
+    .btn-white:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.55);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,.12);
+      border-color: var(--white);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--brown-dark);
+      border-color: var(--brown-dark);
+    }
+    .btn-outline-dark:hover {
+      background: var(--brown-dark);
+      color: var(--white);
+    }
+
+    .btn-ghost-orange {
+      background: transparent;
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+    .btn-ghost-orange:hover {
+      background: var(--orange);
+      color: white;
+    }
+
+
+    /* ============================================================
+       UTILITY BAR (scrolls away)
+       ============================================================ */
+    .util-bar {
+      background: var(--brown-deep);
+      color: rgba(255,255,255,.7);
+      font-size: .75rem;
+      font-weight: 500;
+      padding: .55rem 0;
+      letter-spacing: .03em;
+    }
+    .util-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .util-left { display: flex; gap: 2rem; }
+    .util-right { display: flex; gap: 1.5rem; align-items: center; }
+
+    .util-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .util-item a {
+      color: rgba(255,255,255,.6);
+      transition: color .2s;
+    }
+    .util-item a:hover { color: var(--orange); }
+    .util-dot {
+      width: 4px; height: 4px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+    }
+
+
+    /* ============================================================
+       MAIN HEADER (sticky)
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(94,50,0,.1);
+      transition: box-shadow .3s;
+    }
+    .site-header.lifted { box-shadow: 0 4px 20px rgba(44,21,3,.1); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .875rem 2rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .header-logo img { height: 42px; width: auto; }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .header-nav a {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--brown-text);
+      opacity: .75;
+      transition: opacity .2s, color .2s;
+      letter-spacing: .01em;
+    }
+    .header-nav a:hover,
+    .header-nav a.active { opacity: 1; color: var(--orange); }
+
+    .header-right { display: flex; align-items: center; gap: .75rem; }
+
+
+    /* ============================================================
+       HERO  — FULL BLEED
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 110px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        108deg,
+        rgba(44,21,3,.88) 0%,
+        rgba(44,21,3,.74) 42%,
+        rgba(94,50,0,.45) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 7rem 0 6rem;
+      max-width: 640px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 2px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      font-weight: 900;
+      line-height: 1.02;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--orange-muted);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-stat-strip {
+      display: flex;
+      gap: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+    .hero-stat { color: rgba(255,255,255,.9); }
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .hero-stat span {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+
+    /* ============================================================
+       MARQUEE TICKER
+       ============================================================ */
+    .marquee-bar {
+      background: var(--brown-text);
+      padding: .9rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 40s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-segment {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+    .marquee-item {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,248,242,.65);
+      padding: 0 2.5rem;
+      white-space: nowrap;
+    }
+    .marquee-sep {
+      color: var(--orange);
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+
+    /* ============================================================
+       STATEMENT INTRO
+       ============================================================ */
+    .intro-section {
+      background: var(--white);
+      padding: 7rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .intro-left { position: relative; }
+
+    .big-year {
+      font-family: var(--font-serif);
+      font-size: clamp(7rem, 15vw, 13rem);
+      font-weight: 900;
+      line-height: .9;
+      color: var(--orange-pale);
+      margin-bottom: -2rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .intro-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--brown-text);
+      position: relative;
+    }
+
+    .intro-right { }
+    .intro-right p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--brown-text);
+      opacity: .75;
+      margin-bottom: 2rem;
+    }
+
+    .intro-divider {
+      width: 60px; height: 3px;
+      background: var(--orange);
+      margin-bottom: 2rem;
+    }
+
+    .intro-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2.5rem;
+    }
+    .fact-item { }
+    .fact-item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .fact-item span {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      opacity: .6;
+    }
+
+
+    /* ============================================================
+       PRODUCTS — MAGAZINE GRID
+       ============================================================ */
+    .products-section {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+
+    .products-hd {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .75rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 22px; height: 2px;
+      background: var(--orange);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--brown-text);
+    }
+
+    /* Magazine-style asymmetric grid */
+    .mag-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 8px;
+    }
+
+    .mag-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--cream-dark);
+    }
+    .mag-card:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .mag-card:nth-child(2) { grid-column: span 5; grid-row: span 1; }
+    .mag-card:nth-child(3) { grid-column: span 5; grid-row: span 1; }
+    .mag-card:nth-child(4) { grid-column: span 4; grid-row: span 1; }
+    .mag-card:nth-child(5) { grid-column: span 4; grid-row: span 1; }
+    .mag-card:nth-child(6) { grid-column: span 4; grid-row: span 1; }
+
+    .mag-card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .mag-card:hover .mag-card-img { transform: scale(1.06); }
+
+    .mag-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,21,3,.85) 0%, rgba(44,21,3,.15) 50%, transparent 100%);
+      transition: opacity .3s;
+    }
+
+    .mag-card-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      transform: translateY(6px);
+      transition: transform .3s ease;
+    }
+    .mag-card:hover .mag-card-body { transform: translateY(0); }
+
+    .mag-card-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      margin-bottom: .6rem;
+    }
+
+    .mag-card-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+    .mag-card:nth-child(1) .mag-card-title { font-size: 1.75rem; }
+    .mag-card-title { font-size: 1.1rem; }
+
+    .mag-card-desc {
+      font-size: .82rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.5;
+      margin-bottom: .85rem;
+      max-width: 380px;
+    }
+    /* hide desc on small cards */
+    .mag-card:nth-child(n+2) .mag-card-desc { display: none; }
+    .mag-card:nth-child(1) .mag-card-desc   { display: block; }
+
+    .mag-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--orange-muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: gap .2s;
+    }
+    .mag-card-cta::after { content: '→'; }
+    .mag-card:hover .mag-card-cta { gap: .65rem; }
+
+    .products-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+
+    /* ============================================================
+       HERITAGE — DARK STATEMENT SECTION
+       ============================================================ */
+    .heritage-section {
+      background: var(--brown-deep);
+      color: var(--white);
+      padding: 7rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Giant watermark year */
+    .heritage-section::before {
+      content: '1923';
+      position: absolute;
+      right: -2rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-serif);
+      font-size: 28vw;
+      font-weight: 900;
+      color: rgba(255,255,255,.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .heritage-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .heritage-left { position: relative; }
+
+    .heritage-kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 1.5rem;
+    }
+    .heritage-kicker::before {
+      content: '';
+      width: 22px; height: 2px;
+      background: var(--orange);
+    }
+
+    .heritage-left h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .heritage-pull {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
+      border-left: 3px solid var(--orange);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Horizontal milestone row */
+    .milestones {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+    }
+    .milestone {
+      flex: 1;
+      padding: 1.5rem 1.5rem 1.5rem 0;
+      border-left: 1px solid rgba(255,255,255,.08);
+      transition: border-color .25s;
+      cursor: default;
+    }
+    .milestone:first-child { border-left: none; padding-left: 0; }
+    .milestone:hover { border-left-color: var(--orange); }
+
+    .milestone-year {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .milestone-text {
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.5;
+    }
+
+    /* Right column: image + floating card */
+    .heritage-right { position: relative; }
+
+    .heritage-img-wrap {
+      border-radius: var(--r);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+    .heritage-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .heritage-float {
+      position: absolute;
+      bottom: -2rem; left: -2.5rem;
+      background: var(--orange);
+      color: white;
+      padding: 1.75rem 2rem;
+      max-width: 240px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .heritage-float p {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: .5rem;
+    }
+    .heritage-float span {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+
+
+    /* ============================================================
+       WHERE TO FIND US — clean white
+       ============================================================ */
+    .locator-section {
+      background: var(--white);
+      padding: 7rem 0;
+    }
+
+    .locator-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .locator-left { }
+    .locator-left .section-title { margin-bottom: 1rem; }
+    .locator-left p {
+      font-size: 1rem;
+      opacity: .7;
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Parish coverage grid */
+    .parish-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+    }
+    .parish-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      border: 1px solid var(--cream-dark);
+      background: var(--cream);
+      font-size: .85rem;
+      font-weight: 500;
+      transition: all .25s;
+    }
+    .parish-item:hover {
+      border-color: var(--orange);
+      background: var(--orange-pale);
+      color: var(--brown-dark);
+    }
+    .parish-check {
+      width: 20px; height: 20px;
+      background: var(--orange);
+      color: white;
+      font-size: .65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    /* Right: stylised map with editorial treatment */
+    .locator-right { position: relative; }
+
+    .locator-map-panel {
+      background: var(--brown-deep);
+      aspect-ratio: 1;
+      border-radius: var(--r);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lmp-island {
+      width: 54%; height: 65%;
+      background: rgba(255,104,36,.15);
+      border: 2px solid rgba(255,104,36,.35);
+      border-radius: 42% 58% 54% 46% / 46% 54% 58% 42%;
+      position: relative;
+    }
+
+    .lmp-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: var(--orange);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255,104,36,.2);
+      cursor: pointer;
+    }
+    .lmp-dot.home {
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.25);
+    }
+    .lmp-dot::after {
+      content: attr(data-p);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(44,21,3,.9);
+      color: white;
+      font-size: .68rem;
+      padding: .25rem .6rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      font-weight: 500;
+    }
+    .lmp-dot:hover::after { opacity: 1; }
+
+    .d1 { top: 60%; left: 26%; }
+    .d2 { top: 20%; left: 13%; }
+    .d3 { bottom: 5%; left: 42%; }
+    .d4 { top: 7%;  left: 17%; }
+    .d5 { top: 40%; right: 16%; }
+    .d6 { top: 52%; left: 35%; }
+
+    .lmp-label {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+    }
+    .lmp-legend {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      font-size: .72rem;
+      color: rgba(255,255,255,.5);
+    }
+    .lmp-li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .3rem;
+    }
+    .lmp-ld { width: 8px; height: 8px; border-radius: 50%; }
+
+    .map-cta-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+
+    /* ============================================================
+       RECIPES — TWO LARGE EDITORIAL CARDS
+       ============================================================ */
+    .recipes-section {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+
+    .recipes-hd {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Third recipe spans full width */
+    .recipe-card-lg:nth-child(3) {
+      grid-column: span 2;
+    }
+
+    .recipe-card-lg {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--cream-dark);
+    }
+    .recipe-card-lg:nth-child(1),
+    .recipe-card-lg:nth-child(2) { height: 380px; }
+    .recipe-card-lg:nth-child(3) { height: 260px; }
+
+    .recipe-card-lg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .recipe-card-lg:hover img { transform: scale(1.04); }
+
+    .recipe-overlay-full {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,21,3,.88) 0%, rgba(44,21,3,.2) 55%, transparent 100%);
+    }
+
+    .recipe-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem;
+    }
+    .recipe-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .2rem .65rem;
+      margin-bottom: .75rem;
+    }
+    .recipe-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+    .recipe-card-lg:nth-child(3) .recipe-title { font-size: 1.2rem; }
+    .recipe-meta-row {
+      display: flex;
+      gap: 1.5rem;
+      font-size: .78rem;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 1rem;
+    }
+    .recipe-card-lg:nth-child(3) .recipe-meta-row { margin-bottom: .5rem; }
+    .recipe-excerpt {
+      font-size: .875rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.55;
+      max-width: 420px;
+      margin-bottom: 1rem;
+    }
+    .recipe-card-lg:nth-child(3) .recipe-excerpt { display: none; }
+    .recipe-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--orange-muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: gap .2s;
+    }
+    .recipe-link::after { content: '→'; }
+    .recipe-card-lg:hover .recipe-link { gap: .65rem; }
+
+
+    /* ============================================================
+       STORE — FULL-BLEED IMAGE FEATURE
+       ============================================================ */
+    .store-section {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .store-bg {
+      position: absolute; inset: 0;
+      z-index: 0;
+    }
+    .store-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .store-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(44,21,3,.92) 0%, rgba(44,21,3,.7) 50%, rgba(44,21,3,.2) 100%);
+    }
+
+    .store-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      padding: 5rem 0;
+    }
+
+    .store-kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--orange-muted);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 1.5rem;
+    }
+    .store-kicker::before {
+      content: '';
+      width: 22px; height: 2px;
+      background: var(--orange-muted);
+    }
+
+    .store-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .store-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .store-hours-inline {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .shi {
+      font-size: .8rem;
+      color: rgba(255,255,255,.65);
+    }
+    .shi strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--orange-muted);
+      margin-bottom: .2rem;
+    }
+
+    .store-ctas { display: flex; gap: .75rem; }
+
+
+    /* ============================================================
+       NEWSLETTER — ORANGE BOLD STRIP
+       ============================================================ */
+    .newsletter-section {
+      background: var(--orange);
+      padding: 5rem 0;
+    }
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .nl-text { }
+    .nl-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .nl-text p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+    }
+    .nl-form {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .nl-input-row {
+      display: flex;
+      gap: .5rem;
+    }
+    .nl-input {
+      flex: 1;
+      background: rgba(255,255,255,.15);
+      border: 1.5px solid rgba(255,255,255,.35);
+      color: white;
+      padding: .875rem 1.25rem;
+      font-family: var(--font-sans);
+      font-size: .9rem;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .nl-input::placeholder { color: rgba(255,255,255,.5); }
+    .nl-input:focus { border-color: white; }
+    .nl-note {
+      font-size: .75rem;
+      color: rgba(255,255,255,.6);
+    }
+
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--brown-deep);
+      color: var(--white);
+      padding: 5rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .footer-brand img {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: .85;
+      margin-bottom: 1.25rem;
+    }
+    .footer-brand p {
+      font-size: .875rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.75;
+      max-width: 260px;
+      margin-bottom: 2rem;
+    }
+    .footer-socials { display: flex; gap: .5rem; }
+    .fs-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.6);
+      border-radius: var(--r);
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .fs-link:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: white;
+    }
+
+    .footer-col h4 {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+    .footer-col ul li a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--orange); }
+
+    .fc-item {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      margin-bottom: .75rem;
+    }
+    .fc-item .ic { opacity: .4; flex-shrink: 0; }
+
+    .footer-bottom {
+      padding: 1.75rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: .775rem;
+      color: rgba(255,255,255,.28);
+    }
+    .footer-bottom a {
+      color: rgba(255,255,255,.4);
+      transition: color .2s;
+    }
+    .footer-bottom a:hover { color: var(--orange); }
+    .fb-links { display: flex; gap: 1.5rem; }
+
+
+    /* ============================================================
+       CONCEPT BADGE
+       ============================================================ */
+    .concept-badge {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      background: var(--orange);
+      color: white;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .5rem 1rem;
+      border-radius: 2px;
+      z-index: 999;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(255,104,36,.4);
+    }
+
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1100px) {
+      .mag-grid { grid-template-rows: 240px 240px; }
+      .intro-inner { gap: 3rem; }
+    }
+
+    @media (max-width: 960px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .big-year { font-size: 22vw; }
+      .mag-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .mag-card:nth-child(1) { grid-column: span 2; height: 340px; }
+      .mag-card:nth-child(n+2) { grid-column: span 1; height: 220px; }
+      .heritage-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .heritage-float { left: 1rem; bottom: 1rem; }
+      .locator-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .recipes-grid { grid-template-columns: 1fr; }
+      .recipe-card-lg:nth-child(3) { grid-column: span 1; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .util-bar { display: none; }
+      .header-nav { display: none; }
+      .hero-content { padding: 4rem 0 3.5rem; }
+      .hero-stat-strip { flex-wrap: wrap; gap: 1.5rem; }
+      .parish-grid { grid-template-columns: 1fr; }
+      .store-hours-inline { flex-direction: column; gap: 1rem; }
+      .store-ctas { flex-direction: column; }
+      .nl-input-row { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+      .recipes-hd { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .products-hd { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .concept-badge { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     UTILITY BAR
+     ================================================================ -->
+<div class="util-bar">
+  <div class="util-inner">
+    <div class="util-left">
+      <div class="util-item">
+        <span>📞</span>
+        <a href="tel:+12465381426">+1 246-538-1426</a>
+      </div>
+      <div class="util-dot"></div>
+      <div class="util-item">
+        <span>🕐</span>
+        <span>Office: Mon–Fri 8:00am – 4:00pm</span>
+      </div>
+      <div class="util-dot"></div>
+      <div class="util-item">
+        <span>🏪</span>
+        <span>Store: 7 days, 6:30am – 10pm</span>
+      </div>
+    </div>
+    <div class="util-right">
+      <div class="util-item">
+        <a href="https://www.facebook.com/zephirinsbakeries" target="_blank" rel="nofollow">Facebook</a>
+      </div>
+      <div class="util-dot"></div>
+      <div class="util-item">
+        <a href="https://www.instagram.com/zephirinsbakeries/" target="_blank" rel="nofollow">Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     MAIN HEADER
+     ================================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <img src="https://zephirinsbakery.com/wp-content/uploads/2018/08/zephirins-logo22.png"
+           alt="Zephirin's Bakery" />
+    </a>
+    <nav class="header-nav">
+      <a href="#" class="active">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#products">Products</a>
+      <a href="#locator">Where to Find Us</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#store">Our Store</a>
+    </nav>
+    <div class="header-right">
+      <a href="#locator" class="btn btn-orange">Find Our Bread &rarr;</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ================================================================
+     HERO — FULL BLEED
+     ================================================================ -->
+<section class="hero">
+
+  <div class="hero-bg">
+    <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Sandwich-1.jpg"
+         alt="Freshly baked Zephirin's bread" />
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Est. 1923 &nbsp;&middot;&nbsp; Barbados</span>
+
+      <h1>
+        Baked Fresh.<br>
+        Baked <em>Bajan.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Over a century of golden loaves, sweet morning smells,
+        and the bread every Bajan knows by heart.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#locator" class="btn btn-orange">Find Our Bread &rarr;</a>
+        <a href="#products" class="btn btn-outline-white">Our Range</a>
+      </div>
+
+      <div class="hero-stat-strip">
+        <div class="hero-stat">
+          <strong>100+</strong>
+          <span>Years Baking</span>
+        </div>
+        <div class="hero-stat">
+          <strong>1923</strong>
+          <span>Est. Barbados</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Islandwide</strong>
+          <span>Distribution</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================================================================
+     MARQUEE TICKER
+     ================================================================ -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <!-- segment 1 -->
+    <div class="marquee-segment">
+      <span class="marquee-item">Baked Fresh Daily</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Made in Barbados</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Since 1923</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Stocked Islandwide</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Baked with Love</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">100 Years of Baking</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Bajan Bread</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">From Our Ovens to Your Table</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Family Owned &amp; Operated</span>
+      <span class="marquee-sep">&bull;</span>
+    </div>
+    <!-- segment 2 (duplicate for seamless loop) -->
+    <div class="marquee-segment" aria-hidden="true">
+      <span class="marquee-item">Baked Fresh Daily</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Made in Barbados</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Since 1923</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Stocked Islandwide</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Baked with Love</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">100 Years of Baking</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Bajan Bread</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">From Our Ovens to Your Table</span>
+      <span class="marquee-sep">&bull;</span>
+      <span class="marquee-item">Family Owned &amp; Operated</span>
+      <span class="marquee-sep">&bull;</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     INTRO STATEMENT
+     ================================================================ -->
+<section class="intro-section" id="story">
+  <div class="wrap">
+    <div class="intro-inner">
+
+      <div class="intro-left">
+        <div class="big-year">100</div>
+        <h2 class="intro-headline">
+          One hundred years of<br>
+          baking for Barbados.
+        </h2>
+      </div>
+
+      <div class="intro-right">
+        <div class="intro-divider"></div>
+        <p>
+          We didn't just start a bakery. We became part of the island's breakfast.
+          From one small oven in 1923 to one of the largest bakeries in Barbados,
+          our story is Barbados' story — told through warm bread, loyal customers,
+          and a community that has shaped everything we bake.
+        </p>
+        <p>
+          During this time our range has grown from a simple sliced loaf to
+          a full family of local favourites: sweet pastries, seasonal bakes,
+          dinner rolls, and our ever-popular healthy whole-wheat range.
+          Same heart. Same ovens. Same island.
+        </p>
+        <div class="intro-facts">
+          <div class="fact-item">
+            <strong>1923</strong>
+            <span>Founded in Barbados</span>
+          </div>
+          <div class="fact-item">
+            <strong>100+</strong>
+            <span>Years of Operation</span>
+          </div>
+          <div class="fact-item">
+            <strong>Islandwide</strong>
+            <span>Retail Presence</span>
+          </div>
+          <div class="fact-item">
+            <strong>Daily</strong>
+            <span>Fresh Baking</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     PRODUCTS — MAGAZINE GRID
+     ================================================================ -->
+<section class="products-section" id="products">
+  <div class="wrap">
+
+    <div class="products-hd">
+      <div>
+        <div class="section-label">Our Range</div>
+        <h2 class="section-title">The bread Barbados runs on</h2>
+      </div>
+      <a href="#" class="btn btn-outline-dark">View All Products &rarr;</a>
+    </div>
+
+    <div class="mag-grid">
+
+      <!-- FEATURE card (spans 7 cols, 2 rows) -->
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/245934457_1849919541862768_163774539522165710_n-1.jpg"
+             alt="Zephirin's Fresh Bread" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Fan Favourite</span>
+          <h3 class="mag-card-title">Fresh From Our Ovens, Every Morning</h3>
+          <p class="mag-card-desc">
+            Every loaf, every roll, every sweet bread you find on store shelves
+            was baked that same morning in our Barbados bakery. No shortcuts.
+            Just fresh.
+          </p>
+          <span class="mag-card-cta">Explore the range</span>
+        </div>
+      </div>
+
+      <!-- Small cards (5 cols, 1 row each) -->
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Sandwich-1.jpg"
+             alt="Bran Sandwich" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Breads</span>
+          <h3 class="mag-card-title">Bran Sandwich</h3>
+          <span class="mag-card-cta">Find near me</span>
+        </div>
+      </div>
+
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/sweet-bread-1.jpg"
+             alt="Sweet Bread" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Sweet Bakes</span>
+          <h3 class="mag-card-title">Sweet Bread</h3>
+          <span class="mag-card-cta">Find near me</span>
+        </div>
+      </div>
+
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Nulife-1.jpg"
+             alt="Nulife" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Healthy Range</span>
+          <h3 class="mag-card-title">Nulife</h3>
+          <span class="mag-card-cta">Find near me</span>
+        </div>
+      </div>
+
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/10-grain-buns-1.jpg"
+             alt="10 Grain Buns" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Buns &amp; Rolls</span>
+          <h3 class="mag-card-title">10 Grain Buns</h3>
+          <span class="mag-card-cta">Find near me</span>
+        </div>
+      </div>
+
+      <div class="mag-card">
+        <img class="mag-card-img"
+             src="https://zephirinsbakery.com/wp-content/uploads/2021/12/healthy-Cob-1.png"
+             alt="Healthy Cob" loading="lazy" />
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-body">
+          <span class="mag-card-tag">Healthy Range</span>
+          <h3 class="mag-card-title">Healthy Cob</h3>
+          <span class="mag-card-cta">Find near me</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="products-footer">
+      <a href="#" class="btn btn-ghost-orange">See the Full Range &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HERITAGE — DARK
+     ================================================================ -->
+<section class="heritage-section" id="about">
+  <div class="wrap">
+    <div class="heritage-inner">
+
+      <div class="heritage-left">
+        <div class="heritage-kicker">Our Heritage</div>
+        <h2>We've been part of your morning since 1923.</h2>
+
+        <p class="heritage-pull">
+          "We didn't just start a bakery. We became part of the island's breakfast."
+        </p>
+
+        <p style="color:rgba(255,255,255,.65);line-height:1.8;font-size:.95rem;margin-bottom:2rem">
+          Zephirin's Bakeries has been rising with Barbados since 1923. From the first
+          family loaf to one of the largest bakeries on the island, we've baked the bread
+          that feeds the people — at the breakfast table, in the school lunch box, and on
+          every corner store shelf.
+        </p>
+
+        <a href="#" class="btn btn-ghost-orange">Read Our Full Story &rarr;</a>
+
+        <div class="milestones">
+          <div class="milestone">
+            <div class="milestone-year">1923</div>
+            <div class="milestone-text">Founded in Barbados</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">1960s</div>
+            <div class="milestone-text">Expanded island&shy;wide</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">1990s</div>
+            <div class="milestone-text">Healthy range launched</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">Today</div>
+            <div class="milestone-text">One of Barbados' largest bakeries</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heritage-right">
+        <div class="heritage-img-wrap">
+          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/253711841_1864763420378380_5515753563282685862_n-1.jpg"
+               alt="Zephirin's Bakery" loading="lazy" />
+        </div>
+        <div class="heritage-float">
+          <p>"Still baked with the same heart, from the same island."</p>
+          <span>Zephirin's Bakeries &middot; Est. 1923</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     WHERE TO FIND US
+     ================================================================ -->
+<section class="locator-section" id="locator">
+  <div class="wrap">
+    <div class="locator-inner">
+
+      <div class="locator-left">
+        <div class="section-label">Where to Find Us</div>
+        <h2 class="section-title">Our bread is all around you.</h2>
+        <p>
+          Zephirin's is stocked at supermarkets, convenience stores, and
+          mini-marts right across every parish in Barbados. Fresh bread is
+          never far away.
+        </p>
+
+        <div class="parish-grid">
+          <div class="parish-item"><span class="parish-check">✓</span> Christ Church</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Michael</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. James</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Peter</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Philip</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. George</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. John</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Joseph</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Andrew</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Lucy</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. Thomas</div>
+          <div class="parish-item"><span class="parish-check">✓</span> St. David</div>
+        </div>
+
+        <div class="map-cta-row">
+          <a href="#" class="btn btn-orange">Find a Store Near You &rarr;</a>
+          <a href="#" class="btn btn-outline-dark">Wholesale &amp; Trade</a>
+        </div>
+      </div>
+
+      <div class="locator-right">
+        <div class="locator-map-panel">
+          <div class="lmp-island">
+            <div class="lmp-dot home d6" data-p="Tudor Bridge — Our Bakery"></div>
+            <div class="lmp-dot d1"      data-p="Bridgetown / St. Michael"></div>
+            <div class="lmp-dot d2"      data-p="Holetown / St. James"></div>
+            <div class="lmp-dot d3"      data-p="Oistins / Christ Church"></div>
+            <div class="lmp-dot d4"      data-p="Speightstown / St. Peter"></div>
+            <div class="lmp-dot d5"      data-p="Six Roads / St. Philip"></div>
+          </div>
+          <span class="lmp-label">Barbados</span>
+          <div class="lmp-legend">
+            <div class="lmp-li">
+              <span class="lmp-ld" style="background:var(--orange)"></span>
+              Retail stockists
+            </div>
+            <div class="lmp-li">
+              <span class="lmp-ld" style="background:var(--white)"></span>
+              Our bakery &amp; store
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     RECIPES — EDITORIAL
+     ================================================================ -->
+<section class="recipes-section" id="recipes">
+  <div class="wrap">
+
+    <div class="recipes-hd">
+      <div>
+        <div class="section-label">In the Kitchen</div>
+        <h2 class="section-title">Fresh ideas for fresh bread</h2>
+      </div>
+      <a href="#" class="btn btn-outline-dark">All Recipes &rarr;</a>
+    </div>
+
+    <div class="recipes-grid">
+
+      <div class="recipe-card-lg">
+        <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Sandwich-1.jpg"
+             alt="Bajan Fish Cutter" loading="lazy" />
+        <div class="recipe-overlay-full"></div>
+        <div class="recipe-body">
+          <span class="recipe-tag">Quick &amp; Easy</span>
+          <h3 class="recipe-title">Classic Bajan Fish Cutter</h3>
+          <div class="recipe-meta-row">
+            <span>&#9201; 15 mins</span>
+            <span>&#127838; Sandwich Bread</span>
+            <span>&#127810; Serves 1</span>
+          </div>
+          <p class="recipe-excerpt">
+            Flying fish, pepper sauce, and mustard in a fresh Zephirin's cob.
+            The iconic Bajan street food — perfect any time of day.
+          </p>
+          <span class="recipe-link">Get the recipe</span>
+        </div>
+      </div>
+
+      <div class="recipe-card-lg">
+        <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/sweet-bread-1.jpg"
+             alt="Sweet Bread French Toast" loading="lazy" />
+        <div class="recipe-overlay-full"></div>
+        <div class="recipe-body">
+          <span class="recipe-tag">Weekend Breakfast</span>
+          <h3 class="recipe-title">Sweet Bread French Toast</h3>
+          <div class="recipe-meta-row">
+            <span>&#9201; 20 mins</span>
+            <span>&#127838; Sweet Bread</span>
+            <span>&#127810; Serves 4</span>
+          </div>
+          <p class="recipe-excerpt">
+            Turn our beloved sweet bread into a weekend treat the whole
+            family will ask for again and again.
+          </p>
+          <span class="recipe-link">Get the recipe</span>
+        </div>
+      </div>
+
+      <!-- Wide card -->
+      <div class="recipe-card-lg">
+        <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Dinner-rolls-1.jpg"
+             alt="Herb Butter Rolls" loading="lazy" />
+        <div class="recipe-overlay-full"></div>
+        <div class="recipe-body">
+          <span class="recipe-tag">Dinner</span>
+          <h3 class="recipe-title">Herb Butter Dinner Rolls</h3>
+          <div class="recipe-meta-row">
+            <span>&#9201; 10 mins</span>
+            <span>&#127838; Dinner Rolls</span>
+          </div>
+          <span class="recipe-link">Get the recipe</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     TUDOR BRIDGE STORE — FULL BLEED
+     ================================================================ -->
+<section class="store-section" id="store">
+  <div class="store-bg">
+    <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/convenience-store-1024x1024.jpg"
+         alt="Tudor Bridge Store" />
+  </div>
+  <div class="wrap">
+    <div class="store-content">
+      <div class="store-kicker">Tudor Bridge</div>
+      <h2>Fresh from the<br>bakery next door.</h2>
+      <p>
+        Our Tudor Bridge Convenience Store is stocked every morning straight
+        from the bakery next door. The basics, your Zephirin's favourites,
+        and everything in between — open seven days a week.
+      </p>
+
+      <div class="store-hours-inline">
+        <div class="shi">
+          <strong>Mon – Sun</strong>
+          6:30am – 10:00pm
+        </div>
+        <div class="shi">
+          <strong>Location</strong>
+          Tudor Bridge, St. Michael
+        </div>
+        <div class="shi">
+          <strong>Phone</strong>
+          +1 246-538-1426
+        </div>
+      </div>
+
+      <div class="store-ctas">
+        <a href="#" class="btn btn-orange">Get Directions &rarr;</a>
+        <a href="#" class="btn btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     NEWSLETTER
+     ================================================================ -->
+<section class="newsletter-section">
+  <div class="wrap">
+    <div class="newsletter-inner">
+      <div class="nl-text">
+        <h2>
+          Get recipes, seasonal specials
+          &amp; bakery news.
+        </h2>
+        <p>
+          Join our community. We'll send you new recipes, seasonal
+          product announcements, and a little slice of Bajan warmth
+          — straight to your inbox.
+        </p>
+      </div>
+      <div class="nl-form">
+        <div class="nl-input-row">
+          <input class="nl-input" type="email" placeholder="Your email address" />
+          <a href="#" class="btn btn-white">Subscribe</a>
+        </div>
+        <span class="nl-note">No spam. Unsubscribe any time. Just good bread &amp; good recipes.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="https://zephirinsbakery.com/wp-content/uploads/2018/08/zephirins-logo22.png"
+             alt="Zephirin's Bakery" />
+        <p>
+          Zephirin's Bakeries — where everything is baked with heart.
+          Serving Barbados from the same ovens since 1923.
+        </p>
+        <div class="footer-socials">
+          <a class="fs-link" href="https://www.facebook.com/zephirinsbakeries"
+             target="_blank" rel="nofollow" aria-label="Facebook">f</a>
+          <a class="fs-link" href="https://www.instagram.com/zephirinsbakeries/"
+             target="_blank" rel="nofollow" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Our Products</a></li>
+          <li><a href="#">Where to Find Us</a></li>
+          <li><a href="#">Recipes &amp; Ideas</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">Breads</a></li>
+          <li><a href="#">Buns &amp; Rolls</a></li>
+          <li><a href="#">Sweet Bakes</a></li>
+          <li><a href="#">Healthy Range</a></li>
+          <li><a href="#">Seasonal Specials</a></li>
+          <li><a href="#">Wholesale &amp; Trade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="fc-item">
+          <span class="ic">📞</span>
+          <span>+1 246-538-1426</span>
+        </div>
+        <div class="fc-item">
+          <span class="ic">🕐</span>
+          <span>Office: Mon–Fri 8:00am – 4:00pm</span>
+        </div>
+        <div class="fc-item">
+          <span class="ic">📍</span>
+          <span>Tudor Bridge, St. Michael, Barbados</span>
+        </div>
+        <div class="fc-item">
+          <span class="ic">🏪</span>
+          <span>Store: 7 days, 6:30am – 10:00pm</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy;2026 Zephirin's Bakeries INC. &nbsp;&middot;&nbsp; Baked with love in Barbados since 1923</span>
+      <div class="fb-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Wholesale</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Concept label -->
+<div class="concept-badge">Concept 2</div>
+
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+
+  /* Sticky header lift on scroll */
+  const hdr = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('lifted', window.scrollY > 20);
+  }, { passive: true });
+
+
+  /* Scroll entrance animations */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll(
+    '.mag-card, .parish-item, .fact-item, .milestone, ' +
+    '.recipe-card-lg'
+  ).forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity .5s ease ${i * 0.05}s, transform .5s ease ${i * 0.05}s`;
+    io.observe(el);
+  });
+
+
+  /* Smooth scrolling */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+</script>
+
+</body>
+</html>

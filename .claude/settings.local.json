@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open /Users/katrinapayne/antigravity/websites/Zephrins/concept.html)",
+      "Bash(open /Users/katrinapayne/antigravity/websites/Zephrins/concept3.html)"
+    ]
+  }
+}
