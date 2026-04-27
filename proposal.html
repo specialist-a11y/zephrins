@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Redesign Proposal — Zephirin's Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:      #ff6824;
+      --orange-h:    #d1651d;
+      --orange-pale: #fff0e8;
+      --orange-muted:#ffaa7f;
+      --navy:        #0d1f3c;
+      --navy-deep:   #050b14;
+      --navy-mid:    #162d56;
+      --cream:       #fdf8f3;
+      --cream-mid:   #f5ece0;
+      --cream-dark:  #eddcc8;
+      --text:        #1a1610;
+      --muted:       #6b6575;
+      --white:       #ffffff;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Inter', -apple-system, sans-serif;
+      --max:         1160px;
+      --r:           14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── FADE-IN ANIMATION ──────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+
+    /* ════════════════════════════════════════════════════════
+       COVER
+    ════════════════════════════════════════════════════════ */
+    .cover {
+      min-height: 100vh;
+      background: var(--navy-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background grain */
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: .4;
+      pointer-events: none;
+    }
+
+    /* Decorative radial glow */
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,104,36,.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cover-agency {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .cover-logo {
+      height: 52px;
+      width: auto;
+      margin: 0 auto 3rem;
+      filter: brightness(0) invert(1);
+      opacity: .9;
+      position: relative;
+    }
+
+    .cover-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .cover-label::before, .cover-label::after {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--orange);
+      opacity: .6;
+    }
+
+    .cover h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5.5vw, 5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.06;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .cover h1 em {
+      font-style: italic;
+      color: var(--orange-muted);
+    }
+
+    .cover-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.5);
+      max-width: 480px;
+      margin: 0 auto 3.5rem;
+      position: relative;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .cover-meta-item {
+      text-align: center;
+    }
+    .cover-meta-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: .3rem;
+    }
+    .cover-meta-value {
+      font-size: .9rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.7);
+    }
+
+    .cover-scroll {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(255,255,255,.3);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .cover-scroll-line {
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .4; }
+      50%      { opacity: 1; }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       STICKY NAV
+    ════════════════════════════════════════════════════════ */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(253,248,243,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13,31,60,.08);
+      transition: box-shadow .3s;
+    }
+    .sticky-nav.elevated { box-shadow: 0 4px 20px rgba(5,11,20,.1); }
+
+    .sticky-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding: .875rem 0;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: .25rem;
+    }
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: .875rem 1rem;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover  { color: var(--navy); }
+    .nav-links a.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 700;
+      background: var(--orange);
+      color: var(--white);
+      padding: .55rem 1.25rem;
+      border-radius: 50px;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-h); }
+
+
+    /* ════════════════════════════════════════════════════════
+       SHARED SECTION STYLES
+    ════════════════════════════════════════════════════════ */
+    .section {
+      padding: 6rem 0;
+    }
+    .section-alt { background: var(--white); }
+    .section-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .section-dark .section-kicker { color: var(--orange-muted); }
+    .section-dark .section-title  { color: var(--white); }
+    .section-dark .section-sub    { color: rgba(255,255,255,.55); }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: .9rem;
+    }
+    .section-kicker::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--orange);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.12;
+      margin-bottom: .75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+    .section-header-centered {
+      text-align: center;
+    }
+    .section-header-centered .section-kicker { justify-content: center; }
+    .section-header-centered .section-sub { margin: 0 auto; }
+
+
+    /* ════════════════════════════════════════════════════════
+       OPPORTUNITY
+    ════════════════════════════════════════════════════════ */
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .opportunity-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .opportunity-text p:last-child { margin-bottom: 0; }
+
+    .objectives {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .objective {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--r);
+      border-left: 3px solid var(--orange);
+    }
+    .objective-num {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+    .objective-text strong {
+      display: block;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .2rem;
+    }
+    .objective-text span {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       CONCEPTS
+    ════════════════════════════════════════════════════════ */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .concept-card {
+      background: var(--white);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(5,11,20,.06);
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    .concept-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(5,11,20,.12);
+    }
+    .concept-card.selected {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255,104,36,.15), 0 16px 40px rgba(5,11,20,.12);
+    }
+
+    /* Badges */
+    .concept-badge {
+      position: absolute;
+      top: .75rem; left: .75rem;
+      z-index: 5;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 50px;
+    }
+    .badge-recommended {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .badge-bold {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .concept-selected-ring {
+      position: absolute;
+      top: .75rem; right: .75rem;
+      z-index: 5;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: .9rem;
+    }
+    .concept-card.selected .concept-selected-ring { display: flex; }
+
+    /* Preview frame */
+    .concept-preview {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: var(--cream-dark);
+    }
+    .concept-preview iframe {
+      width: 1440px;
+      height: 900px;
+      border: none;
+      transform-origin: top left;
+      pointer-events: none;
+      display: block;
+    }
+    .concept-preview-link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+    .concept-preview-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: rgba(13,31,60,0);
+      transition: background .3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .concept-preview-overlay span {
+      background: var(--orange);
+      color: white;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .5rem 1.1rem;
+      border-radius: 50px;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .25s, transform .25s;
+    }
+    .concept-card:hover .concept-preview-overlay { background: rgba(13,31,60,.15); }
+    .concept-card:hover .concept-preview-overlay span { opacity: 1; transform: translateY(0); }
+
+    .concept-body {
+      padding: 1.5rem;
+    }
+    .concept-num {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: .4rem;
+    }
+    .concept-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .concept-desc {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .concept-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 1.25rem;
+    }
+    .c-tag {
+      font-size: .65rem;
+      font-weight: 600;
+      padding: .2rem .6rem;
+      border-radius: 50px;
+      background: var(--orange-pale);
+      color: var(--orange);
+    }
+    .concept-actions {
+      display: flex;
+      gap: .5rem;
+    }
+    .btn-select {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .6rem 1rem;
+      border-radius: 50px;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-select:hover, .concept-card.selected .btn-select {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+    .concept-card.selected .btn-select::before { content: '✓  '; }
+    .btn-view {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: .6rem .9rem;
+      border-radius: 50px;
+      border: 2px solid var(--cream-dark);
+      background: transparent;
+      transition: border-color .2s, color .2s;
+      text-decoration: none;
+    }
+    .btn-view:hover { border-color: var(--navy); color: var(--navy); }
+
+    .concept-selection-note {
+      margin-top: 2.5rem;
+      background: var(--orange-pale);
+      border: 1px solid rgba(255,104,36,.25);
+      border-radius: var(--r);
+      padding: 1.25rem 1.5rem;
+      font-size: .9rem;
+      color: var(--navy);
+      display: none;
+      align-items: center;
+      gap: .75rem;
+    }
+    .concept-selection-note.visible { display: flex; }
+    .concept-selection-note strong { color: var(--orange); }
+
+
+    /* ════════════════════════════════════════════════════════
+       SCOPE
+    ════════════════════════════════════════════════════════ */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .scope-item {
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .scope-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background .2s;
+    }
+    .scope-header:hover { background: var(--cream-mid); }
+
+    .scope-header-left {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .scope-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: var(--orange-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .scope-title {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .scope-chevron {
+      font-size: .75rem;
+      color: var(--muted);
+      transition: transform .3s;
+    }
+    .scope-item.open .scope-chevron { transform: rotate(180deg); }
+
+    .scope-body {
+      display: none;
+      padding: 0 1.4rem 1.25rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .scope-item.open .scope-body { display: block; }
+    .scope-body ul {
+      list-style: none;
+      margin-top: .75rem;
+    }
+    .scope-body li {
+      font-size: .82rem;
+      color: var(--muted);
+      padding: .3rem 0;
+      display: flex;
+      gap: .5rem;
+      align-items: flex-start;
+    }
+    .scope-body li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       INVESTMENT
+    ════════════════════════════════════════════════════════ */
+    .package-toggle {
+      display: inline-flex;
+      background: var(--cream-mid);
+      border-radius: 50px;
+      padding: .3rem;
+      margin-bottom: 3rem;
+    }
+    .pkg-btn {
+      font-size: .82rem;
+      font-weight: 700;
+      padding: .65rem 1.75rem;
+      border-radius: 50px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .pkg-btn.active {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 2px 8px rgba(5,11,20,.1);
+    }
+
+    .packages-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .package-card {
+      background: var(--white);
+      border: 2px solid var(--cream-dark);
+      border-radius: var(--r);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .package-card:hover {
+      border-color: rgba(255,104,36,.4);
+      box-shadow: 0 8px 32px rgba(5,11,20,.08);
+    }
+    .package-card.highlighted {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,104,36,.12);
+    }
+
+    .pkg-recommended {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: white;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .pkg-name {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .6rem;
+    }
+    .pkg-price {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .pkg-price sup {
+      font-size: 1.2rem;
+      font-weight: 700;
+      vertical-align: super;
+    }
+    .pkg-bbd {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: .75rem;
+    }
+    .pkg-tagline {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--cream-dark);
+      margin-bottom: 1.25rem;
+    }
+    .pkg-features {
+      list-style: none;
+      margin-bottom: 1.75rem;
+    }
+    .pkg-features li {
+      font-size: .82rem;
+      color: var(--text);
+      padding: .35rem 0;
+      display: flex;
+      gap: .6rem;
+      align-items: flex-start;
+    }
+    .pkg-features li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .pkg-features li.faded { color: var(--muted); }
+    .pkg-features li.faded::before { color: var(--cream-dark); }
+
+    .pkg-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      width: 100%;
+      padding: .8rem;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+      transition: all .2s;
+      text-align: center;
+    }
+    .pkg-cta:hover, .package-card.highlighted .pkg-cta {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: white;
+    }
+
+    /* Line-item breakdown */
+    .breakdown {
+      background: var(--white);
+      border-radius: var(--r);
+      border: 1px solid var(--cream-dark);
+      overflow: hidden;
+    }
+    .breakdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .breakdown-header h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .breakdown-pkg-label {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--orange);
+      background: var(--orange-pale);
+      padding: .25rem .75rem;
+      border-radius: 50px;
+    }
+    .breakdown-table { width: 100%; border-collapse: collapse; }
+    .breakdown-table tr { border-bottom: 1px solid var(--cream-dark); }
+    .breakdown-table tr:last-child { border-bottom: none; }
+    .breakdown-table td {
+      padding: .9rem 1.75rem;
+      font-size: .85rem;
+    }
+    .breakdown-table td:first-child { color: var(--text); width: 55%; }
+    .breakdown-table td:nth-child(2) { color: var(--muted); font-size: .78rem; text-align: center; }
+    .breakdown-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .breakdown-table .total-row { background: var(--cream); }
+    .breakdown-table .total-row td { font-weight: 800; font-size: .95rem; }
+    .breakdown-table .total-row td:first-child { color: var(--navy); }
+    .breakdown-table .total-row td:last-child { color: var(--orange); font-size: 1.05rem; }
+
+    .payment-note {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(13,31,60,.04);
+      border-radius: var(--r);
+      border: 1px solid rgba(13,31,60,.08);
+      align-items: flex-start;
+    }
+    .payment-note-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .payment-note-text {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .payment-note-text strong { color: var(--navy); }
+
+
+    /* ════════════════════════════════════════════════════════
+       TIMELINE
+    ════════════════════════════════════════════════════════ */
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 26px; left: calc(12.5% + 8px); right: calc(12.5% + 8px);
+      height: 2px;
+      background: var(--cream-dark);
+      z-index: 0;
+    }
+    .timeline-step {
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+    .tl-dot {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--muted);
+      margin: 0 auto 1.25rem;
+      position: relative;
+      z-index: 1;
+      transition: all .3s;
+    }
+    .timeline-step.active .tl-dot {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+      box-shadow: 0 0 0 5px rgba(255,104,36,.18);
+    }
+    .tl-phase {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: .3rem;
+    }
+    .tl-title {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--navy);
+      margin-bottom: .4rem;
+    }
+    .tl-duration {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--cream-mid);
+      padding: .2rem .65rem;
+      border-radius: 50px;
+      margin-bottom: .6rem;
+    }
+    .tl-items {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       NEXT STEPS
+    ════════════════════════════════════════════════════════ */
+    .nextsteps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r);
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-size: .85rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text strong {
+      display: block;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .2rem;
+    }
+    .step-text span {
+      font-size: .8rem;
+      color: rgba(255,255,255,.5);
+    }
+
+    .acceptance-box {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      padding: 2.25rem;
+    }
+    .acceptance-box h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .5rem;
+    }
+    .acceptance-box p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .sig-lines {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .sig-field label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .sig-field input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding: .5rem 0;
+      font-size: .9rem;
+      color: var(--white);
+      font-family: var(--sans);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .sig-field input:focus { border-bottom-color: var(--orange); }
+    .sig-field input::placeholder { color: rgba(255,255,255,.2); }
+
+    .accept-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      width: 100%;
+      padding: 1rem;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--sans);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .accept-btn:hover {
+      background: var(--orange-h);
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: .25rem;
+    }
+    .contact-value {
+      font-size: .85rem;
+      color: rgba(255,255,255,.65);
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════ */
+    .page-footer {
+      background: var(--navy-deep);
+      padding: 2rem;
+      text-align: center;
+      font-size: .75rem;
+      color: rgba(255,255,255,.25);
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .concepts-grid   { grid-template-columns: 1fr 1fr; }
+      .packages-wrap   { grid-template-columns: 1fr; }
+      .opportunity-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
+      .timeline        { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .timeline::before{ display: none; }
+      .nextsteps-grid  { grid-template-columns: 1fr; }
+      .scope-grid      { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .concepts-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .sig-lines { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════════════════ -->
+<section class="cover" id="cover">
+  <div class="cover-agency">Prepared by Antigravity</div>
+
+  <img class="cover-logo"
+       src="https://zephirinsbakery.com/wp-content/uploads/2018/08/zephirins-logo22.png"
+       alt="Zephirin's Bakery" />
+
+  <div class="cover-label">Website Redesign Proposal</div>
+
+  <h1>A Digital Home<br>for <em>Bajan Bread</em></h1>
+
+  <p class="cover-sub">
+    A strategic redesign that honours 100 years of baking heritage
+    and turns visitors into store customers.
+  </p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Client</div>
+      <div class="cover-meta-value">Zephirin's Bakery</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-value">April 2026</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Agency</div>
+      <div class="cover-meta-value">Antigravity</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Version</div>
+      <div class="cover-meta-value">1.0</div>
+    </div>
+  </div>
+
+  <div class="cover-scroll">
+    <div class="cover-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     STICKY NAV
+════════════════════════════════════════════════════════ -->
+<nav class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner">
+    <div class="nav-brand">Zephirin's Bakery — Proposal</div>
+    <div class="nav-links">
+      <a href="#opportunity" data-section="opportunity">Opportunity</a>
+      <a href="#concepts"    data-section="concepts">Concepts</a>
+      <a href="#scope"       data-section="scope">Scope</a>
+      <a href="#investment"  data-section="investment">Investment</a>
+      <a href="#timeline"    data-section="timeline">Timeline</a>
+      <a href="#nextsteps"   data-section="nextsteps">Next Steps</a>
+    </div>
+    <a href="#nextsteps" class="nav-cta">Accept Proposal →</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════
+     OPPORTUNITY
+════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="opportunity">
+  <div class="wrap">
+    <div class="opportunity-grid">
+      <div class="opportunity-text reveal">
+        <div class="section-kicker">The Opportunity</div>
+        <h2 class="section-title">Your website should work as hard as your bakers do</h2>
+        <p>
+          Zephirin's Bakery has been feeding Barbados since 1923. Over 100 years of heritage,
+          island-wide distribution, and a product every Bajan knows — yet the current website
+          underserves the brand at every turn.
+        </p>
+        <p>
+          The site relies on decorative snow particle effects, an unconfigured WooCommerce
+          shop, and inconsistent hours information. There's no clear path for a customer to
+          find where to buy your bread.
+        </p>
+        <p>
+          This redesign fixes all of that. The strategy is simple: tell the Zephirin's story
+          beautifully, show the product compellingly, and make it effortless to find a stockist.
+        </p>
+      </div>
+      <div class="objectives reveal reveal-delay-2">
+        <div class="objective">
+          <div class="objective-num">01</div>
+          <div class="objective-text">
+            <strong>Convert browsers into store visitors</strong>
+            <span>A prominent "Find Our Bread" CTA on every page, backed by an island-wide store locator</span>
+          </div>
+        </div>
+        <div class="objective">
+          <div class="objective-num">02</div>
+          <div class="objective-text">
+            <strong>Tell 100 years of story</strong>
+            <span>Dedicated heritage section with a visual timeline that builds pride and trust</span>
+          </div>
+        </div>
+        <div class="objective">
+          <div class="objective-num">03</div>
+          <div class="objective-text">
+            <strong>Showcase the full product range</strong>
+            <span>Filterable product gallery so customers can discover every loaf before they shop</span>
+          </div>
+        </div>
+        <div class="objective">
+          <div class="objective-num">04</div>
+          <div class="objective-text">
+            <strong>Load fast and look great on mobile</strong>
+            <span>Remove 200KB of unused WooCommerce code and optimise for Barbados mobile connections</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONCEPTS
+════════════════════════════════════════════════════════ -->
+<section class="section" id="concepts">
+  <div class="wrap">
+    <div class="section-header section-header-centered reveal">
+      <div class="section-kicker">Design Concepts</div>
+      <h2 class="section-title">Three distinct visual directions</h2>
+      <p class="section-sub">
+        Each concept is fully designed and functional. Select the one that feels most like
+        Zephirin's — or tell us what to mix together.
+      </p>
+    </div>
+
+    <div class="concepts-grid">
+
+      <!-- Concept 1 -->
+      <div class="concept-card reveal" data-concept="1" onclick="selectConcept(this)">
+        <span class="concept-badge badge-recommended">★ Recommended</span>
+        <div class="concept-selected-ring">✓</div>
+        <div class="concept-preview" id="cp1">
+          <iframe src="concept.html" scrolling="no" tabindex="-1"></iframe>
+          <div class="concept-preview-overlay"><span>Full Preview →</span></div>
+          <a href="concept.html" class="concept-preview-link" target="_blank" onclick="event.stopPropagation()"></a>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 01</div>
+          <div class="concept-name">Premium Heritage</div>
+          <p class="concept-desc">
+            Deep warm-brown hero, centred storytelling layout, Playfair Display at large
+            sizes. Feels like the bakery has been on the island forever. Heritage timeline,
+            soft 12px radius, scroll animations.
+          </p>
+          <div class="concept-tags">
+            <span class="c-tag">Warm &amp; Welcoming</span>
+            <span class="c-tag">Heritage-first</span>
+            <span class="c-tag">Classic</span>
+          </div>
+          <div class="concept-actions">
+            <button class="btn-select">Select This Concept</button>
+            <a href="concept.html" class="btn-view" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 2 -->
+      <div class="concept-card reveal reveal-delay-1" data-concept="2" onclick="selectConcept(this)">
+        <div class="concept-selected-ring">✓</div>
+        <div class="concept-preview" id="cp2">
+          <iframe src="concept2.html" scrolling="no" tabindex="-1"></iframe>
+          <div class="concept-preview-overlay"><span>Full Preview →</span></div>
+          <a href="concept2.html" class="concept-preview-link" target="_blank" onclick="event.stopPropagation()"></a>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 02</div>
+          <div class="concept-name">Editorial Magazine</div>
+          <p class="concept-desc">
+            Full-bleed photography hero with a marquee ticker, angular 4px radius, and
+            asymmetric 12-column product grid. The feel of a premium food magazine with
+            editorial confidence.
+          </p>
+          <div class="concept-tags">
+            <span class="c-tag">Bold &amp; Modern</span>
+            <span class="c-tag">Photo-led</span>
+            <span class="c-tag">Editorial</span>
+          </div>
+          <div class="concept-actions">
+            <button class="btn-select">Select This Concept</button>
+            <a href="concept2.html" class="btn-view" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 3 -->
+      <div class="concept-card reveal reveal-delay-2" data-concept="3" onclick="selectConcept(this)">
+        <span class="concept-badge badge-bold">Bold Pick</span>
+        <div class="concept-selected-ring">✓</div>
+        <div class="concept-preview" id="cp3">
+          <iframe src="concept3.html" scrolling="no" tabindex="-1"></iframe>
+          <div class="concept-preview-overlay"><span>Full Preview →</span></div>
+          <a href="concept3.html" class="concept-preview-link" target="_blank" onclick="event.stopPropagation()"></a>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 03</div>
+          <div class="concept-name">Fresh &amp; Modern</div>
+          <p class="concept-desc">
+            Full product photography as the hero background with text overlaid on the right.
+            Deep navy palette with brand orange. Spinning circular badge. Left-aligned
+            editorial typography with a clean, contemporary feel.
+          </p>
+          <div class="concept-tags">
+            <span class="c-tag">Contemporary</span>
+            <span class="c-tag">Navy &amp; Orange</span>
+            <span class="c-tag">Photography</span>
+          </div>
+          <div class="concept-actions">
+            <button class="btn-select">Select This Concept</button>
+            <a href="concept3.html" class="btn-view" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="concept-selection-note reveal" id="selectionNote">
+      ✓ You've selected <strong id="selectionLabel">Concept 1 — Premium Heritage</strong>.
+      This preference will carry through to your proposal acceptance.
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SCOPE
+════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="scope">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-kicker">Scope of Work</div>
+      <h2 class="section-title">What's included in every package</h2>
+      <p class="section-sub">Click any item to see exactly what's delivered.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-item reveal">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">🎯</div>
+            <div class="scope-title">Discovery &amp; Strategy</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>Stakeholder briefing session (1hr)</li>
+            <li>Current site audit &amp; technical review</li>
+            <li>Competitor &amp; industry research</li>
+            <li>Brand &amp; tone-of-voice alignment</li>
+            <li>Sitemap &amp; user journey mapping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-item reveal reveal-delay-1">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">🎨</div>
+            <div class="scope-title">UI/UX Design</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>Wireframes for all key page templates</li>
+            <li>High-fidelity desktop &amp; mobile mockups</li>
+            <li>Design system (colours, fonts, components)</li>
+            <li>Interactive prototype for review</li>
+            <li>2–3 rounds of design revisions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-item reveal">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">⚙️</div>
+            <div class="scope-title">WordPress Development</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>Elementor Pro page builder build</li>
+            <li>Astra theme configuration</li>
+            <li>Custom header &amp; footer</li>
+            <li>All page templates built to approved designs</li>
+            <li>WooCommerce removal &amp; performance clean-up</li>
+            <li>Image &amp; asset optimisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-item reveal reveal-delay-1">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">📍</div>
+            <div class="scope-title">Store Locator &amp; Products</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>Parish-filterable store locator (all 12 parishes)</li>
+            <li>Google Maps integration</li>
+            <li>Full product gallery with category filtering</li>
+            <li>Individual product pages (nutrition, availability)</li>
+            <li>Recipe section setup</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-item reveal">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">🔍</div>
+            <div class="scope-title">SEO &amp; Analytics</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>On-page SEO for all pages (meta titles, descriptions)</li>
+            <li>Google Search Console setup &amp; verification</li>
+            <li>Google Analytics 4 installation</li>
+            <li>Sitemap submission</li>
+            <li>Local SEO (Google Business Profile guidance)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-item reveal reveal-delay-1">
+        <div class="scope-header" onclick="toggleScope(this)">
+          <div class="scope-header-left">
+            <div class="scope-icon">🚀</div>
+            <div class="scope-title">Launch &amp; Handover</div>
+          </div>
+          <div class="scope-chevron">▼</div>
+        </div>
+        <div class="scope-body">
+          <ul>
+            <li>Cross-browser &amp; device QA testing</li>
+            <li>Performance audit (Core Web Vitals)</li>
+            <li>Staging &gt; production deployment</li>
+            <li>CMS training session</li>
+            <li>Video walkthrough recording</li>
+            <li>30-day post-launch bug support</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     INVESTMENT
+════════════════════════════════════════════════════════ -->
+<section class="section" id="investment">
+  <div class="wrap">
+    <div class="section-header section-header-centered reveal">
+      <div class="section-kicker">Investment</div>
+      <h2 class="section-title">Transparent, fixed-price packages</h2>
+      <p class="section-sub">No surprises. Choose the package that matches your ambition.</p>
+    </div>
+
+    <div style="display:flex; justify-content:center; margin-bottom:3rem;">
+      <div class="package-toggle reveal">
+        <button class="pkg-btn" onclick="selectPkg('starter',this)">Starter</button>
+        <button class="pkg-btn active" onclick="selectPkg('professional',this)">Professional</button>
+        <button class="pkg-btn" onclick="selectPkg('premium',this)">Premium</button>
+      </div>
+    </div>
+
+    <div class="packages-wrap">
+
+      <!-- STARTER -->
+      <div class="package-card reveal" id="pkg-starter">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price"><sup>$</sup><span class="price-val">3,500</span></div>
+        <div class="pkg-bbd">BBD $7,000 · One-time fee</div>
+        <p class="pkg-tagline">A clean, modern website that solves the core conversion problem.</p>
+        <ul class="pkg-features">
+          <li>5 pages (Home, Products, Our Story, Find Us, Contact)</li>
+          <li>Design from chosen concept</li>
+          <li>Mobile responsive build</li>
+          <li>Store locator (parish list)</li>
+          <li>Basic SEO setup</li>
+          <li>Google Analytics 4</li>
+          <li>2 rounds of revisions</li>
+          <li>1hr training session</li>
+          <li class="faded">Extended post-launch support</li>
+          <li class="faded">Newsletter integration</li>
+          <li class="faded">Recipe section</li>
+        </ul>
+        <button class="pkg-cta" onclick="selectPkg('starter', document.querySelectorAll('.pkg-btn')[0])">Choose Starter</button>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="package-card highlighted reveal reveal-delay-1" id="pkg-professional">
+        <div class="pkg-recommended">Most Popular</div>
+        <div class="pkg-name">Professional</div>
+        <div class="pkg-price"><sup>$</sup><span class="price-val">5,800</span></div>
+        <div class="pkg-bbd">BBD $11,600 · One-time fee</div>
+        <p class="pkg-tagline">The full Zephirin's story told beautifully, with everything a growing brand needs.</p>
+        <ul class="pkg-features">
+          <li>8 pages (+ Recipes, Gallery, FAQ)</li>
+          <li>Custom design from chosen concept</li>
+          <li>Advanced mobile optimisation</li>
+          <li>Parish-filterable store locator</li>
+          <li>Full product gallery &amp; filters</li>
+          <li>Newsletter signup integration</li>
+          <li>SEO + Analytics + Search Console</li>
+          <li>Social media feed integration</li>
+          <li>3 rounds of revisions</li>
+          <li>2hr training + video recording</li>
+          <li>3 months post-launch support</li>
+        </ul>
+        <button class="pkg-cta" onclick="selectPkg('professional', document.querySelectorAll('.pkg-btn')[1])">Choose Professional</button>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="package-card reveal reveal-delay-2" id="pkg-premium">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price"><sup>$</sup><span class="price-val">9,500</span></div>
+        <div class="pkg-bbd">BBD $19,000 · One-time fee</div>
+        <p class="pkg-tagline">The complete brand transformation. Design, content, photography, and ongoing growth.</p>
+        <ul class="pkg-features">
+          <li>10+ pages (full site)</li>
+          <li>Bespoke custom design</li>
+          <li>1-day product photography session</li>
+          <li>Copywriting for up to 6 pages</li>
+          <li>Advanced performance optimisation</li>
+          <li>Full SEO content strategy</li>
+          <li>Analytics dashboard setup</li>
+          <li>4 rounds of revisions</li>
+          <li>3hr training + video guides</li>
+          <li>6 months support &amp; maintenance</li>
+          <li>Quarterly performance reports</li>
+        </ul>
+        <button class="pkg-cta" onclick="selectPkg('premium', document.querySelectorAll('.pkg-btn')[2])">Choose Premium</button>
+      </div>
+
+    </div>
+
+    <!-- Line item breakdown -->
+    <div class="breakdown reveal" id="breakdown">
+      <div class="breakdown-header">
+        <h3>Line-item breakdown</h3>
+        <span class="breakdown-pkg-label" id="breakdownLabel">Professional Package</span>
+      </div>
+      <table class="breakdown-table" id="breakdownTable">
+        <!-- Populated by JS -->
+      </table>
+    </div>
+
+    <div class="payment-note reveal">
+      <div class="payment-note-icon">💳</div>
+      <div class="payment-note-text">
+        <strong>Payment schedule:</strong> 50% deposit to begin work · 25% on design sign-off · 25% on launch.
+        We accept bank transfer (USD or BBD), credit card, and PayPal. All prices are fixed — no hourly surprises.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     TIMELINE
+════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="timeline">
+  <div class="wrap">
+    <div class="section-header section-header-centered reveal">
+      <div class="section-kicker">Project Timeline</div>
+      <h2 class="section-title">From kickoff to launch in 6–10 weeks</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-step active reveal">
+        <div class="tl-dot">1</div>
+        <div class="tl-phase">Phase 1</div>
+        <div class="tl-title">Discovery &amp; Design</div>
+        <div class="tl-duration">Weeks 1–3</div>
+        <div class="tl-items">Brand briefing<br>Wireframes<br>Visual mockups<br>Client feedback rounds</div>
+      </div>
+      <div class="timeline-step reveal reveal-delay-1">
+        <div class="tl-dot">2</div>
+        <div class="tl-phase">Phase 2</div>
+        <div class="tl-title">Build &amp; Content</div>
+        <div class="tl-duration">Weeks 3–6</div>
+        <div class="tl-items">WordPress development<br>Page assembly<br>Content population<br>Store locator setup</div>
+      </div>
+      <div class="timeline-step reveal reveal-delay-2">
+        <div class="tl-dot">3</div>
+        <div class="tl-phase">Phase 3</div>
+        <div class="tl-title">Review &amp; QA</div>
+        <div class="tl-duration">Weeks 7–8</div>
+        <div class="tl-items">Cross-device testing<br>Performance audit<br>SEO review<br>Client sign-off</div>
+      </div>
+      <div class="timeline-step reveal reveal-delay-3">
+        <div class="tl-dot">4</div>
+        <div class="tl-phase">Phase 4</div>
+        <div class="tl-title">Launch &amp; Handover</div>
+        <div class="tl-duration">Week 9–10</div>
+        <div class="tl-items">Go live<br>CMS training<br>Analytics verification<br>Post-launch monitoring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     NEXT STEPS
+════════════════════════════════════════════════════════ -->
+<section class="section section-dark" id="nextsteps">
+  <div class="wrap">
+    <div class="nextsteps-grid">
+
+      <div>
+        <div class="section-kicker">Next Steps</div>
+        <h2 class="section-title">Ready to get started?</h2>
+        <p class="section-sub" style="margin-bottom:0;">
+          Accept this proposal and we'll have a kickoff call scheduled within 48 hours.
+        </p>
+        <div class="steps-list">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Select your concept &amp; package</strong>
+              <span>Scroll up to mark your preferred concept and package if you haven't already</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>Sign &amp; send the proposal</strong>
+              <span>Fill in the acceptance box opposite and hit the button</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>Deposit invoice sent within 24hrs</strong>
+              <span>50% deposit secures your project start date</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <strong>Kickoff call &amp; discovery session</strong>
+              <span>We'll align on goals, gather assets, and set a shared project calendar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">specialist@katrinapayne.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Website</span>
+            <span class="contact-value">antigravity.agency</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acceptance-box reveal">
+        <h3>Accept this Proposal</h3>
+        <p>
+          By submitting this form you agree to the scope of work and pricing outlined above.
+          A countersigned copy will be emailed to you within one business day.
+        </p>
+        <div class="sig-lines">
+          <div class="sig-field">
+            <label>Your Name</label>
+            <input type="text" placeholder="Full name" id="sigName" />
+          </div>
+          <div class="sig-field">
+            <label>Your Role</label>
+            <input type="text" placeholder="e.g. Owner" />
+          </div>
+          <div class="sig-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@zephirinsbakery.com" id="sigEmail" />
+          </div>
+          <div class="sig-field">
+            <label>Date</label>
+            <input type="text" id="sigDate" readonly />
+          </div>
+        </div>
+        <button class="accept-btn" onclick="acceptProposal()">
+          ✓ &nbsp;Accept &amp; Submit Proposal
+        </button>
+        <p style="margin-top:1rem; font-size:.75rem; color:rgba(255,255,255,.3); text-align:center;">
+          Selected: <span id="acceptSummary">No concept or package selected yet</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer class="page-footer">
+  Zephirin's Bakery Website Redesign Proposal &mdash; Prepared by Antigravity &mdash; April 2026
+  &mdash; Confidential
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
+<script>
+
+  /* ── iframe scaling ───────────────────────────────────── */
+  function scalePreview(wrap) {
+    const iframe = wrap.querySelector('iframe');
+    if (!iframe) return;
+    const scale = wrap.offsetWidth / 1440;
+    iframe.style.transform = `scale(${scale})`;
+    wrap.style.height = Math.round(900 * scale) + 'px';
+  }
+  function scaleAll() {
+    document.querySelectorAll('.concept-preview').forEach(scalePreview);
+  }
+  scaleAll();
+  window.addEventListener('resize', scaleAll);
+
+
+  /* ── sticky nav elevation ─────────────────────────────── */
+  const nav = document.getElementById('stickyNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('elevated', window.scrollY > 20);
+  });
+
+
+  /* ── active nav highlight ─────────────────────────────── */
+  const sections = ['opportunity','concepts','scope','investment','timeline','nextsteps'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+  });
+
+
+  /* ── reveal on scroll ────────────────────────────────── */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+  /* ── scope accordion ─────────────────────────────────── */
+  function toggleScope(header) {
+    const item = header.parentElement;
+    item.classList.toggle('open');
+  }
+
+
+  /* ── concept selection ───────────────────────────────── */
+  let selectedConcept = null;
+  const conceptNames = {
+    '1': 'Concept 1 — Premium Heritage',
+    '2': 'Concept 2 — Editorial Magazine',
+    '3': 'Concept 3 — Fresh & Modern'
+  };
+
+  function selectConcept(card) {
+    document.querySelectorAll('.concept-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedConcept = card.dataset.concept;
+
+    const note = document.getElementById('selectionNote');
+    document.getElementById('selectionLabel').textContent = conceptNames[selectedConcept];
+    note.classList.add('visible');
+
+    updateAcceptSummary();
+  }
+
+
+  /* ── package selection ───────────────────────────────── */
+  let selectedPkg = 'professional';
+
+  const breakdownData = {
+    starter: {
+      label: 'Starter Package',
+      total: '3,500',
+      items: [
+        ['Discovery & Strategy',     '2 hrs',   '$350'],
+        ['UI/UX Design (5 pages)',   '8 hrs',   '$900'],
+        ['WordPress Development',    '16 hrs',  '$1,400'],
+        ['Store Locator Setup',      '3 hrs',   '$280'],
+        ['Basic SEO Setup',          '2 hrs',   '$180'],
+        ['Testing & QA',             '2 hrs',   '$190'],
+        ['Training (1hr)',           '1 hr',    '$200'],
+      ]
+    },
+    professional: {
+      label: 'Professional Package',
+      total: '5,800',
+      items: [
+        ['Discovery & Strategy',          '4 hrs',   '$550'],
+        ['UI/UX Design (8 pages)',        '14 hrs',  '$1,500'],
+        ['WordPress Development',         '24 hrs',  '$2,000'],
+        ['Store Locator + Filters',       '4 hrs',   '$380'],
+        ['Newsletter Integration',        '2 hrs',   '$220'],
+        ['SEO + Analytics + Search Console','3 hrs', '$350'],
+        ['Social Media Integration',      '2 hrs',   '$200'],
+        ['Testing & QA',                  '3 hrs',   '$300'],
+        ['Training (2hr + video)',        '3 hrs',   '$300'],
+      ]
+    },
+    premium: {
+      label: 'Premium Package',
+      total: '9,500',
+      items: [
+        ['Discovery & Strategy',          '6 hrs',   '$800'],
+        ['UI/UX Design (10+ pages)',      '20 hrs',  '$2,200'],
+        ['WordPress Development',         '32 hrs',  '$2,800'],
+        ['Photography Direction (1 day)', 'Day rate','$1,200'],
+        ['Copywriting (6 pages)',         '10 hrs',  '$800'],
+        ['Store Locator + Full Features', '5 hrs',   '$450'],
+        ['Advanced SEO + Content Strategy','6 hrs',  '$650'],
+        ['Testing, QA & Performance',     '4 hrs',   '$400'],
+        ['Training (3hr + guides)',       '4 hrs',   '$400'],
+      ]
+    }
+  };
+
+  function selectPkg(name, btn) {
+    selectedPkg = name;
+    document.querySelectorAll('.pkg-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    ['starter','professional','premium'].forEach(p => {
+      document.getElementById('pkg-' + p).classList.toggle('highlighted', p === name);
+    });
+
+    renderBreakdown(name);
+    updateAcceptSummary();
+  }
+
+  function renderBreakdown(name) {
+    const data = breakdownData[name];
+    document.getElementById('breakdownLabel').textContent = data.label;
+
+    const tbody = data.items.map(([desc, time, cost]) =>
+      `<tr>
+        <td>${desc}</td>
+        <td>${time}</td>
+        <td>${cost}</td>
+      </tr>`
+    ).join('');
+
+    const total = `<tr class="total-row">
+      <td>Total Investment</td>
+      <td></td>
+      <td>$${data.total} USD</td>
+    </tr>`;
+
+    document.getElementById('breakdownTable').innerHTML = tbody + total;
+  }
+
+  // Init
+  renderBreakdown('professional');
+  document.querySelectorAll('.pkg-btn')[1].classList.add('active');
+
+
+  /* ── accept summary ──────────────────────────────────── */
+  function updateAcceptSummary() {
+    const pkgLabels = {
+      starter: 'Starter ($3,500)',
+      professional: 'Professional ($5,800)',
+      premium: 'Premium ($9,500)'
+    };
+    const parts = [];
+    if (selectedConcept) parts.push(conceptNames[selectedConcept]);
+    if (selectedPkg) parts.push(pkgLabels[selectedPkg]);
+    document.getElementById('acceptSummary').textContent =
+      parts.length ? parts.join(' · ') : 'No concept or package selected yet';
+  }
+
+  updateAcceptSummary();
+
+
+  /* ── date field ──────────────────────────────────────── */
+  document.getElementById('sigDate').value =
+    new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+
+
+  /* ── accept proposal ──────────────────────────────────── */
+  function acceptProposal() {
+    const name  = document.getElementById('sigName').value.trim();
+    const email = document.getElementById('sigEmail').value.trim();
+    if (!name || !email) {
+      alert('Please enter your name and email address to accept the proposal.');
+      return;
+    }
+    const btn = document.querySelector('.accept-btn');
+    btn.textContent = '✓  Proposal Accepted — Thank You!';
+    btn.style.background = '#1e4d34';
+    btn.disabled = true;
+  }
+
+</script>
+
+</body>
+</html>

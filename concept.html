@@ -133,11 +133,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
+      /* allow full width for left alignment */
+      max-width: 100%;
     }
-
-    .header-logo img { height: 44px; width: auto; }
+    .header-logo img { height: 100px; width: auto; }
 
     .header-nav {
       display: flex;
@@ -190,7 +189,8 @@
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        linear-gradient(160deg, #180700 0%, #3a1200 22%, #5a2500 45%, #854010 70%, #b05515 100%);
+        linear-gradient(160deg, rgba(24,7,0,0.85) 0%, rgba(58,18,0,0.7) 35%, rgba(133,64,16,0.5) 100%),
+        url('images/ezgif-14674039e453428d.webp') no-repeat center center / cover;
       z-index: 0;
     }
 
@@ -716,11 +716,21 @@
       justify-content: center;
     }
     .map-island {
-      width: 52%; height: 62%;
-      background: rgba(255,104,36,.12);
-      border: 2px solid rgba(255,104,36,.28);
-      border-radius: 42% 58% 53% 47% / 47% 53% 58% 42%;
+      width: 55%; height: 65%;
       position: relative;
+    }
+    .map-island::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,104,36,.12);
+      -webkit-mask-image: url('images/barbados-shape.svg');
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-image: url('images/barbados-shape.svg');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      filter: drop-shadow(0 0 1px rgba(255,104,36,.5)) drop-shadow(0 0 1px rgba(255,104,36,.5));
     }
     .map-dot {
       position: absolute;
@@ -1068,7 +1078,7 @@
       border-bottom: 1px solid rgba(255,255,255,.07);
     }
     .footer-brand img {
-      height: 38px;
+      height: 100px;
       width: auto;
       margin-bottom: 1.25rem;
       filter: brightness(0) invert(1);
@@ -1315,82 +1325,196 @@
     </div>
 
     <div class="products-grid">
-
-      <div class="product-card" data-category="breads">
+      <div class="product-card" data-category="buns">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Sandwich-1.jpg"
-               alt="Bran Sandwich Bread" loading="lazy" />
+          <img src="images/sesame_buns_1777241571157.png" alt="5.5 Sesame Seeds (4)" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>Bran Sandwich Bread</h3>
-          <p>A Barbados staple. Soft, hearty, and baked fresh every morning — perfect for the whole family.</p>
+          <h3>5.5 Sesame Seeds (4)</h3>
+          <p>A classic Bajan favorite.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
+      <div class="product-card" data-category="buns">
+        <div class="product-img">
+          <img src="images/sesame_buns_1777241571157.png" alt="Sesame Seed Buns (6)" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Sesame Seed Buns (6)</h3>
+          <p>Perfect for any meal.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="buns">
+        <div class="product-img">
+          <img src="images/whole_wheat_1777234367886.png" alt="Whole Wheat Buns (8)" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Whole Wheat Buns (8)</h3>
+          <p>Healthy and hearty.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/salt_bread_1777234351042.png" alt="Salt Bread (6)" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Salt Bread (6)</h3>
+          <p>The traditional Bajan salt bread.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
       <div class="product-card" data-category="sweet">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/sweet-bread-1.jpg"
-               alt="Sweet Bread" loading="lazy" />
-          <span class="product-badge">Fan Favourite</span>
+          <img src="images/sweet_buns_1777241582392.png" alt="Sweet Buns (8)" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>Sweet Bread</h3>
-          <p>Sweet, soft, and unmistakably Bajan. The one you grew up on — now as good as ever.</p>
+          <h3>Sweet Buns (8)</h3>
+          <p>A touch of sweetness for your day.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
       <div class="product-card" data-category="buns">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/10-grain-buns-1.jpg"
-               alt="10 Grain Buns" loading="lazy" />
-          <span class="product-badge">New</span>
+          <img src="images/hot_dog_rolls_1777241597573.png" alt="Hot Dog Rolls (8)" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>10 Grain Buns</h3>
-          <p>Ten wholesome grains in every bite. Great taste with the goodness your body deserves.</p>
+          <h3>Hot Dog Rolls (8)</h3>
+          <p>Soft and fresh for your barbecues.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
+      <div class="product-card" data-category="buns">
+        <div class="product-img">
+          <img src="images/hamburger_buns_1777241720309.png" alt="Hamburger Buns (8)" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Hamburger Buns (8)</h3>
+          <p>Fluffy buns for the perfect burger.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="buns">
+        <div class="product-img">
+          <img src="images/jumbo_hot_dog_rolls_1777241731282.png" alt="Jumbo Hot Dog" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Jumbo Hot Dog</h3>
+          <p>Extra large for extra flavor.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
       <div class="product-card" data-category="breads">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/sandwich-1.jpg"
-               alt="Classic Sandwich Loaf" loading="lazy" />
+          <img src="images/whole_wheat_1777234367886.png" alt="100% Whole Wheat" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>Classic Sandwich Loaf</h3>
-          <p>The everyday loaf that's been on Bajan breakfast tables for over a century.</p>
+          <h3>100% Whole Wheat</h3>
+          <p>Wholesome and nutritious.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
       <div class="product-card" data-category="healthy">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Nulife-1.jpg"
-               alt="Nulife Bread" loading="lazy" />
-          <span class="product-badge">Healthy Choice</span>
+          <img src="images/ten_grain_bread_1777241613016.png" alt="Ten Grain" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>Nulife Bread</h3>
-          <p>Crafted for those who care about what goes into their bread. Full flavour, better ingredients.</p>
+          <h3>Ten Grain</h3>
+          <p>Packed with ten different grains.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
-      <div class="product-card" data-category="buns">
+      <div class="product-card" data-category="healthy">
         <div class="product-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Dinner-rolls-1.jpg"
-               alt="Bran Dinner Rolls" loading="lazy" />
+          <img src="images/bran_sandwich_1777241648821.png" alt="Bran Sandwich" loading="lazy" />
         </div>
         <div class="product-info">
-          <h3>Bran Dinner Rolls</h3>
-          <p>Soft, fluffy, and light. The perfect companion to any meal — straight from our ovens.</p>
+          <h3>Bran Sandwich</h3>
+          <p>High in fiber, great for sandwiches.</p>
           <span class="product-cta">Find near me</span>
         </div>
       </div>
-
+      <div class="product-card" data-category="healthy">
+        <div class="product-img">
+          <img src="images/bran_sandwich_1777241648821.png" alt="Large Bran Sandwich" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Large Bran Sandwich</h3>
+          <p>More of the bran goodness you love.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/white_sandwich_bread_1777241625039.png" alt="large Sandwich" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>large Sandwich</h3>
+          <p>Classic white sandwich bread.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/white_sandwich_bread_1777241625039.png" alt="Regular Sandwich $5.25" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Regular Sandwich $5.25</h3>
+          <p>Everyday staple for the family.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="healthy">
+        <div class="product-img">
+          <img src="images/health_cob_1777241662771.png" alt="Health Cob" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Health Cob</h3>
+          <p>Rustic, wholesome artisan cob.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/raisin_bread_1777234903209.png" alt="Raisin Bran Loaf" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Raisin Bran Loaf</h3>
+          <p>Sweet raisins in every bite.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/choice_loaf_1777241827929.png" alt="Choice Loaf" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Choice Loaf</h3>
+          <p>The baker's top choice.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="healthy">
+        <div class="product-img">
+          <img src="images/nu_life_bread_1777241839610.png" alt="Nu-Life" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Nu-Life</h3>
+          <p>For a healthier lifestyle.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breads">
+        <div class="product-img">
+          <img src="images/salt_bread_1777234351042.png" alt="Salt Rolls" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <h3>Salt Rolls</h3>
+          <p>Bite-sized Bajan classics.</p>
+          <span class="product-cta">Find near me</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1546,64 +1670,29 @@
     </div>
 
     <div class="recipes-grid">
-
       <div class="recipe-card">
         <div class="recipe-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Sandwich-1.jpg"
-               alt="Bajan Fish Cutter" loading="lazy" />
-          <div class="recipe-overlay"></div>
-          <span class="recipe-tag">Quick &amp; Easy</span>
+          <img src="images/raisin_french_toast_1777241688096.png" alt="Raisin Bran French Toast" loading="lazy" />
+          <span class="recipe-time">15 mins</span>
         </div>
         <div class="recipe-info">
-          <h3>Classic Bajan Fish Cutter</h3>
-          <div class="recipe-meta">
-            <span>&#9201; 15 mins</span>
-            <span>&#127838; Sandwich Bread</span>
-          </div>
-          <p>Flying fish, pepper sauce, and mustard in a fresh Zephirin's cob.
-             The iconic Bajan street food — perfect any time of day.</p>
-          <span class="recipe-link">Get the recipe</span>
+          <h3>Raisin Bran French Toast</h3>
+          <p>A decadent morning treat using our sweet raisin bran loaf, drizzled with local maple syrup.</p>
+          <a href="#" class="recipe-link">Get Recipe</a>
         </div>
       </div>
 
       <div class="recipe-card">
         <div class="recipe-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/sweet-bread-1.jpg"
-               alt="Sweet Bread French Toast" loading="lazy" />
-          <div class="recipe-overlay"></div>
-          <span class="recipe-tag">Breakfast</span>
+          <img src="images/pizza_grilled_cheese_1777241676122.png" alt="Pizza Grilled Cheese" loading="lazy" />
+          <span class="recipe-time">20 mins</span>
         </div>
         <div class="recipe-info">
-          <h3>Sweet Bread French Toast</h3>
-          <div class="recipe-meta">
-            <span>&#9201; 20 mins</span>
-            <span>&#127838; Sweet Bread</span>
-          </div>
-          <p>Turn our beloved sweet bread into a weekend breakfast treat
-             the whole family will ask for again and again.</p>
-          <span class="recipe-link">Get the recipe</span>
+          <h3>Pizza Grilled Cheese</h3>
+          <p>Oozing mozzarella, pepperoni, and rich tomato sauce toasted perfectly between our classic white sandwich bread.</p>
+          <a href="#" class="recipe-link">Get Recipe</a>
         </div>
       </div>
-
-      <div class="recipe-card">
-        <div class="recipe-img">
-          <img src="https://zephirinsbakery.com/wp-content/uploads/2021/12/Bran-Dinner-rolls-1.jpg"
-               alt="Herb Butter Dinner Rolls" loading="lazy" />
-          <div class="recipe-overlay"></div>
-          <span class="recipe-tag">Dinner</span>
-        </div>
-        <div class="recipe-info">
-          <h3>Herb Butter Dinner Rolls</h3>
-          <div class="recipe-meta">
-            <span>&#9201; 10 mins</span>
-            <span>&#127838; Dinner Rolls</span>
-          </div>
-          <p>Warm our bran dinner rolls and brush with fresh herb butter.
-             The simplest way to elevate any meal.</p>
-          <span class="recipe-link">Get the recipe</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
