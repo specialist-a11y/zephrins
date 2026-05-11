@@ -117,7 +117,6 @@
       height: 52px;
       width: auto;
       margin: 0 auto 3rem;
-      filter: brightness(0) invert(1);
       opacity: .9;
       position: relative;
     }
@@ -393,7 +392,7 @@
     ════════════════════════════════════════════════════════ */
     .concepts-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.75rem;
     }
 
@@ -434,6 +433,10 @@
     }
     .badge-bold {
       background: var(--navy);
+      color: var(--white);
+    }
+    .badge-cms {
+      background: #1e6e42;
       color: var(--white);
     }
 
@@ -1115,7 +1118,7 @@
        RESPONSIVE
     ════════════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .concepts-grid   { grid-template-columns: 1fr 1fr; }
+      .concepts-grid   { grid-template-columns: 1fr; }
       .packages-wrap   { grid-template-columns: 1fr; }
       .opportunity-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
       .timeline        { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -1140,10 +1143,9 @@
      COVER
 ════════════════════════════════════════════════════════ -->
 <section class="cover" id="cover">
-  <div class="cover-agency">Prepared by Antigravity</div>
 
   <img class="cover-logo"
-       src="images/zephirins-logo22.png"
+       src="images/zephirins-logo-color.png"
        alt="Zephirin's Bakery" />
 
   <div class="cover-label">Website Redesign Proposal</div>
@@ -1166,7 +1168,7 @@
     </div>
     <div class="cover-meta-item">
       <div class="cover-meta-label">Agency</div>
-      <div class="cover-meta-value">Antigravity</div>
+      <div class="cover-meta-value">Marc Media</div>
     </div>
     <div class="cover-meta-item">
       <div class="cover-meta-label">Version</div>
@@ -1215,9 +1217,7 @@
           underserves the brand at every turn.
         </p>
         <p>
-          The site relies on decorative snow particle effects, an unconfigured WooCommerce
-          shop, and inconsistent hours information. There's no clear path for a customer to
-          find where to buy your bread.
+          There's no clear path for a customer to find where to buy your bread.
         </p>
         <p>
           This redesign fixes all of that. The strategy is simple: tell the Zephirin's story
@@ -1266,10 +1266,10 @@
   <div class="wrap">
     <div class="section-header section-header-centered reveal">
       <div class="section-kicker">Design Concepts</div>
-      <h2 class="section-title">Three distinct visual directions</h2>
+      <h2 class="section-title">Four distinct visual directions</h2>
       <p class="section-sub">
-        Each concept is fully designed and functional. Select the one that feels most like
-        Zephirin's — or tell us what to mix together.
+        Each concept is fully designed and functional. The first three are managed monthly by us — no CMS needed.
+        Concept 4 includes a content management system so you can edit the site yourself.
       </p>
     </div>
 
@@ -1296,6 +1296,8 @@
             <span class="c-tag">Warm &amp; Welcoming</span>
             <span class="c-tag">Heritage-first</span>
             <span class="c-tag">Classic</span>
+            <span class="c-tag" style="background:#fff0f0;color:#c0392b;">No CMS</span>
+            <span class="c-tag" style="background:#f0f4ff;color:#2c4faa;">Managed Monthly</span>
           </div>
           <div class="concept-actions">
             <button class="btn-select">Select This Concept</button>
@@ -1317,13 +1319,15 @@
           <div class="concept-name">Editorial Magazine</div>
           <p class="concept-desc">
             Full-bleed photography hero with a marquee ticker, angular 4px radius, and
-            asymmetric 12-column product grid. The feel of a premium food magazine with
+            an interactive horizontal scrolling bread showcase. The feel of a premium food magazine with
             editorial confidence.
           </p>
           <div class="concept-tags">
             <span class="c-tag">Bold &amp; Modern</span>
             <span class="c-tag">Photo-led</span>
             <span class="c-tag">Editorial</span>
+            <span class="c-tag" style="background:#fff0f0;color:#c0392b;">No CMS</span>
+            <span class="c-tag" style="background:#f0f4ff;color:#2c4faa;">Managed Monthly</span>
           </div>
           <div class="concept-actions">
             <button class="btn-select">Select This Concept</button>
@@ -1353,10 +1357,42 @@
             <span class="c-tag">Contemporary</span>
             <span class="c-tag">Navy &amp; Orange</span>
             <span class="c-tag">Photography</span>
+            <span class="c-tag" style="background:#fff0f0;color:#c0392b;">No CMS</span>
+            <span class="c-tag" style="background:#f0f4ff;color:#2c4faa;">Managed Monthly</span>
           </div>
           <div class="concept-actions">
             <button class="btn-select">Select This Concept</button>
             <a href="concept3.html" class="btn-view" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 4 -->
+      <div class="concept-card reveal reveal-delay-3" data-concept="4" onclick="selectConcept(this)">
+        <span class="concept-badge badge-cms">✦ With CMS</span>
+        <div class="concept-selected-ring">✓</div>
+        <div class="concept-preview" id="cp4">
+          <iframe src="concept5.html" scrolling="no" tabindex="-1"></iframe>
+          <div class="concept-preview-overlay"><span>Full Preview →</span></div>
+          <a href="concept5.html" class="concept-preview-link" target="_blank" onclick="event.stopPropagation()"></a>
+        </div>
+        <div class="concept-body">
+          <div class="concept-num">Concept 04</div>
+          <div class="concept-name">Heritage Digital</div>
+          <p class="concept-desc">
+            Warm brown palette with tailored product grid, testimonial carousel, and a
+            full-featured CMS. You update text, images, and products yourself — no agency
+            needed for day-to-day changes.
+          </p>
+          <div class="concept-tags">
+            <span class="c-tag">Warm &amp; Rich</span>
+            <span class="c-tag">CMS Included</span>
+            <span class="c-tag">Self-Managed</span>
+            <span class="c-tag" style="background:#e8f5e9;color:#1e6e42;">Content Management</span>
+          </div>
+          <div class="concept-actions">
+            <button class="btn-select">Select This Concept</button>
+            <a href="concept5.html" class="btn-view" target="_blank" onclick="event.stopPropagation()">View ↗</a>
           </div>
         </div>
       </div>
@@ -1426,19 +1462,22 @@
         <div class="scope-header" onclick="toggleScope(this)">
           <div class="scope-header-left">
             <div class="scope-icon">⚙️</div>
-            <div class="scope-title">WordPress Development</div>
+            <div class="scope-title">Website Development</div>
           </div>
           <div class="scope-chevron">▼</div>
         </div>
         <div class="scope-body">
           <ul>
-            <li>Elementor Pro page builder build</li>
-            <li>Astra theme configuration</li>
+            <li>Custom-coded to approved designs</li>
             <li>Custom header &amp; footer</li>
-            <li>All page templates built to approved designs</li>
-            <li>WooCommerce removal &amp; performance clean-up</li>
+            <li>All page templates built to spec</li>
             <li>Image &amp; asset optimisation</li>
+            <li>Performance &amp; speed optimisation</li>
           </ul>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--cream-dark);line-height:1.6;">
+            <strong style="color:var(--navy);">Concepts 1–3 (Agency-managed):</strong> All updates and changes handled by us — no CMS login required.<br>
+            <strong style="color:#1e6e42;">Concept 5 (Self-managed):</strong> Built on WordPress + Elementor Pro so you can update content yourself.
+          </p>
         </div>
       </div>
 
@@ -1529,7 +1568,7 @@
       <!-- STARTER -->
       <div class="package-card reveal" id="pkg-starter">
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price"><sup>$</sup><span class="price-val">3,500</span></div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val">3,500</span></div>
         <div class="pkg-bbd">BBD $7,000 · One-time fee</div>
         <p class="pkg-tagline">A clean, modern website that solves the core conversion problem.</p>
         <ul class="pkg-features">
@@ -1552,7 +1591,7 @@
       <div class="package-card highlighted reveal reveal-delay-1" id="pkg-professional">
         <div class="pkg-recommended">Most Popular</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price"><sup>$</sup><span class="price-val">5,800</span></div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val">5,800</span></div>
         <div class="pkg-bbd">BBD $11,600 · One-time fee</div>
         <p class="pkg-tagline">The full Zephirin's story told beautifully, with everything a growing brand needs.</p>
         <ul class="pkg-features">
@@ -1574,7 +1613,7 @@
       <!-- PREMIUM -->
       <div class="package-card reveal reveal-delay-2" id="pkg-premium">
         <div class="pkg-name">Premium</div>
-        <div class="pkg-price"><sup>$</sup><span class="price-val">9,500</span></div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val">9,500</span></div>
         <div class="pkg-bbd">BBD $19,000 · One-time fee</div>
         <p class="pkg-tagline">The complete brand transformation. Design, content, photography, and ongoing growth.</p>
         <ul class="pkg-features">
@@ -1758,7 +1797,7 @@
      FOOTER
 ════════════════════════════════════════════════════════ -->
 <footer class="page-footer">
-  Zephirin's Bakery Website Redesign Proposal &mdash; Prepared by Antigravity &mdash; April 2026
+  Zephirin's Bakery Website Redesign Proposal &mdash; Prepared by Marc Media &mdash; April 2026
   &mdash; Confidential
 </footer>
 
@@ -1829,7 +1868,8 @@
   const conceptNames = {
     '1': 'Concept 1 — Premium Heritage',
     '2': 'Concept 2 — Editorial Magazine',
-    '3': 'Concept 3 — Fresh & Modern'
+    '3': 'Concept 3 — Fresh & Modern',
+    '4': 'Concept 4 — Heritage Digital (With CMS)'
   };
 
   function selectConcept(card) {
@@ -1915,14 +1955,14 @@
       `<tr>
         <td>${desc}</td>
         <td>${time}</td>
-        <td>${cost}</td>
+        <td>US${cost}</td>
       </tr>`
     ).join('');
 
     const total = `<tr class="total-row">
       <td>Total Investment</td>
       <td></td>
-      <td>$${data.total} USD</td>
+      <td>US$${data.total}</td>
     </tr>`;
 
     document.getElementById('breakdownTable').innerHTML = tbody + total;
@@ -1936,9 +1976,9 @@
   /* ── accept summary ──────────────────────────────────── */
   function updateAcceptSummary() {
     const pkgLabels = {
-      starter: 'Starter ($3,500)',
-      professional: 'Professional ($5,800)',
-      premium: 'Premium ($9,500)'
+      starter: 'Starter (US$3,500)',
+      professional: 'Professional (US$5,800)',
+      premium: 'Premium (US$9,500)'
     };
     const parts = [];
     if (selectedConcept) parts.push(conceptNames[selectedConcept]);

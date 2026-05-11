@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root { --radius: 0.75rem;
+        --card: #FFFFFF;
+        --foreground: #3E2723;
+        --border: #E0D7D0;
+        --background: #FFFBF5;
+        --input: #F5F0EB;
+        --secondary-foreground: #3E2723;
+        --primary: #5D4037;
+        --tertiary: #A1887F;
+        --secondary: #D7CCC8;
+        --primary-foreground: #FFFFFF;
+        --ring: #8D6E63; }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background flex flex-col relative font-sans text-foreground">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+          <iconify-icon icon="lucide:flame" class="text-primary-foreground text-2xl"></iconify-icon>
+        </div>
+        <span class="text-xl font-heading font-bold tracking-tight text-primary uppercase">Zephirin's Bakery</span>
+      </div>
+      <div class="hidden lg:flex items-center gap-8 font-medium">
+        <a href="#" class="text-primary border-b-2 border-primary">Home</a>
+        <a href="#" class="hover:text-primary transition-colors">Heritage</a>
+        <a href="#" class="hover:text-primary transition-colors">Products</a>
+        <a href="#" class="hover:text-primary transition-colors">Locator</a>
+        <a href="#" class="hover:text-primary transition-colors">Wholesale</a>
+        <a href="#" class="hover:text-primary transition-colors">Recipes</a>
+      </div>
+      <button class="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-opacity">
+        Order Now
+      </button>
+    </div>
+  </nav>
+
+  <!-- Enhanced Hero Section -->
+  <section class="relative min-h-[700px] flex items-center overflow-hidden">
+    <!-- Dynamic Background Layer -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://uxmagic.blob.core.windows.net/public/agent-images/hero-bread-1777861950749-v16wqs8ff0a.png" alt="Freshly baked bread" class="absolute inset-0 w-full h-full object-cover scale-105">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
+      <!-- Decorative Overlay Pattern -->
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/p6.png')]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div class="text-left py-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold tracking-widest uppercase mb-6">
+          <iconify-icon icon="lucide:star" class="text-secondary"></iconify-icon>
+          Barbados' Most Beloved Bakery
+        </div>
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-heading font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+          Baking <span class="text-secondary italic">Heritage</span> Into Every Bite.
+        </h1>
+        <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-xl leading-relaxed font-medium">
+          Experience the authentic soul of Bajan tradition with artisanal breads crafted from century-old family recipes.
+        </p>
+        <div class="flex flex-wrap gap-5">
+          <button class="group relative bg-secondary text-secondary-foreground px-10 py-5 rounded-xl text-lg font-extrabold shadow-2xl hover:bg-white transition-all overflow-hidden">
+            <span class="relative z-10 flex items-center gap-2">
+              Explore Our Breads
+              <iconify-icon icon="lucide:arrow-right" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </span>
+          </button>
+          <button class="bg-white/5 backdrop-blur-lg text-white border-2 border-white/30 px-10 py-5 rounded-xl text-lg font-bold hover:bg-white/10 hover:border-white transition-all">
+            See Our Story
+          </button>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="mt-12 flex items-center gap-8 border-t border-white/10 pt-8">
+          <div class="flex flex-col">
+            <span class="text-3xl font-bold text-white">130+</span>
+            <span class="text-sm text-white/60 uppercase tracking-tighter">Years of Baking</span>
+          </div>
+          <div class="w-px h-10 bg-white/20"></div>
+          <div class="flex flex-col">
+            <span class="text-3xl font-bold text-white">50k+</span>
+            <span class="text-sm text-white/60 uppercase tracking-tighter">Daily Loaves</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Interactive Hero Card -->
+      <div class="hidden lg:block relative group">
+        <div class="absolute -inset-4 bg-secondary/20 rounded-3xl blur-3xl group-hover:bg-secondary/30 transition-all duration-500"></div>
+        <div class="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-2xl transform hover:-rotate-2 transition-transform duration-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shadow-lg">
+              <iconify-icon icon="lucide:flame" class="text-3xl text-primary"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-2xl font-heading font-bold text-white">Freshly Baked</h3>
+              <p class="text-white/60">Coming out of the oven now...</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <span class="text-white font-medium">Bajan Salt Bread</span>
+              <span class="px-2 py-1 rounded-md bg-green-500/20 text-green-400 text-xs font-bold">IN STOCK</span>
+            </div>
+            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <span class="text-white font-medium">Sweet Buns</span>
+              <span class="px-2 py-1 rounded-md bg-secondary/20 text-secondary text-xs font-bold">LIMITED</span>
+            </div>
+          </div>
+          <div class="mt-8 p-4 rounded-2xl bg-primary text-center">
+            <p class="text-white font-bold">Find a store near you</p>
+            <iconify-icon icon="lucide:map-pin" class="text-secondary mt-2 text-2xl"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Our Heritage (Enhanced) -->
+  <section class="py-24 px-6 bg-background relative overflow-hidden">
+    <!-- Subtle Background Elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -ml-36 -mb-36"></div>
+
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Content Column -->
+        <div class="order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 text-primary text-sm font-bold uppercase tracking-widest mb-6">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Established 1890
+          </div>
+          <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-primary mb-8 leading-tight">
+            A Bajan Legacy <br>
+            <span class="text-tertiary">Generations</span> Deep.
+          </h2>
+          <div class="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              For over a century, Zephirin's Bakery has been a cornerstone of the Barbadian community. What started as a small family oven in Bridgetown has grown into the island's most beloved wholesale and retail bakery.
+            </p>
+            <p class="font-medium text-foreground">
+              "We don't just bake bread; we bake the memories of Sunday mornings, community gatherings, and the authentic taste of home."
+            </p>
+            <p>
+              Our commitment to traditional slow-baking methods and local ingredients ensures every loaf of salt bread and every sweet bun carries the warmth of Bajan culture.
+            </p>
+          </div>
+          <div class="mt-10 flex flex-wrap gap-6 items-center">
+            <button class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center gap-3">
+              Read Our Full Story
+              <iconify-icon icon="lucide:book-open"></iconify-icon>
+            </button>
+            <div class="flex -space-x-4">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-4 border-background" alt="Baker">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full border-4 border-background" alt="Baker">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" class="w-12 h-12 rounded-full border-4 border-background" alt="Baker">
+              <div class="w-12 h-12 rounded-full border-4 border-background bg-secondary flex items-center justify-center text-xs font-bold text-primary">+150</div>
+            </div>
+            <p class="text-sm text-muted-foreground">Trusted by over 150 local artisans.</p>
+          </div>
+        </div>
+
+        <!-- Visual Column -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800" alt="Authentic baking process" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8 text-white">
+              <p class="text-sm uppercase tracking-widest font-bold opacity-80 mb-2">The Original Recipe</p>
+              <h3 class="text-2xl font-heading font-bold">Still hand-kneaded, just like the first day.</h3>
+            </div>
+          </div>
+          <!-- Decorative Frames -->
+          <div class="absolute -top-6 -right-6 w-full h-full border-2 border-secondary rounded-3xl -z-10"></div>
+          <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-tertiary/20 rounded-full blur-2xl -z-10"></div>
+          <!-- Floating Badge -->
+          <div class="absolute -right-8 top-1/4 bg-white p-6 rounded-2xl shadow-xl border border-border hidden md:block">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                <iconify-icon icon="lucide:check-circle" class="text-2xl text-green-600"></iconify-icon>
+              </div>
+              <div>
+                <p class="font-bold text-primary">100% Local</p>
+                <p class="text-xs text-muted-foreground">Bajan Sourced</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Our Products (Enhanced Grid) -->
+  <section class="py-24 px-6 bg-secondary/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div class="max-w-2xl">
+          <div class="text-tertiary font-bold uppercase tracking-widest text-sm mb-4">The Baker's Selection</div>
+          <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-primary mb-6">Signature Bajan Classics</h2>
+          <p class="text-lg text-muted-foreground">From the iconic salt bread that fuels the island to our indulgent sweet buns, every product is a testament to our quality.</p>
+        </div>
+        <button class="flex items-center gap-2 text-primary font-extrabold text-lg hover:gap-4 transition-all">
+          View All Products <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+        </button>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+        <div class="group relative bg-card rounded-[2rem] overflow-hidden border border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=600" alt="Salt Bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-primary text-xs font-bold shadow-sm">MOST POPULAR</div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+              <button class="w-full bg-white text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                Quick View <iconify-icon icon="lucide:eye"></iconify-icon>
+              </button>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-heading font-bold text-primary mb-1">Traditional Salt Bread</h3>
+                <span class="text-tertiary font-medium text-sm">Artisanal Classic</span>
+              </div>
+              <div class="bg-secondary/20 p-2 rounded-lg">
+                <iconify-icon icon="lucide:flame" class="text-primary text-xl"></iconify-icon>
+              </div>
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-6">The island\'s favorite. Light, airy, and perfectly salted with a golden, crisp crust.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-border">
+              <span class="text-sm font-bold text-primary uppercase tracking-widest">Available Daily</span>
+              <button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold transition-all hover:shadow-md">
+                Find Nearby
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="group relative bg-card rounded-[2rem] overflow-hidden border border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1589367920969-ab8e0509aae2?auto=format&fit=crop&q=80&w=600" alt="Sweet Buns" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-bold shadow-sm">BAKER\'S CHOICE</div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+              <button class="w-full bg-white text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                Quick View <iconify-icon icon="lucide:eye"></iconify-icon>
+              </button>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-heading font-bold text-primary mb-1">Bajan Sweet Buns</h3>
+                <span class="text-tertiary font-medium text-sm">Spiced & Sweet</span>
+              </div>
+              <div class="bg-secondary/20 p-2 rounded-lg">
+                <iconify-icon icon="lucide:zap" class="text-primary text-xl"></iconify-icon>
+              </div>
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-6">Soft, spiced buns with a hint of coconut and nutmeg. Perfect for an afternoon treat.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-border">
+              <span class="text-sm font-bold text-primary uppercase tracking-widest">Fresh Batch</span>
+              <button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold transition-all hover:shadow-md">
+                Find Nearby
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="group relative bg-card rounded-[2rem] overflow-hidden border border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600" alt="Whole Wheat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-green-100 text-green-800 text-xs font-bold shadow-sm">HEALTHY PICK</div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+              <button class="w-full bg-white text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                Quick View <iconify-icon icon="lucide:eye"></iconify-icon>
+              </button>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-heading font-bold text-primary mb-1">Whole Wheat Loaf</h3>
+                <span class="text-tertiary font-medium text-sm">Nutritious Daily</span>
+              </div>
+              <div class="bg-secondary/20 p-2 rounded-lg">
+                <iconify-icon icon="lucide:activity" class="text-primary text-xl"></iconify-icon>
+              </div>
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-6">Hearty, nutritious, and rich in fiber. Baked fresh with 100% whole grain flour.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-border">
+              <span class="text-sm font-bold text-primary uppercase tracking-widest">Healthy Choice</span>
+              <button class="bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold transition-all hover:shadow-md">
+                Find Nearby
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Testimonials (Modern Carousel Style) -->
+  <section class="py-24 px-6 bg-primary text-primary-foreground relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/vintage-speckles.png')]"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <iconify-icon icon="lucide:quote" class="text-7xl text-secondary mb-8 opacity-30"></iconify-icon>
+          <h2 class="text-4xl md:text-5xl font-heading font-extrabold mb-8 leading-tight">Shared at Every <br><span class="text-secondary">Bajan Table.</span></h2>
+          <p class="text-xl text-primary-foreground/70 mb-12 max-w-lg">Our customers aren\'t just patrons; they\'re family. Here is why Zephirin\'s has been the island\'s choice for over 130 years.</p>
+          <div class="flex gap-4">
+            <button class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
+              <iconify-icon icon="lucide:arrow-left" class="text-2xl"></iconify-icon>
+            </button>
+            <button class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
+              <iconify-icon icon="lucide:arrow-right" class="text-2xl"></iconify-icon>
+            </button>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="bg-white text-primary p-12 rounded-[3rem] shadow-2xl relative">
+            <div class="flex gap-1 mb-6">
+              <iconify-icon icon="lucide:star" class="text-yellow-500 text-xl fill-yellow-500"></iconify-icon>
+              <iconify-icon icon="lucide:star" class="text-yellow-500 text-xl fill-yellow-500"></iconify-icon>
+              <iconify-icon icon="lucide:star" class="text-yellow-500 text-xl fill-yellow-500"></iconify-icon>
+              <iconify-icon icon="lucify:star" class="text-yellow-500 text-xl fill-yellow-500"></iconify-icon>
+              <iconify-icon icon="lucide:star" class="text-yellow-500 text-xl fill-yellow-500"></iconify-icon>
+            </div>
+            <p class="text-2xl font-medium italic mb-10 leading-relaxed">
+              "The salt bread from Zephirin's takes me right back to my grandmother's kitchen in St. Philip. It's the only bread we buy for our family Sunday lunch. Authentic, fresh, and consistent every single time."
+            </p>
+            <div class="flex items-center gap-6">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-16 h-16 rounded-2xl object-cover" alt="Customer">
+              <div>
+                <p class="text-xl font-bold">Sandra Cummins</p>
+                <p class="text-muted-foreground uppercase tracking-widest text-xs font-bold">Bridgetown Resident</p>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative Floating Element -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary rounded-full -z-10 blur-2xl opacity-50"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Newsletter (Elevated) -->
+  <section class="py-24 px-6 bg-background">
+    <div class="max-w-5xl mx-auto rounded-[3rem] bg-secondary/10 border border-secondary/20 p-12 md:p-20 relative overflow-hidden text-center">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32"></div>
+      <div class="relative z-10">
+        <div class="w-20 h-20 bg-primary rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+          <iconify-icon icon="lucide:mail" class="text-4xl text-primary-foreground"></iconify-icon>
+        </div>
+        <h2 class="text-4xl font-heading font-extrabold text-primary mb-6">Join Our Community</h2>
+        <p class="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">Subscribe for fresh recipes, baking tips, and special wholesale offers delivered straight to your inbox.</p>
+        
+        <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto group">
+          <div class="flex-1 relative">
+            <iconify-icon icon="lucide:at-sign" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"></iconify-icon>
+            <input type="email" placeholder="Your email address" class="w-full pl-12 pr-6 py-5 rounded-2xl border border-border bg-white focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm">
+          </div>
+          <button class="bg-primary text-primary-foreground px-10 py-5 rounded-2xl font-bold hover:shadow-xl hover:-translate-y-1 transition-all whitespace-nowrap">
+            Sign Up Now
+          </button>
+        </form>
+        <div class="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground font-medium">
+          <div class="flex items-center gap-2">
+            <iconify-icon icon="lucide:shield-check" class="text-lg text-primary"></iconify-icon>
+            No Spam
+          </div>
+          <div class="flex items-center gap-2">
+            <iconify-icon icon="lucide:refresh-cw" class="text-lg text-primary"></iconify-icon>
+            Unsubscribe anytime
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Enhanced) -->
+  <footer class="bg-primary text-primary-foreground pt-24 pb-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-16 mb-20">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+              <iconify-icon icon="lucide:flame" class="text-3xl text-secondary"></iconify-icon>
+            </div>
+            <span class="text-3xl font-heading font-bold tracking-tight uppercase">Zephirin's</span>
+          </div>
+          <p class="text-primary-foreground/70 text-lg leading-relaxed mb-10 max-w-sm">
+            Baking tradition into every loaf since 1890. Experience the authentic heart of Barbadian bakery excellence.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all"><iconify-icon icon="lucide:facebook" class="text-xl"></iconify-icon></a>
+            <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all"><iconify-icon icon="lucide:instagram" class="text-xl"></iconify-icon></a>
+            <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all"><iconify-icon icon="lucide:twitter" class="text-xl"></iconify-icon></a>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-2">
+          <h4 class="text-lg font-bold mb-8 text-secondary uppercase tracking-widest">Explore</h4>
+          <ul class="space-y-4 text-primary-foreground/60 font-medium">
+            <li><a href="#" class="hover:text-white transition-colors">Our Heritage</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Product Range</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Store Locator</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Baking Recipes</a></li>
+          </ul>
+        </div>
+        
+        <div class="lg:col-span-3">
+          <h4 class="text-lg font-bold mb-8 text-secondary uppercase tracking-widest">Contact</h4>
+          <ul class="space-y-6 text-primary-foreground/60 font-medium">
+            <li class="flex items-start gap-4">
+              <iconify-icon icon="lucide:map-pin" class="text-xl text-secondary mt-1"></iconify-icon>
+              <span>Tudor Bridge, St. Michael, <br>Barbados, BB12345</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <iconify-icon icon="lucide:phone" class="text-xl text-secondary"></iconify-icon>
+              <span>+1 (246) 426-1234</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <iconify-icon icon="lucide:mail" class="text-xl text-secondary"></iconify-icon>
+              <span>hello@zephirinsbakery.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <div class="bg-white/5 border border-white/10 p-6 rounded-3xl h-full flex flex-col justify-between">
+            <div>
+              <h4 class="text-lg font-bold mb-4">Store Hours</h4>
+              <ul class="space-y-2 text-sm text-primary-foreground/60">
+                <li class="flex justify-between"><span>Mon - Fri</span> <span>6:00 AM - 8:00 PM</span></li>
+                <li class="flex justify-between"><span>Saturday</span> <span>6:00 AM - 6:00 PM</span></li>
+                <li class="flex justify-between"><span>Sunday</span> <span>7:00 AM - 12:00 PM</span></li>
+              </ul>
+            </div>
+            <button class="mt-8 w-full bg-secondary text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+              Get Directions
+              <iconify-icon icon="lucide:external-link"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-primary-foreground/40 font-medium">
+        <p>© 2024 Zephirin's Bakery. Hand-baked in Barbados.</p>
+        <div class="flex gap-8">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</body></html>
