@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Where to Buy | Zephirin’s Bakery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#e6bead",
+                        "on-secondary-container": "#794e2e",
+                        "surface-container-low": "#faf2ef",
+                        "surface": "#fff8f6",
+                        "surface-dim": "#e0d8d6",
+                        "tertiary-container": "#324b4b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdcc5",
+                        "surface-bright": "#fff8f6",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#653d1e",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-variant": "#e9e1de",
+                        "on-surface": "#1e1b1a",
+                        "on-background": "#1e1b1a",
+                        "tertiary": "#1b3434",
+                        "on-surface-variant": "#504440",
+                        "surface-container-highest": "#e9e1de",
+                        "on-primary-fixed-variant": "#5c4033",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f7efec",
+                        "secondary": "#805533",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#efe6e4",
+                        "tertiary-fixed": "#cce8e7",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#2c160b",
+                        "on-tertiary-fixed": "#051f20",
+                        "on-tertiary-container": "#9fbaba",
+                        "outline": "#82746f",
+                        "on-primary-container": "#d3ac9c",
+                        "primary": "#432a1e",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#33302e",
+                        "outline-variant": "#d4c3bd",
+                        "secondary-fixed-dim": "#f4bb92",
+                        "tertiary-fixed-dim": "#b0cccb",
+                        "on-secondary-fixed": "#301400",
+                        "inverse-primary": "#e6bead",
+                        "surface-container": "#f4ecea",
+                        "background": "#fff8f6",
+                        "primary-container": "#5c4033",
+                        "secondary-container": "#fdc39a",
+                        "on-tertiary-fixed-variant": "#324b4b",
+                        "surface-tint": "#765749"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .antigravity-shadow {
+            box-shadow: 0 20px 40px rgba(92, 64, 51, 0.05);
+        }
+        .parallax-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .map-container {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary-fixed">
+<!-- Header (TopNavBar) -->
+<header class="fixed top-0 w-full z-50 bg-[#EDE0D4]/80 backdrop-blur-md transition-all duration-300 shadow-[0_20px_40px_rgba(92,64,51,0.05)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a class="text-2xl font-bold tracking-tighter text-[#5C4033] hover:scale-105 transition-transform duration-300" href="#">Zephirin’s Bakery</a>
+<nav class="hidden md:flex space-x-8 items-center font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<a class="text-[#5C4033] hover:text-[#D2691E] transition-colors" href="#">Our Breads</a>
+<a class="text-[#5C4033] hover:text-[#D2691E] transition-colors" href="#">Heritage</a>
+<a class="text-[#5C4033] hover:text-[#D2691E] transition-colors" href="#">Recipes</a>
+<a class="text-[#5C4033] hover:text-[#D2691E] transition-colors" href="#">Wholesale</a>
+</nav>
+<a class="bg-[#D2691E] text-white px-6 py-2 rounded-full text-label-sm font-semibold hover:scale-105 transition-transform duration-300 text-[#D2691E] font-semibold border-b-2 border-[#D2691E] pb-1" href="#">Where to Buy</a>
+</div>
+</header>
+<main class="pt-24">
+<!-- Mini Hero -->
+<section class="max-w-7xl mx-auto px-8 py-12 md:py-20 text-center">
+<h1 class="font-display-lg text-display-lg text-primary mb-6">Find Zephirin’s Bakery Near You.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 opacity-80">
+                From the bustling markets of Bridgetown to local shops in St. Lucy, our fresh artisanal breads are delivered daily across the island.
+            </p>
+<!-- Search Bar -->
+<div class="relative max-w-xl mx-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-2xl border-none bg-surface-container-low focus:ring-2 focus:ring-secondary text-body-md shadow-sm" placeholder="Search by parish or retailer name..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-on-primary px-6 py-2 rounded-xl font-label-sm">
+                    Search
+                </button>
+</div>
+</section>
+<!-- Map & Listings Grid -->
+<section class="max-w-7xl mx-auto px-8 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Map (Bento Layout) -->
+<div class="lg:col-span-7 h-[600px] rounded-3xl overflow-hidden bg-surface-container shadow-xl border border-outline-variant/20 relative group">
+<img class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[2000ms]" data-alt="Stylized vintage map of Barbados with gold pins and warm lighting, artisanal texture aesthetic" data-location="Barbados" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYML4BCpoyqosGtU8zCfieyGtV4-eKzgRb6FX9mwdf3ue_myytRhnJ0Rk0d69aIyiBwpYTFvxRqetGmRQNxXWd57BchXFGk3q9O7QoLAIvvPpOtx8hGs1xg5mXcth5Y3qFX-CigImoywB25qv-9aNnkXLgHgqJ6p313epGRNYo4IzdqPyD0ojGGs1sZjnmdOdTgtsRu-8aNlIno1zZogZUpzIxXyKFzhUpR-lHoJ6BL-6HPIL-K8keYqi2_kXji-xqndnheLYaVpY"/>
+<!-- Decorative Map Elements -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative w-full h-full">
+<!-- Pin 1 -->
+<div class="absolute top-[40%] left-[30%] pointer-events-auto">
+<div class="w-4 h-4 bg-[#D2691E] rounded-full animate-pulse border-2 border-white"></div>
+<div class="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-xs font-bold mt-2 shadow-lg">Massy Stores Holetown</div>
+</div>
+<!-- Pin 2 -->
+<div class="absolute top-[60%] left-[50%] pointer-events-auto">
+<div class="w-4 h-4 bg-[#D2691E] rounded-full animate-pulse border-2 border-white"></div>
+<div class="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-xs font-bold mt-2 shadow-lg">Carlton Supermarket</div>
+</div>
+<!-- Pin 3 -->
+<div class="absolute top-[20%] left-[45%] pointer-events-auto">
+<div class="w-4 h-4 bg-[#D2691E] rounded-full animate-pulse border-2 border-white"></div>
+<div class="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-xs font-bold mt-2 shadow-lg">Speightstown Deli</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-white font-label-sm">Currently showing 14 retail locations across 6 parishes</span>
+</div>
+</div>
+</div>
+<!-- Retailer List -->
+<div class="lg:col-span-5 flex flex-col gap-4 overflow-y-auto max-h-[600px] pr-2 scrollbar-thin scrollbar-thumb-outline-variant">
+<!-- Retailer Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/10 parallax-card antigravity-shadow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary leading-tight">Massy Stores</h3>
+<p class="text-on-secondary-container font-label-sm">Holetown, St. James</p>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">In Stock</span>
+</div>
+<div class="flex flex-col gap-2 mb-6">
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-body-md">Daily 8:00 AM — 9:00 PM</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">bakery_dining</span>
+<span class="text-body-md">Sourdough, Salt Bread, Sweet Bread</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high py-3 rounded-xl font-label-sm text-primary hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">directions</span> Directions
+                            </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl border border-outline-variant hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-secondary">call</span>
+</button>
+</div>
+</div>
+<!-- Retailer Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/10 parallax-card antigravity-shadow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary leading-tight">Carlton Supermarket</h3>
+<p class="text-on-secondary-container font-label-sm">Black Rock, St. Michael</p>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Limited</span>
+</div>
+<div class="flex flex-col gap-2 mb-6">
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-body-md">Daily 7:30 AM — 10:00 PM</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">bakery_dining</span>
+<span class="text-body-md">Artisan Baguettes, Local Coconut Bread</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high py-3 rounded-xl font-label-sm text-primary hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">directions</span> Directions
+                            </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl border border-outline-variant hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-secondary">call</span>
+</button>
+</div>
+</div>
+<!-- Retailer Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/10 parallax-card antigravity-shadow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary leading-tight">The Gourmet Shop</h3>
+<p class="text-on-secondary-container font-label-sm">Speightstown, St. Peter</p>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">In Stock</span>
+</div>
+<div class="flex flex-col gap-2 mb-6">
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-body-md">Mon–Sat 9:00 AM — 5:00 PM</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[18px]">bakery_dining</span>
+<span class="text-body-md">Wholesale Pastries, Specialty Loaves</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high py-3 rounded-xl font-label-sm text-primary hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">directions</span> Directions
+                            </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl border border-outline-variant hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-secondary">call</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-3xl mx-auto px-8">
+<h2 class="font-headline-xl text-headline-xl text-primary text-center mb-12">Frequent Questions</h2>
+<div class="space-y-6">
+<div class="bg-surface p-8 rounded-3xl antigravity-shadow">
+<h4 class="font-headline-lg text-primary mb-3">Which stores carry Zephirin's?</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">We partner with all Massy Stores locations, Carlton Supermarkets, and select boutique delis and local convenience stores across Barbados. Use the map above to find the one closest to you.</p>
+</div>
+<div class="bg-surface p-8 rounded-3xl antigravity-shadow">
+<h4 class="font-headline-lg text-primary mb-3">What are your delivery schedules?</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">Fresh batches are delivered daily between 6:00 AM and 8:30 AM to ensure you have the freshest bread for breakfast. Second drops occur at major supermarkets on Wednesday and Friday afternoons.</p>
+</div>
+<div class="bg-surface p-8 rounded-3xl antigravity-shadow">
+<h4 class="font-headline-lg text-primary mb-3">Can I order directly for home delivery?</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">Currently, we focus on wholesale distribution to our retail partners. However, select items are available via local delivery apps from our partnered delis.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 py-24">
+<div class="relative rounded-[40px] overflow-hidden p-12 md:p-20 text-center flex flex-col items-center justify-center min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover -z-10 brightness-50" data-alt="Close-up of golden brown artisan bread loaves stacked in a rustic bakery setting with warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0wbLcp6Sjf69FNpYAkco6Vzod6SLZdqKvHN4isWYDxu7Vz6DY1vcfxGL3gPHZQnYG_50Zp6yPhGfDvzw_VMS6FItbZL6gKfaZ3371lH-m5Fb_1drK5466uXGdD4gwQUGdfXQDo2d3u7osg89LKUIscbDeOKNIwnRPcA1nbUXdTWhd9_SS-OE25yBkFWzEPIebrg5q9liiRj_De6VVQvqwiNRWxsLFlmFeo3UlPsW8rE0Y-aw5lLZh9zlwfdbE0Lcq7RGxlowmbXg"/>
+<h2 class="font-display-lg text-headline-xl text-white mb-6">Own a shop?</h2>
+<p class="text-white/90 text-body-lg max-w-xl mb-10">Join our network of heritage retailers and bring the taste of Zephirin’s to your neighborhood.</p>
+<button class="bg-[#D2691E] text-white px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300">
+                    Wholesale Inquiry
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#5C4033] w-full relative mt-20 pt-16 pb-8 border-t border-[#EDE0D4]/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<span class="text-4xl font-black text-[#EDE0D4] opacity-20 uppercase tracking-widest">Zephirin’s</span>
+<p class="text-[#EDE0D4]/70 mt-6 max-w-sm font-['Plus_Jakarta_Sans'] font-light leading-relaxed">
+                    Crafting the island's finest artisanal breads since 1952. A legacy of warmth, heritage, and the perfect crust.
+                </p>
+<div class="flex gap-4 mt-8">
+<a class="w-10 h-10 rounded-full border border-[#EDE0D4]/20 flex items-center justify-center text-[#EDE0D4] hover:bg-[#D2691E] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-[#EDE0D4]/20 flex items-center justify-center text-[#EDE0D4] hover:bg-[#D2691E] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-[#EDE0D4] font-bold mb-6">Quick Links</h4>
+<ul class="space-y-4 font-['Plus_Jakarta_Sans'] font-light">
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-all inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-all inline-block" href="#">Terms of Service</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-all inline-block" href="#">Shipping &amp; Returns</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-all inline-block" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[#EDE0D4] font-bold mb-6">Visit Us</h4>
+<p class="text-[#EDE0D4]/70 font-['Plus_Jakarta_Sans'] font-light leading-relaxed">
+                    123 Heritage Way,<br/>
+                    Bridgetown, St. Michael,<br/>
+                    Barbados
+                </p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-[#EDE0D4]/5 text-center">
+<p class="text-[#EDE0D4]/40 text-sm font-['Plus_Jakarta_Sans'] font-light">
+                © 2024 Zephirin’s Bakery. Artisanal Bajan Heritage.
+            </p>
+</div>
+</footer>
+</body></html>

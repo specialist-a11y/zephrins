@@ -1563,13 +1563,18 @@
       </div>
     </div>
 
+    <div id="pricingNotice" style="text-align:center;margin-bottom:1.75rem;font-size:.82rem;color:var(--muted);">
+      Pricing tier: <strong id="pricingTierLabel" style="color:var(--navy);">Agency-Managed Build</strong>
+      <span id="pricingTierHint" style="margin-left:.4rem;">— select a concept above to confirm</span>
+    </div>
+
     <div class="packages-wrap">
 
       <!-- STARTER -->
       <div class="package-card reveal" id="pkg-starter">
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price"><sup>US$</sup><span class="price-val">3,500</span></div>
-        <div class="pkg-bbd">BBD $7,000 · One-time fee</div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val" id="price-starter">2,800</span></div>
+        <div class="pkg-bbd" id="bbd-starter">BBD $5,600 · One-time fee</div>
         <p class="pkg-tagline">A clean, modern website that solves the core conversion problem.</p>
         <ul class="pkg-features">
           <li>5 pages (Home, Products, Our Story, Find Us, Contact)</li>
@@ -1579,7 +1584,6 @@
           <li>Basic SEO setup</li>
           <li>Google Analytics 4</li>
           <li>2 rounds of revisions</li>
-          <li>1hr training session</li>
           <li class="faded">Extended post-launch support</li>
           <li class="faded">Newsletter integration</li>
           <li class="faded">Recipe section</li>
@@ -1591,8 +1595,8 @@
       <div class="package-card highlighted reveal reveal-delay-1" id="pkg-professional">
         <div class="pkg-recommended">Most Popular</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price"><sup>US$</sup><span class="price-val">5,800</span></div>
-        <div class="pkg-bbd">BBD $11,600 · One-time fee</div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val" id="price-professional">4,800</span></div>
+        <div class="pkg-bbd" id="bbd-professional">BBD $9,600 · One-time fee</div>
         <p class="pkg-tagline">The full Zephirin's story told beautifully, with everything a growing brand needs.</p>
         <ul class="pkg-features">
           <li>8 pages (+ Recipes, Gallery, FAQ)</li>
@@ -1603,8 +1607,8 @@
           <li>Newsletter signup integration</li>
           <li>SEO + Analytics + Search Console</li>
           <li>Social media feed integration</li>
+          <li>Heatmap &amp; user experience tracking</li>
           <li>3 rounds of revisions</li>
-          <li>2hr training + video recording</li>
           <li>3 months post-launch support</li>
         </ul>
         <button class="pkg-cta" onclick="selectPkg('professional', document.querySelectorAll('.pkg-btn')[1])">Choose Professional</button>
@@ -1613,8 +1617,8 @@
       <!-- PREMIUM -->
       <div class="package-card reveal reveal-delay-2" id="pkg-premium">
         <div class="pkg-name">Premium</div>
-        <div class="pkg-price"><sup>US$</sup><span class="price-val">9,500</span></div>
-        <div class="pkg-bbd">BBD $19,000 · One-time fee</div>
+        <div class="pkg-price"><sup>US$</sup><span class="price-val" id="price-premium">7,800</span></div>
+        <div class="pkg-bbd" id="bbd-premium">BBD $15,600 · One-time fee</div>
         <p class="pkg-tagline">The complete brand transformation. Design, content, photography, and ongoing growth.</p>
         <ul class="pkg-features">
           <li>10+ pages (full site)</li>
@@ -1624,8 +1628,8 @@
           <li>Advanced performance optimisation</li>
           <li>Full SEO content strategy</li>
           <li>Analytics dashboard setup</li>
+          <li>Heatmap &amp; user experience tracking</li>
           <li>4 rounds of revisions</li>
-          <li>3hr training + video guides</li>
           <li>6 months support &amp; maintenance</li>
           <li>Quarterly performance reports</li>
         </ul>
@@ -1881,58 +1885,145 @@
     document.getElementById('selectionLabel').textContent = conceptNames[selectedConcept];
     note.classList.add('visible');
 
-    updateAcceptSummary();
+    applyPricing(selectedConcept === '4' ? 'cms' : 'standard');
   }
 
 
-  /* ── package selection ───────────────────────────────── */
+  /* ── pricing tiers ───────────────────────────────────── */
   let selectedPkg = 'professional';
+  let activeTier  = 'standard';
 
-  const breakdownData = {
-    starter: {
-      label: 'Starter Package',
-      total: '3,500',
-      items: [
-        ['Discovery & Strategy',     '2 hrs',   '$350'],
-        ['UI/UX Design (5 pages)',   '8 hrs',   '$900'],
-        ['WordPress Development',    '16 hrs',  '$1,400'],
-        ['Store Locator Setup',      '3 hrs',   '$280'],
-        ['Basic SEO Setup',          '2 hrs',   '$180'],
-        ['Testing & QA',             '2 hrs',   '$190'],
-        ['Training (1hr)',           '1 hr',    '$200'],
-      ]
+  const tierPricing = {
+    standard: {
+      starter:      { usd: '2,800', bbd: '5,600'  },
+      professional: { usd: '5,000', bbd: '10,000' },
+      premium:      { usd: '8,000', bbd: '16,000' }
     },
-    professional: {
-      label: 'Professional Package',
-      total: '5,800',
-      items: [
-        ['Discovery & Strategy',          '4 hrs',   '$550'],
-        ['UI/UX Design (8 pages)',        '14 hrs',  '$1,500'],
-        ['WordPress Development',         '24 hrs',  '$2,000'],
-        ['Store Locator + Filters',       '4 hrs',   '$380'],
-        ['Newsletter Integration',        '2 hrs',   '$220'],
-        ['SEO + Analytics + Search Console','3 hrs', '$350'],
-        ['Social Media Integration',      '2 hrs',   '$200'],
-        ['Testing & QA',                  '3 hrs',   '$300'],
-        ['Training (2hr + video)',        '3 hrs',   '$300'],
-      ]
-    },
-    premium: {
-      label: 'Premium Package',
-      total: '9,500',
-      items: [
-        ['Discovery & Strategy',          '6 hrs',   '$800'],
-        ['UI/UX Design (10+ pages)',      '20 hrs',  '$2,200'],
-        ['WordPress Development',         '32 hrs',  '$2,800'],
-        ['Photography Direction (1 day)', 'Day rate','$1,200'],
-        ['Copywriting (6 pages)',         '10 hrs',  '$800'],
-        ['Store Locator + Full Features', '5 hrs',   '$450'],
-        ['Advanced SEO + Content Strategy','6 hrs',  '$650'],
-        ['Testing, QA & Performance',     '4 hrs',   '$400'],
-        ['Training (3hr + guides)',       '4 hrs',   '$400'],
-      ]
+    cms: {
+      starter:      { usd: '3,800', bbd: '7,600'  },
+      professional: { usd: '6,400', bbd: '12,800' },
+      premium:      { usd: '10,400', bbd: '20,800' }
     }
   };
+
+  const breakdownData = {
+    standard: {
+      starter: {
+        label: 'Starter — Agency-Managed',
+        total: '2,800',
+        items: [
+          ['Discovery & Strategy',     '2 hrs',   '$300'],
+          ['UI/UX Design (5 pages)',   '8 hrs',   '$900'],
+          ['Custom Development',       '16 hrs',  '$1,100'],
+          ['Store Locator Setup',      '3 hrs',   '$280'],
+          ['Basic SEO Setup',          '2 hrs',   '$160'],
+          ['Testing & QA',             '2 hrs',   '$60'],
+        ]
+      },
+      professional: {
+        label: 'Professional — Agency-Managed',
+        total: '5,000',
+        items: [
+          ['Discovery & Strategy',            '4 hrs',  '$550'],
+          ['UI/UX Design (8 pages)',          '14 hrs', '$1,400'],
+          ['Custom Development',              '24 hrs', '$1,500'],
+          ['Store Locator + Filters',         '4 hrs',  '$380'],
+          ['Newsletter Integration',          '2 hrs',  '$220'],
+          ['SEO + Analytics + Search Console','3 hrs',  '$350'],
+          ['Social Media Integration',        '2 hrs',  '$200'],
+          ['Heatmap & UX Tracking',           '1 hr',   '$200'],
+          ['Testing & QA',                    '3 hrs',  '$200'],
+        ]
+      },
+      premium: {
+        label: 'Premium — Agency-Managed',
+        total: '8,000',
+        items: [
+          ['Discovery & Strategy',            '6 hrs',   '$800'],
+          ['UI/UX Design (10+ pages)',        '20 hrs',  '$2,000'],
+          ['Custom Development',              '32 hrs',  '$2,300'],
+          ['Photography Direction (1 day)',   'Day rate','$1,200'],
+          ['Copywriting (6 pages)',           '10 hrs',  '$700'],
+          ['Store Locator + Full Features',   '5 hrs',   '$400'],
+          ['Advanced SEO + Content Strategy', '6 hrs',   '$400'],
+          ['Heatmap & UX Tracking',           '1 hr',    '$200'],
+        ]
+      }
+    },
+    cms: {
+      starter: {
+        label: 'Starter — WordPress CMS',
+        total: '3,800',
+        items: [
+          ['Discovery & Strategy',     '2 hrs',   '$350'],
+          ['UI/UX Design (5 pages)',   '8 hrs',   '$900'],
+          ['WordPress Development',    '16 hrs',  '$1,500'],
+          ['Store Locator Setup',      '3 hrs',   '$280'],
+          ['Basic SEO Setup',          '2 hrs',   '$180'],
+          ['CMS Setup & Configuration','2 hrs',   '$400'],
+          ['Testing & QA',             '2 hrs',   '$190'],
+        ]
+      },
+      professional: {
+        label: 'Professional — WordPress CMS',
+        total: '6,400',
+        items: [
+          ['Discovery & Strategy',            '4 hrs',  '$550'],
+          ['UI/UX Design (8 pages)',          '14 hrs', '$1,500'],
+          ['WordPress Development',           '24 hrs', '$2,200'],
+          ['Store Locator + Filters',         '4 hrs',  '$380'],
+          ['Newsletter Integration',          '2 hrs',  '$220'],
+          ['SEO + Analytics + Search Console','3 hrs',  '$350'],
+          ['Social Media Integration',        '2 hrs',  '$200'],
+          ['Heatmap & UX Tracking',           '1 hr',   '$200'],
+          ['CMS Configuration',               '2 hrs',  '$500'],
+          ['Testing & QA',                    '3 hrs',  '$300'],
+        ]
+      },
+      premium: {
+        label: 'Premium — WordPress CMS',
+        total: '10,400',
+        items: [
+          ['Discovery & Strategy',            '6 hrs',   '$800'],
+          ['UI/UX Design (10+ pages)',        '20 hrs',  '$2,200'],
+          ['WordPress Development',           '32 hrs',  '$3,000'],
+          ['Photography Direction (1 day)',   'Day rate','$1,200'],
+          ['Copywriting (6 pages)',           '10 hrs',  '$800'],
+          ['Store Locator + Full Features',   '5 hrs',   '$450'],
+          ['Advanced SEO + Content Strategy', '6 hrs',   '$650'],
+          ['Heatmap & UX Tracking',           '1 hr',    '$200'],
+          ['CMS Configuration',               '3 hrs',   '$700'],
+          ['Testing, QA & Performance',       '4 hrs',   '$400'],
+        ]
+      }
+    }
+  };
+
+  function applyPricing(tier) {
+    activeTier = tier;
+    const p = tierPricing[tier];
+    document.getElementById('price-starter').textContent      = p.starter.usd;
+    document.getElementById('price-professional').textContent = p.professional.usd;
+    document.getElementById('price-premium').textContent      = p.premium.usd;
+    document.getElementById('bbd-starter').textContent        = 'BBD $' + p.starter.bbd + ' · One-time fee';
+    document.getElementById('bbd-professional').textContent   = 'BBD $' + p.professional.bbd + ' · One-time fee';
+    document.getElementById('bbd-premium').textContent        = 'BBD $' + p.premium.bbd + ' · One-time fee';
+
+    const label = document.getElementById('pricingTierLabel');
+    const hint  = document.getElementById('pricingTierHint');
+    if (tier === 'cms') {
+      label.textContent = 'WordPress CMS Build';
+      label.style.color = '#1e6e42';
+      hint.textContent  = '— includes WordPress, Elementor Pro & CMS setup';
+    } else {
+      label.textContent = 'Agency-Managed Build';
+      label.style.color = 'var(--navy)';
+      hint.textContent  = '— agency handles all updates, no CMS required';
+    }
+
+    renderBreakdown(selectedPkg);
+    updateAcceptSummary();
+  }
 
   function selectPkg(name, btn) {
     selectedPkg = name;
@@ -1948,7 +2039,7 @@
   }
 
   function renderBreakdown(name) {
-    const data = breakdownData[name];
+    const data = breakdownData[activeTier][name];
     document.getElementById('breakdownLabel').textContent = data.label;
 
     const tbody = data.items.map(([desc, time, cost]) =>
@@ -1968,17 +2059,18 @@
     document.getElementById('breakdownTable').innerHTML = tbody + total;
   }
 
-  // Init
-  renderBreakdown('professional');
+  // Init — default to standard (agency-managed) pricing
+  applyPricing('standard');
   document.querySelectorAll('.pkg-btn')[1].classList.add('active');
 
 
   /* ── accept summary ──────────────────────────────────── */
   function updateAcceptSummary() {
+    const p = tierPricing[activeTier];
     const pkgLabels = {
-      starter: 'Starter (US$3,500)',
-      professional: 'Professional (US$5,800)',
-      premium: 'Premium (US$9,500)'
+      starter:      `Starter (US$${p.starter.usd})`,
+      professional: `Professional (US$${p.professional.usd})`,
+      premium:      `Premium (US$${p.premium.usd})`
     };
     const parts = [];
     if (selectedConcept) parts.push(conceptNames[selectedConcept]);

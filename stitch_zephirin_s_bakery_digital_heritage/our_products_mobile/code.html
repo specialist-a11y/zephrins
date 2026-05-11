@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#faf2ef",
+                    "surface": "#fff8f6",
+                    "on-secondary-container": "#794e2e",
+                    "surface-tint": "#765749",
+                    "secondary-fixed-dim": "#f4bb92",
+                    "primary-container": "#5c4033",
+                    "background": "#fff8f6",
+                    "tertiary-fixed": "#cce8e7",
+                    "on-secondary-fixed-variant": "#653d1e",
+                    "outline-variant": "#d4c3bd",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#9fbaba",
+                    "on-background": "#1e1b1a",
+                    "inverse-surface": "#33302e",
+                    "surface-container": "#f4ecea",
+                    "primary-fixed-dim": "#e6bead",
+                    "on-tertiary-fixed": "#051f20",
+                    "on-error-container": "#93000a",
+                    "secondary": "#805533",
+                    "on-secondary-fixed": "#301400",
+                    "inverse-primary": "#e6bead",
+                    "tertiary-fixed-dim": "#b0cccb",
+                    "surface-container-highest": "#e9e1de",
+                    "primary-fixed": "#ffdbcc",
+                    "on-primary-fixed": "#2c160b",
+                    "on-primary-container": "#d3ac9c",
+                    "on-surface-variant": "#504440",
+                    "on-surface": "#1e1b1a",
+                    "surface-dim": "#e0d8d6",
+                    "on-primary-fixed-variant": "#5c4033",
+                    "surface-bright": "#fff8f6",
+                    "tertiary": "#1b3434",
+                    "inverse-on-surface": "#f7efec",
+                    "on-secondary": "#ffffff",
+                    "outline": "#82746f",
+                    "secondary-container": "#fdc39a",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ffdcc5",
+                    "tertiary-container": "#324b4b",
+                    "surface-container-high": "#efe6e4",
+                    "on-tertiary-fixed-variant": "#324b4b",
+                    "surface-variant": "#e9e1de",
+                    "primary": "#432a1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "max-width": "1440px",
+                    "margin-desktop": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .antigravity-shadow {
+            box-shadow: 0 20px 40px -15px rgba(92, 64, 51, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#EDE0D4]/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-[#5C4033]/10 dark:border-white/10 shadow-[0_20px_40px_-15px_rgba(92,64,51,0.05)]">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#D2691E] dark:text-[#E28743]" data-icon="bakery_dining">bakery_dining</span>
+<h1 class="font-['Plus_Jakarta_Sans'] text-xl font-extrabold text-[#5C4033] dark:text-[#EDE0D4] tracking-tight">Bajan Bakehouse</h1>
+</div>
+<button class="text-[#5C4033] dark:text-stone-400 Active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 pb-32 max-w-md mx-auto">
+<!-- Search & Filter Section -->
+<section class="space-y-6 mb-8">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-none border-b-2 border-primary-container/20 focus:ring-0 focus:border-primary-container rounded-xl py-4 pl-12 pr-4 text-on-surface font-body-md transition-all" placeholder="Search fresh bakes..." type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-primary uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Availability by Parish
+                </label>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-sm whitespace-nowrap">St. Michael</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-sm whitespace-nowrap">Christ Church</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-sm whitespace-nowrap">St. James</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-sm whitespace-nowrap">St. Philip</button>
+</div>
+</div>
+</section>
+<!-- Product Grid (Asymmetric Floating Layout) -->
+<div class="grid grid-cols-1 gap-8">
+<!-- Product 1: Salt Bread -->
+<div class="group relative bg-surface-container-lowest rounded-3xl overflow-hidden antigravity-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[4/3] overflow-hidden">
+<img alt="Fresh Salt Bread" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of golden brown artisanal Barbadian salt bread rolls on a rustic wooden tray with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKvP6RiuhkQWH9dV6U23LzkbxxHCmL4ZCi9ikZdkMXUOjeg2XJGVTzYQP9Qh1rJlnzEg95rDXYDer4j7jwjdHdz7iWtl1GP9M655prFG-R92qEc2hphdoKxzBAzbfhe-7Yw08lNANQX182L7RgjH3CUfKWNIxyBahhfhJ33Nw7BIcLlbx4X8m1VGlJ5M-8DX6zyV33gKsY4sAbquLGjUyBE2goDuCO7eIy5FdpbkKXIfxzLa4vJQwsYXip-pIBsxENXyZhfUW_4Q"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-lg text-on-surface">Salt Bread</h3>
+<p class="text-on-surface-variant font-body-md">Classic Bajan staple, fluffy center.</p>
+</div>
+<span class="font-headline-lg text-secondary">$1.50</span>
+</div>
+<button class="w-full bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary py-4 rounded-2xl font-label-sm flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                        Add to Order
+                    </button>
+</div>
+</div>
+<!-- Product 2: Sweet Buns -->
+<div class="group relative bg-surface-container-lowest rounded-3xl overflow-hidden antigravity-shadow transition-transform duration-500 hover:-translate-y-2 translate-y-4">
+<div class="aspect-[4/3] overflow-hidden">
+<img alt="Barbadian Sweet Buns" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Warm glazed sweet buns with currants sprinkled on top, resting on a linen napkin in a sunlit Caribbean kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBmbd9qZ1xmMqy03qUspfQVOhNBxMruIUHZKSdOb9Iqz3t7YGN8n8DaZ0j-9O3TVjYvTIqZsvWnVSHQj2I-yL_zVgYhWPGMC0NgCATHiQ0buzwbPCKg4Jf6P99pnmqlua1C6Yogl52Tm3g9Zs5c19C_DVO03n0_l7JNCNmZCDFHkQxkjxZYmNY9kfWpVfd_vHtohM0XQ_XBqMmSsXJDArrK7RjyXRKffD3yWsAx1CBbXTFddEbSFoA3wQqBn2VG5K3aqEVfg2C_UQ"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-lg text-on-surface">Sweet Buns</h3>
+<p class="text-on-surface-variant font-body-md">Spiced with nutmeg and vanilla.</p>
+</div>
+<span class="font-headline-lg text-secondary">$2.25</span>
+</div>
+<button class="w-full bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary py-4 rounded-2xl font-label-sm flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                        Add to Order
+                    </button>
+</div>
+</div>
+<!-- Product 3: Whole Wheat -->
+<div class="group relative bg-surface-container-lowest rounded-3xl overflow-hidden antigravity-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[4/3] overflow-hidden">
+<img alt="Whole Wheat Loaf" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Hearty whole wheat artisanal loaf of bread sliced on a dark stone board with grain scattered around, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs-CEDCKY7cPtZsyDYe0f9fKPIJKZJsu0bhR-WiHg53Dl-o0ePOQyFxVydEG6eGsB59Ai6gQxnafQ2pXq14kU1KHE73dq0fhw7O1LeOyRCtgYBbEqdHPxuV-jy2TsvuKFYEdmPxckOpENnYjKAu5zClGxDZCp6g0Bw51a63A8REZLSbaLQgam6awHKRTUY3bndz-cvZsfwQpE0SlVCxP7ULWnkaOLfjdXn4OXKQWmCb2dPJ-iLcWjjQsa9AzTSlaczIS4fDTnfHls"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-lg text-on-surface">Whole Wheat</h3>
+<p class="text-on-surface-variant font-body-md">Nutritious, stone-ground flour.</p>
+</div>
+<span class="font-headline-lg text-secondary">$4.50</span>
+</div>
+<button class="w-full bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary py-4 rounded-2xl font-label-sm flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                        Add to Order
+                    </button>
+</div>
+</div>
+</div>
+<!-- Featured Carousel (Horizontal) -->
+<section class="mt-12">
+<h2 class="font-headline-xl text-primary mb-6">Daily Specials</h2>
+<div class="flex gap-4 overflow-x-auto pb-8 scrollbar-hide snap-x">
+<div class="min-w-[280px] snap-center bg-surface-container rounded-3xl p-4 flex gap-4 items-center border border-primary/5">
+<img alt="Coconut Turnover" class="w-20 h-20 rounded-2xl object-cover" data-alt="Traditional Barbadian coconut turnover pastry with sugar dusting, macro shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoBB1Il6E8SJ51iZvoWXfUaHCU9aGnihkM_4GyXYempAXFesUHOOI4p1tNdUtPPgHB1io1xaa5Jnks3PO4hA9p5uQj2E8RK_EFj6ksw0A7rm2y84HTI3V0kcMn1kG9zUzbuux7FYC2W-OPgyvtmygEVJqIxLYB-d5sUwCxkSRYDwVoYP_HXvvNVM81ZvBHOiin0xF__Q0odfTs_D5fF7VYS_gJIkmwMUOxC1OL3VdqxaW0hlx3ABRLG5uSVJAhMsxfSgmfVEGYNWY"/>
+<div>
+<h4 class="font-headline-lg text-on-surface !text-lg">Coconut Turnover</h4>
+<p class="text-secondary font-bold">$3.00</p>
+</div>
+</div>
+<div class="min-w-[280px] snap-center bg-surface-container rounded-3xl p-4 flex gap-4 items-center border border-primary/5">
+<img alt="Lead Pipes" class="w-20 h-20 rounded-2xl object-cover" data-alt="A stack of golden brown traditional Barbadian lead pipes pastries" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWop56Wew8ld5_KQU105PRc-fZCfpvT6-pXjtWXxurr3cr_VIf507ht7usFfOdNt7RAShWfDoU0SP3kOmGLnyOzvSyxBwstlE8ukdaJU3AaRQQNFjB_bmmKUab45O5Khqbp5QI4OJn4r4Lq4Hi8UbhdxXrrSitWkQc_soYadkatyFv2R1akuefYfV3qNjC_iNxVIn0i6LN-uJpWPlGcyH7bXRlNSOi_XRt4JGkAh_FXRV9TexR3AeOZ8WXdFXeBvIiwFmH1Sy1YPk"/>
+<div>
+<h4 class="font-headline-lg text-on-surface !text-lg">Lead Pipes</h4>
+<p class="text-secondary font-bold">$2.50</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl bg-[#EDE0D4] dark:bg-stone-900 border-t border-[#5C4033]/10 shadow-[0_-10px_30px_rgba(92,64,51,0.1)]">
+<div class="flex justify-around items-center px-4 py-3 pb-safe">
+<a class="flex flex-col items-center text-[#5C4033]/60 dark:text-stone-500 hover:text-[#D2691E] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center text-[#D2691E] bg-[#D2691E]/10 rounded-xl px-4 py-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center text-[#5C4033]/60 dark:text-stone-500 hover:text-[#D2691E] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Recipes</span>
+</a>
+<a class="relative flex flex-col items-center text-[#5C4033]/60 dark:text-stone-500 hover:text-[#D2691E] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Cart</span>
+<span class="absolute top-0 right-1 w-2 h-2 bg-[#D2691E] rounded-full"></span>
+</a>
+</div>
+</nav>
+<!-- Floating Action Button (Only on Shop) -->
+<button class="fixed right-6 bottom-24 w-16 h-16 bg-[#D2691E] text-white rounded-full shadow-2xl flex items-center justify-center active:scale-110 duration-200 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+</body></html>

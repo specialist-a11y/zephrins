@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bajan Hearth | Zephirin's Bakery Legacy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#745853",
+                      "inverse-surface": "#442a22",
+                      "primary-fixed": "#ffdad4",
+                      "secondary": "#635e53",
+                      "primary-container": "#3e2723",
+                      "primary-fixed-dim": "#e3beb8",
+                      "on-tertiary-container": "#c0894a",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fff8f6",
+                      "inverse-on-surface": "#ffede8",
+                      "surface-bright": "#fff8f6",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#ae8d87",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#504442",
+                      "surface-variant": "#ffdbd0",
+                      "secondary-fixed-dim": "#cdc6b8",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#2c160e",
+                      "outline": "#827472",
+                      "secondary-container": "#e9e2d3",
+                      "on-tertiary-fixed-variant": "#673d02",
+                      "on-secondary-fixed": "#1e1b13",
+                      "primary": "#271310",
+                      "tertiary-fixed-dim": "#f9ba77",
+                      "surface-container-high": "#ffe2da",
+                      "surface-dim": "#fbd1c4",
+                      "surface-container": "#ffe9e3",
+                      "background": "#fff8f6",
+                      "surface-container-highest": "#ffdbd0",
+                      "outline-variant": "#d3c3c0",
+                      "on-primary-fixed-variant": "#5b403c",
+                      "tertiary-fixed": "#ffdcbb",
+                      "on-surface": "#2c160e",
+                      "on-tertiary-fixed": "#2c1700",
+                      "tertiary": "#271400",
+                      "on-secondary-fixed-variant": "#4b463c",
+                      "tertiary-container": "#432600",
+                      "inverse-primary": "#e3beb8",
+                      "surface-container-low": "#fff1ed",
+                      "secondary-fixed": "#e9e2d3",
+                      "on-primary-fixed": "#2b1613",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#696458",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "section-padding": "80px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "label-md": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "display-xl": ["Newsreader"],
+                      "headline-md": ["Newsreader"],
+                      "headline-lg": ["Newsreader"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                      "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>.parallax-container {
+    perspective: 1000px
+    }
+.organic-mask {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FF0066' d='M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-46.2C87.4,-33.4,90.1,-17.7,89.5,-2.3C88.9,13.1,85.1,28.2,77.3,41.4C69.5,54.6,57.7,65.9,43.9,73.1C30.1,80.3,14.3,83.4,-1.3,85.6C-16.9,87.8,-33.7,89.1,-48.6,83.5C-63.4,77.9,-76.3,65.4,-83.4,50.7C-90.5,36,-91.8,19.1,-90.1,2.9C-88.3,-13.2,-83.5,-28.7,-74.6,-41.8C-65.7,-54.9,-52.7,-65.6,-38.7,-72.9C-24.7,-80.1,-9.7,-83.9,2.8,-88.7C15.3,-93.5,30.6,-83.6,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center
+    }
+.paper-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDKJ6KlPOI5jKWpeLVvbH5mw8bwi-Xnd8uLao4i1AacZHBgvnSxkSBwD0i3p-Fu3OeK1XNND5lylv4JNgI6ca4tMqoDFkKGSXEJjqJofSkbPzf0_F3twTwyB-jHy4FjqbsIOUwVmdU99YudPs9gTHXpskQMWMeCNHLSkyHPDhYtw86dCKLMsKly6IaiqEw_yEAeTGuLV2P90tryzy4W8dF_eg9jKfZxtCDRfOtc5BxhHfZDclfQW-c0Q6wuN29YiT6-zH1q1o0OTr0)
+    }</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-on-tertiary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="bg-[#FAF9F6] text-[#3E2723] font-newsreader text-lg tracking-tight docked full-width top-0 sticky z-50 border-b border-[#3E2723]/10 shadow-[0_4px_20px_rgba(62,39,35,0.04)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1440px] mx-auto w-full">
+<div class="text-2xl font-serif italic text-[#3E2723]">Bajan Hearth</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#3E2723]/70 hover:text-[#3E2723] transition-all hover:bg-[#3E2723]/5 rounded-lg px-3 py-2" href="#">Our Products</a>
+<a class="text-[#3E2723] border-b-2 border-[#D4A373] pb-1 hover:bg-[#3E2723]/5 rounded-lg px-3 py-2" href="#">Heritage</a>
+<a class="text-[#3E2723]/70 hover:text-[#3E2723] transition-all hover:bg-[#3E2723]/5 rounded-lg px-3 py-2" href="#">Recipes</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="font-label-md text-[#3E2723] px-4 py-2 border border-[#3E2723]/20 rounded-full hover:bg-[#E67E22] hover:text-white hover:border-[#E67E22] transition-colors">Wholesale</button>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#3E2723]/5 p-2 rounded-full">shopping_basket</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#3E2723]/5 p-2 rounded-full">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden bg-[#F9F7F2] paper-texture">
+<div class="absolute inset-0 z-0 flex items-center justify-center">
+<h1 class="font-display-xl text-[18vw] leading-none text-[#3E2723]/5 select-none font-extrabold tracking-tighter italic">ZEPHIRIN'S</h1>
+</div>
+<div class="container mx-auto px-12 z-10 grid grid-cols-12 items-center gap-12">
+<div class="col-span-6">
+<span class="font-label-md text-on-tertiary-container uppercase tracking-widest block mb-4">Est. 1944 • Barbados</span>
+<h2 class="font-display-xl text-primary leading-tight mb-8">Soulful Baking for the <span class="italic text-on-tertiary-container">Modern Table.</span></h2>
+<p class="font-body-lg text-on-surface-variant max-w-lg mb-10">Experience the warmth of artisanal heritage. Our hearth-baked tradition meets contemporary island flavors in every crust.</p>
+<button class="bg-[#E67E22] text-white px-10 py-5 rounded-[32px] font-label-md flex items-center gap-3 hover:bg-[#D35400] transition-all active:scale-95 shadow-lg shadow-[#E67E22]/20">
+                        EXPLORE THE BAKERY
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="col-span-6 relative flex justify-center items-center">
+<div class="relative w-full aspect-square max-w-xl">
+<img class="absolute top-0 right-0 w-3/4 h-3/4 object-cover rounded-[64px] shadow-2xl z-20" data-alt="Close-up of artisan sourdough bread on a rustic wooden board with flour dust and soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYaeuem7ULsdgRDLMaMEM_JEQd1VBaxmt6_TRee6EWKz0ttfvnzulIGWoM4ybd8Y8C4AqhBcFlXuY4xovzkGFJywZdELjIw1yVyxlSLyLQzwDpkWxA_sDIlCXqfddQx0A8ju1fNHvsVC-G5mKXfxRM29Q4zwC2BT5NMC9G0snKbL9KoaRP_f21w_xjHTz3NavlhZWfYzjlmn9eEvqqLgp8HXYKNY1fVvQkQet7t89Ja0RXB4zLvEFo57f7zJ-_CbZxIzBksj9ReLU"/>
+<img class="absolute bottom-0 left-0 w-3/4 h-3/4 object-cover rounded-[64px] shadow-xl z-10 border-8 border-white" data-alt="Freshly baked golden brown pastries and croissants on a cooling rack in a warm kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8eq_dDWjgBHX6zmobjaE4XHFi0uc3qgQIq-4UFOndDW3S93wg_0ZKH2P4nWU2DGm4CQ_45Mx6yk5CetvfNDQCP-bHkpyszFgytgnmZFKh2zeHMdY9ynaR4FKnpuZWyNglyv4sVgMJDls_XVLxHkoDIwFp5YxjnIpkLj-6KbpOX1s2C3ygXc1EdZoUQv9Uhyz7TVRtK-SqlFUZvp4VBAM2nK38yLs-_eQXy25JDDpdFF71ygtT03b0R1ZEzHaZCMx9utqrUfXisDE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- A Century of Soul Section -->
+<section class="py-section-padding bg-primary-container text-surface paper-texture relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="grid grid-cols-6 h-full gap-4">
+<div class="border-r border-surface/20"></div>
+<div class="border-r border-surface/20"></div>
+<div class="border-r border-surface/20"></div>
+<div class="border-r border-surface/20"></div>
+<div class="border-r border-surface/20"></div>
+</div>
+</div>
+<div class="max-w-4xl mx-auto text-center px-12 relative z-10">
+<span class="material-symbols-outlined text-on-tertiary-container text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h2 class="font-headline-lg text-white mb-8">A Century of Soul</h2>
+<p class="font-body-lg text-surface-variant leading-relaxed mb-12 italic opacity-90">
+                    "Since 1944, our hearth has never gone cold. It began with a single wood-fired oven in Bridgetown and a secret recipe for salt bread that echoed across the island. Today, we carry that same flame, hand-kneading every loaf with the wisdom of three generations."
+                </p>
+<div class="flex justify-center gap-12">
+<div class="text-center">
+<div class="font-display-xl text-on-tertiary-container">80+</div>
+<div class="font-label-md uppercase tracking-wider text-surface/60">Years of Legacy</div>
+</div>
+<div class="text-center">
+<div class="font-display-xl text-on-tertiary-container">12</div>
+<div class="font-label-md uppercase tracking-wider text-surface/60">Original Recipes</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Collections -->
+<section class="py-section-padding px-12 max-w-[1440px] mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-primary mb-2">Curated Collections</h2>
+<p class="font-body-md text-on-surface-variant">Handcrafted selections for every occasion.</p>
+</div>
+<a class="font-label-md text-on-tertiary-container flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                    VIEW ALL CATEGORIES <span class="material-symbols-outlined">east</span>
+</a>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Hearth Baked -->
+<div class="col-span-8 group cursor-pointer relative overflow-hidden rounded-[40px] h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Artisan sourdough loaf being sliced on a dark wood table with cinematic lighting and floating flour particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZrjmdQlgpkEns06Z54g-29gHCpDg5Al3_P34eiaRDWyh5gO8wuWA55BrS9EWKXPSILMxjR4p-2uSH4K55umDqTe8rQQpc3tYKNmfvwuPeR8zo6QKk7wbJMZNDaaFBtP12agseL56XOYlTwNfLIWNKCGrzZMhgUUucD3j8Q7wDRu0PI_QyFDLPARoQeQvXVGW586Jv8jYJNVMu3rkJIMNDlkOKQTAzKFv2OYV51jJ7iKdqnnudfecnZnBcxSUVPBWXentzNSLWxfk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<h3 class="font-headline-md mb-2">Hearth Baked</h3>
+<p class="font-body-md opacity-80 mb-6 max-w-md">Our signature long-fermentation loaves, baked in traditional stone ovens for the perfect crust.</p>
+<button class="bg-white text-primary px-6 py-3 rounded-full font-label-md hover:bg-[#E67E22] hover:text-white transition-colors">SHOP COLLECTION</button>
+</div>
+</div>
+<!-- Signature Salts -->
+<div class="col-span-4 group cursor-pointer relative overflow-hidden rounded-[40px] h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Stack of traditional Bajan salt bread rolls with a soft dusting of flour on a linen napkin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBXWT9aVHBjxD5ZAQpBMEV_2vBKBuNpbt_KS8xa_uU817PXmz-FPkkSdEknnWpdr6K0N-UA_CgXmR6ovv3sPP0mn2-JPS-iYQWhPNNY9K2K7ZYvhRc47boVfL4wVlhAxN9-MwuFx4iJthygSLOQblUOse2sSwaS_ax_tGnW0AJEThqn7GOiDutuwCiTnsf8twhRnCuV4vVHoITCNyZtbeBVcmUXyzumaOuvNnFnhmigBbO5sGqaPax--kLJJuqg4en3bBfR7bfaBs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<h3 class="font-headline-md mb-2">Signature Salts</h3>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-full font-label-md hover:bg-[#E67E22] hover:text-white hover:border-[#E67E22] transition-colors">EXPLORE</button>
+</div>
+</div>
+<!-- Celebration Collection -->
+<div class="col-span-12 group cursor-pointer relative overflow-hidden rounded-[40px] h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A festive table spread with artisanal cakes, pastries, and island fruits in a bright airy dining room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC49nQcwtq5aC81q0goXj7O8l-ZWjpmYF53JupKZaUmJGELvLwh59BRi8yJ5jYsKjcAWl1-u3OjQiKTzzbtODpGXinDodLQy-qP8PghcOmqlmyMCy6K9gbsZws1od1Y655s0uRD_Urc1Wumh3Rv9rx-f-Ugfvf3jYxeAoebPYWS0B_GMc-pfKkxD0JVl4wKpAlSTb-0KuZc9Few5DkntmtOacP_50ec3Mtaxlx7QEGtNAdmLy_hOiE34qlecpJQ5c8sp8Aao5d7z_4"/>
+<div class="absolute inset-10 border border-white/20 rounded-[30px] flex items-center justify-center text-center">
+<div class="bg-primary/40 backdrop-blur-xl p-12 rounded-[32px] max-w-xl">
+<h3 class="font-display-xl text-white mb-4">The Celebration Collection</h3>
+<p class="text-white/90 font-body-md mb-8">Elevate your moments with our hand-decorated cakes and pastry towers.</p>
+<button class="bg-[#E67E22] text-white px-10 py-4 rounded-full font-label-md hover:bg-[#D35400] transition-colors">ORDER CUSTOM BAKE</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Daily Bake Section -->
+<section class="py-section-padding bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-12">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-primary">From Today's Oven</h2>
+<p class="font-body-md text-on-surface-variant">Freshly pulled at 5:00 AM. Available until sold out.</p>
+</div>
+<div class="grid grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-[32px] p-4 shadow-sm hover:shadow-xl transition-all border border-outline-variant/30">
+<img class="w-full aspect-square object-cover rounded-[24px] mb-6" data-alt="Freshly baked salt bread rolls in a rustic basket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwqsG5MYkSzHyJd8-HAvWQzkPC3HHckgTv0_J4uwSuqF2dkhM2L-zCwdT8sLHzmJcsTxhL8JzmulQKKZo0PHL3GjyuRnhhc_fFPbBdEvbQgtRJaijnFr89oJFSZcsCn3frQriV9w0t3Jy4y6k2S3mg5Lr1mqEiR_OQ26KUO-ni96iROCk_gAUPyx3wCSnh8zmlGifLBUF0-NeTqNtljQw1Wyi3gaPVZrQnRZWc2u5Zz8vSbnZnbhIzIYElhWuEEtO1sT_ADAGHj1k"/>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-xl">Classic Bajan Salt Bread</h4>
+<span class="text-on-tertiary-container font-label-md">$1.50</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 text-sm">Light, fluffy interiors with a perfectly crusted top. A Barbados staple.</p>
+<button class="w-full bg-[#E67E22]/10 text-[#E67E22] hover:bg-[#E67E22] hover:text-white transition-colors py-3 rounded-full font-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                ADD TO CART
+                            </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-[32px] p-4 shadow-sm hover:shadow-xl transition-all border border-outline-variant/30">
+<img class="w-full aspect-square object-cover rounded-[24px] mb-6" data-alt="Authentic cassava pone cakes on a platter with coconut shavings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsgZ72VLOXkPHT1YsVMg_Q3qhT2_TQJI-Y-qQ9EhlNpSAt_0vhWEHhKimn6gGB5gjV8eg2JleS0oGYWR5euGHn6vxtf8KAXckxOBIHEQ1tdGdLhWQqhlFVCg4y2AGIzBIgdnjSiyPCh6tfkUIqG80_lG1OQPxXTrSwfnByyfpmRD6NntjIJJYTPN-H-YA9tA4MQ-cO6q1Q0BWt-ojgx46P24fWNIbMgVl71qe_nvPyZJVvw1Iq324zBHAkjew8SFH_qzVoRW5A9t8"/>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-xl">Cassava Pone Cakes</h4>
+<span class="text-on-tertiary-container font-label-md">$4.25</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 text-sm">Dense, moist cassava cakes with hint of coconut and spice.</p>
+<button class="w-full bg-[#E67E22]/10 text-[#E67E22] hover:bg-[#E67E22] hover:text-white transition-colors py-3 rounded-full font-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                ADD TO CART
+                            </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-[32px] p-4 shadow-sm hover:shadow-xl transition-all border border-outline-variant/30">
+<img class="w-full aspect-square object-cover rounded-[24px] mb-6" data-alt="Selection of mini guava-filled pastries sprinkled with sugar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGrVFka9SbFcurInlYG7vKAdE3XAmXWFgXUCeM9Bk-POyCAcsnb-YX4H3xrZCb3cAI9HXwSLydiLngTW50rOc58TcD7VORaE9gYu-OqNVrrHupkf4f93hh9vk62rP5bQ561dW6UOALBEad3lTHtgf5D5X7tJ6oZuWGTHKBeLNOHgcYVRda3s9PiDXzzI1KguowYoiL_BQDomSv5wTx9RrqsL120EsSYsnDiQx-B4vYvmjU4le5MCPzzEgMtR2KMX5_VJvwe2fA4aY"/>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-xl">Guava Turnover</h4>
+<span class="text-on-tertiary-container font-label-md">$3.75</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 text-sm">Flaky butter pastry filled with local house-made guava preserve.</p>
+<button class="w-full bg-[#E67E22]/10 text-[#E67E22] hover:bg-[#E67E22] hover:text-white transition-colors py-3 rounded-full font-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                ADD TO CART
+                            </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-[32px] p-4 shadow-sm hover:shadow-xl transition-all border border-outline-variant/30">
+<img class="w-full aspect-square object-cover rounded-[24px] mb-6" data-alt="Rich chocolate brown coconut rock cakes on a cooling rack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEHEY5HiEjYBd7xmUxJOTOjjTyilYunDRLRxzMNNZHLzam5lo1gd1-An9tYR4N_Ts-3VPp45qwLEvERq6Tw6bFyhLJqJ97KQZ69vHBmzQiUTHQKbW-ZsouvQWs7bHDTH0pRc1lnysiSM7jbV1Mnt_swgGWp6ngP9DPQDuC5eEjYN7aXzJrCM-whm-Usrk91N9q1McW2lKDS4HxwLwT1IOWIDH1lTywtFnXjZ3dgod4011bsx4TbXQgTCkyYqZ36ujzDdn9_LfRzLQ"/>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-xl">Coconut Rock Cakes</h4>
+<span class="text-on-tertiary-container font-label-md">$2.50</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 text-sm">A rustic, crumbly traditional treat packed with desiccated coconut.</p>
+<button class="w-full bg-[#E67E22]/10 text-[#E67E22] hover:bg-[#E67E22] hover:text-white transition-colors py-3 rounded-full font-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                ADD TO CART
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Baked for the Community Section -->
+<section class="relative py-section-padding overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover brightness-50" data-alt="Cinematic wide shot of people laughing and eating together at a long wooden table in a sun-drenched outdoor bakery patio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf8h-4WvUWUo4qVj7g63PhzpvzgolPP6XX4mMvYmllY6wcwXWYJthMwCbWCv4Of8iYeBBMeTnCzYiDzf2sbiocFqXZkhYiLvtg_K3D-tSWw0VP3fXR7Mz7GsAQyDGC6iOI62LE13kd78nQ9nXpF8kA3kNYn7GZwh76z5XcLo9W-jBLtZBGLwT0cRVOPN9qqG4jQygqXjaUR7hGGuw3FnPNXBJ2PL5IGhhj6zxvUldydycdmXtjBAYHa_zu8pR3Z3qwLi4iXSNFbgg"/>
+</div>
+<div class="container mx-auto px-12 relative z-10">
+<div class="bg-white/10 backdrop-blur-xl p-16 rounded-[48px] border border-white/20 max-w-2xl">
+<h2 class="font-display-xl text-white mb-6">Baked for the Community</h2>
+<p class="font-body-lg text-white/90 mb-10 leading-relaxed">Our bakery is more than a kitchen; it's a crossroads. From early morning commuters to families celebrating milestones, we are proud to be the flavor of your memories.</p>
+<div class="flex items-center gap-8">
+<div class="flex -space-x-4">
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Profile of a happy customer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcqMO3VJFi_2Ap8hv2S1eRx4NCn3CkD17h0V7lo6g5JLSslyOHRvfZ1XVpmLeiAnmd-8iDMaCARuNJiE7y19_8NsaCimxwfGOfu3fLzkyT1eYAwShbtJF4dKQvJTHadDt1suv-FtWvHGX905vJWcEBHFK9hoquN98hATQCkw7dUHoqj-0bScZ7EoevYktadPLfWH4rzYtBEReUQA1yshHhs4Mq8R-dqBpJPweTKz1EO6VnuL6ZHx56ASeHxbwAZ_gcU88jmVDsaMQ"/>
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Profile of a smiling young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR0I_V8yyIhiH9OhGwsU2tizqZLQrohx_uqxijMHuF5KqdkrH0cxAvoS-sJNK6gelvM_94REIS0qkIyFa5Dbw-E3eMcaJ2OpZKb0dIQWnsId5c1o4V86bgp8PIr4SPUytXEoJ1jbS8er6595E8LbOa3Flaoq9m6MbMMXNzXMmbQrbqefRlFF1xukzmaicarNDmAeuD6erWrvFu5m4pO7NpcoQeI9k9SSCbc5KR5qw_TlDWxXinFWdhnRxCaMCktswcNB_bDTtLFXA"/>
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Profile of a middle-aged man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnxsJRWARVklLUFH8vJ4iqMnXzOPp23QkgbCGOvZrYc3P_wcEpTTHjCIAzrbD14n6rj01rjtVpjTO-yDPMr5UUkvv_xOqtZ8nVy1KGNTYFVfGRsVMzCXhHwOrj6DbXa0q4w8nrmhojgQqn_wEL9sE0y-ksXFQoi8mlXGYq-j1rlc96brJOI60qY4O5GXFLGxJpwoZRwQVUgYMHf942YTS_xWRneTvlolGMa-0cgBKHNssnGoRkT1AsctnQvT4OE1DK1gdkq4Mni5s"/>
+</div>
+<span class="text-white font-label-md">Join 10k+ Island Locals</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Heritage Banner -->
+<section class="bg-[#F2EFE9] py-16 border-y border-primary/5">
+<div class="max-w-[1440px] mx-auto px-12 flex items-center justify-between">
+<div class="max-w-xl">
+<h3 class="font-headline-md text-primary mb-2">Taste the Legacy Weekly</h3>
+<p class="font-body-md text-on-surface-variant">Get heritage recipes, bake-day alerts, and exclusive community discounts.</p>
+</div>
+<form class="flex gap-4 w-full max-w-md">
+<input class="flex-1 bg-white border-outline-variant rounded-full px-6 py-4 focus:ring-on-tertiary-container focus:border-on-tertiary-container transition-all" placeholder="Email Address" type="email"/>
+<button class="bg-[#E67E22] text-white px-8 py-4 rounded-full font-label-md hover:bg-[#D35400] transition-colors">SUBSCRIBE</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F2EFE9] text-[#3E2723] font-newsreader text-sm leading-relaxed w-full rounded-t-[32px] mt-20 border-t border-[#3E2723]/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-[1440px] mx-auto w-full">
+<div class="col-span-1 md:col-span-1">
+<span class="text-xl font-serif text-[#3E2723] mb-4 block">Bajan Hearth</span>
+<p class="text-[#3E2723]/60 mb-6 font-body-md">Crafting Bajan history one loaf at a time. Authenticity you can taste, heritage you can feel.</p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-[#3E2723]/70 hover:text-[#3E2723] cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-[#3E2723]/70 hover:text-[#3E2723] cursor-pointer">photo_camera</span>
+<span class="material-symbols-outlined text-[#3E2723]/70 hover:text-[#3E2723] cursor-pointer">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#3E2723] mb-6 font-label-md uppercase tracking-widest">Our Story</h4>
+<ul class="space-y-4">
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">Our Heritage</a></li>
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">The Bakery Team</a></li>
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">Wholesale Inquiries</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#3E2723] mb-6 font-label-md uppercase tracking-widest">Customer Care</h4>
+<ul class="space-y-4">
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">Shipping Policy</a></li>
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">Contact Us</a></li>
+<li><a class="text-[#3E2723]/60 hover:text-[#3E2723] transition-colors underline decoration-[#D4A373] underline-offset-4" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#3E2723] mb-6 font-label-md uppercase tracking-widest">Find Us</h4>
+<p class="text-[#3E2723]/60 mb-4 font-body-md">12 Heritage Lane,<br/>Bridgetown, Barbados</p>
+<p class="text-[#3E2723]/60 font-body-md">Mon-Sat: 5:00 AM - 6:00 PM<br/>Sun: 6:00 AM - 12:00 PM</p>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-[#3E2723]/5 max-w-[1440px] mx-auto w-full flex justify-between items-center text-[#3E2723]/40">
+<p>© 2024 Bajan Hearth &amp; Horizon. A Legacy of Soulful Baking.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="material-symbols-outlined text-sm">security</span>
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+</div>
+</footer>
+</body></html>

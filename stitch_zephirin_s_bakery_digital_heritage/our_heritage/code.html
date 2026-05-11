@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#e6bead",
+                    "on-secondary-container": "#794e2e",
+                    "surface-container-low": "#faf2ef",
+                    "surface": "#fff8f6",
+                    "surface-dim": "#e0d8d6",
+                    "tertiary-container": "#324b4b",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcc5",
+                    "surface-bright": "#fff8f6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#653d1e",
+                    "primary-fixed": "#ffdbcc",
+                    "surface-variant": "#e9e1de",
+                    "on-surface": "#1e1b1a",
+                    "on-background": "#1e1b1a",
+                    "tertiary": "#1b3434",
+                    "on-surface-variant": "#504440",
+                    "surface-container-highest": "#e9e1de",
+                    "on-primary-fixed-variant": "#5c4033",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f7efec",
+                    "secondary": "#805533",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#efe6e4",
+                    "tertiary-fixed": "#cce8e7",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#2c160b",
+                    "on-tertiary-fixed": "#051f20",
+                    "on-tertiary-container": "#9fbaba",
+                    "outline": "#82746f",
+                    "on-primary-container": "#d3ac9c",
+                    "primary": "#432a1e",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#33302e",
+                    "outline-variant": "#d4c3bd",
+                    "secondary-fixed-dim": "#f4bb92",
+                    "tertiary-fixed-dim": "#b0cccb",
+                    "on-secondary-fixed": "#301400",
+                    "inverse-primary": "#e6bead",
+                    "surface-container": "#f4ecea",
+                    "background": "#fff8f6",
+                    "primary-container": "#5c4033",
+                    "secondary-container": "#fdc39a",
+                    "on-tertiary-fixed-variant": "#324b4b",
+                    "surface-tint": "#765749"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "margin-desktop": "80px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .antigravity-float {
+            box-shadow: 0 20px 40px rgba(92, 64, 51, 0.05);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+        .antigravity-float:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(92, 64, 51, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-secondary-container/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#EDE0D4]/80 backdrop-blur-md dark:bg-[#5C4033]/80 shadow-[0_20px_40px_rgba(92,64,51,0.05)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-[#5C4033] dark:text-[#EDE0D4]">Zephirin’s Bakery</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors hover:scale-105 transition-transform duration-300" href="#">Our Breads</a>
+<a class="text-[#D2691E] font-semibold border-b-2 border-[#D2691E] pb-1 hover:scale-105 transition-transform duration-300" href="#">Heritage</a>
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors hover:scale-105 transition-transform duration-300" href="#">Recipes</a>
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors hover:scale-105 transition-transform duration-300" href="#">Wholesale</a>
+</div>
+<button class="bg-[#D2691E] text-white px-6 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300">Where to Buy</button>
+</div>
+</nav>
+<main class="pt-24 space-y-32">
+<!-- Mini Hero -->
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden mx-6 md:mx-10 rounded-[2rem]">
+<div class="absolute inset-0 z-0">
+<img alt="Heritage Bakery" class="w-full h-full object-cover" data-alt="Vintage photograph of a traditional Barbadian bakery facade with warm sepia tones, wooden shutters, and local artisans in the 1950s." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhpnHNBArrQaJRCjtDmgopDIPkikuju29yGVoSlsRy9WAq3t3PRQQtEnwJuKCgBlP24EOPbG6kDB6macoYLreU5eH1ZBtTr_OAqo29Xj6_3gv6ATCkFBXY0Cc1QMmvtQjOUgaBeLFcOpuc19gjDu-WOhiXCON8Jqe7XFFRLFvZVV_RfZlK5pRPevZ41BX5d4MeHwBdnbinHqt4YcLyJWOq8f-XTkf4zsNnoVpBAFvQLiPF1GigB9LTV9PJH-24b1GrO7d9SwWgR-I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#5C4033]/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center text-white px-6">
+<span class="font-label-sm text-secondary-fixed mb-4 block uppercase tracking-widest">Est. Barbados, 1954</span>
+<h1 class="font-display-lg text-white mb-6">A Legacy Baked in Tradition</h1>
+<p class="font-body-lg max-w-2xl mx-auto opacity-90">From a small family kitchen in Bridgetown to a Caribbean icon, our story is one of resilience, flavor, and the warmth of the island sun.</p>
+</div>
+</section>
+<!-- Our Bajan Roots (Story Section) -->
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="order-2 md:order-1">
+<h2 class="font-headline-xl text-primary mb-8">Our Bajan Roots</h2>
+<div class="space-y-6 text-on-surface-variant font-body-lg leading-relaxed">
+<p>It began with a secret recipe for Coconut Sweet Bread and a passion for the perfect crust. In the heart of Barbados, Zephirin’s was born from the belief that bread is more than sustenance—it's a celebration of family.</p>
+<p>We honor our heritage by using the same traditional stone ovens and local ingredients that our founder, Samuel Zephirin, championed seven decades ago. Every loaf tells the story of the Bajan soil and the spirit of our community.</p>
+</div>
+<div class="mt-10 flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-4xl" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-bold text-headline-lg italic">The original recipe since '54</span>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<div class="antigravity-float rounded-3xl overflow-hidden aspect-[4/5] relative z-10">
+<img alt="Traditional Kneading" class="w-full h-full object-cover" data-alt="Close-up of weathered hands covered in flour expertly kneading dough on a rustic wooden table with morning light streaming in." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZfmqSR1O4VcQWBQ2F-BFNEMsHO04yW62NiHvhnPQnsMURkWlmHLSKx050pldOhWoBgrtlUefaz4WnodX4sPXP8OgnM2griwq7iyQU61zjO4pq9AfucobFPm1UGjh5zZp4SB79b3qYyQ96vcP56dT9BB3Z8xI-O9QbF8Pk1XICie78mhVd40dMx_JOOILiDjvuVXlTYXuUXp7KLGlE1MttVqW-DrzP0bfzI7m5Ixafx1O1whQr58Aah0v_Pm5q68Tf57sbec2bKCg"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-fixed-dim rounded-full -z-10 opacity-30 blur-2xl"></div>
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-secondary-fixed rounded-full -z-10 opacity-20 blur-3xl"></div>
+</div>
+</section>
+<!-- Timeline -->
+<section class="bg-surface-container-low py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center">
+<h2 class="font-headline-xl text-primary mb-4">Our Journey Through Time</h2>
+<div class="w-24 h-1 bg-on-secondary-container mx-auto rounded-full"></div>
+</div>
+<div class="relative space-y-24">
+<div class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant hidden md:block"></div>
+<!-- Milestone 1 -->
+<div class="flex flex-col md:flex-row items-center gap-12 relative">
+<div class="md:w-1/2 flex justify-end">
+<div class="max-w-md antigravity-float bg-white p-8 rounded-3xl text-right">
+<span class="font-display-lg text-secondary-container opacity-40 block -mb-4">1954</span>
+<h3 class="font-headline-lg text-primary mb-4">The First Oven</h3>
+<p class="text-on-surface-variant font-body-md">Samuel Zephirin opens the small window-service bakery in St. Michael, serving fresh turnovers and salt bread to the local neighborhood.</p>
+</div>
+</div>
+<div class="w-12 h-12 bg-on-secondary-container rounded-full border-8 border-surface-container-low z-20 hidden md:flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="md:w-1/2">
+<img class="rounded-3xl w-full max-w-sm antigravity-float h-64 object-cover" data-alt="A vintage 1950s black and white photo of a modest bakery storefront with a small queue of people in tropical attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFAjA9wWRj0XOSDg3_PpX5Od85JRO03fkC6xN_xrPDcwPqBDIUMbxQBVjiyWM7Ap3ZHqa9b1umbRsOkHMV2Rk8TczMLgbB66vHAbygZtBYZvwvK4ue6nGUlcr6tBvIvO0c3iplYf1J35FYxueV76J8DcT08uMrkoqjyp-J4dwQfl68X7p4KLAlBMhxD33ikYh3Js0DAg4NXHvGNM_KIgPUqHBVyBYkHH-VHo45cupU4ztkj4uqvOyv1eZMR1udefVTDS46OLFb1MI"/>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-12 relative">
+<div class="md:w-1/2 flex justify-start">
+<div class="max-w-md antigravity-float bg-white p-8 rounded-3xl">
+<span class="font-display-lg text-secondary-container opacity-40 block -mb-4">1982</span>
+<h3 class="font-headline-lg text-primary mb-4">A Legacy Grows</h3>
+<p class="text-on-surface-variant font-body-md">The second generation takes the helm, introducing our iconic Sweet Bread that soon becomes a Barbados travel essential.</p>
+</div>
+</div>
+<div class="w-12 h-12 bg-on-secondary-container rounded-full border-8 border-surface-container-low z-20 hidden md:flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="md:w-1/2 flex justify-end">
+<img class="rounded-3xl w-full max-w-sm antigravity-float h-64 object-cover" data-alt="Traditional Barbadian sweet bread with coconut and raisins on a cooling rack in a warm, sunlit bakery setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYXSehVEYXPXgPp24GAprUZ1LBdHM6dZtjt0rJQVdlWWShdrC8fpi_HyD_msEtPGHhHfLtpKG_Ni8OwNhF8FpCxMy69Buav8F_Tqd4Tkagwui-XK2ynLr9we7Sn0Q9jVfKX5jH98lSqeUSVhZHdzvvX9kz6Uzd5KqZH29XHvWUTOPBoMC9cKlbo8lW5AV-n3bjZAZn_EjezSJqQD-XHpV3BeZLVKtIwZWlaLd5bd-RTgDAjEhWbCca3w-9OnrUdRM1KRm9ck_4_u0"/>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="flex flex-col md:flex-row items-center gap-12 relative">
+<div class="md:w-1/2 flex justify-end">
+<div class="max-w-md antigravity-float bg-white p-8 rounded-3xl text-right">
+<span class="font-display-lg text-secondary-container opacity-40 block -mb-4">2024</span>
+<h3 class="font-headline-lg text-primary mb-4">Artisanal Future</h3>
+<p class="text-on-surface-variant font-body-md">Honoring our heritage while embracing modern sustainable practices. Now shipping our island flavors to bread lovers worldwide.</p>
+</div>
+</div>
+<div class="w-12 h-12 bg-on-secondary-container rounded-full border-8 border-surface-container-low z-20 hidden md:flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<div class="md:w-1/2">
+<img class="rounded-3xl w-full max-w-sm antigravity-float h-64 object-cover" data-alt="Modern high-end bakery interior blending traditional stone elements with contemporary warm wooden displays and soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh6Lw6uTFNS_lqv0bfu4FbxQL0lEKgs6sX6s7fhtM_aTWFo4dT6cGOiYEeFzeeQFKuLTOLW9Gly4IszcAIL6U2s04NaCoHuuVBatkntKR2sBf52R8Y0xfoNNdc4jVqm3ww8yHDYtFPUR-1QVhZmee5_VaSQ6XQcCwRu-XHmg72zuVioPiHlrJHLNz591YHJT_u_aFPzvKtf7vTSTnZZA8CVdGorMuCKwMqr9owyxyG-OQdduERdEs1FBfyRxTN4uJe1x2aoAFlziI"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Meet the Team -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="mb-16 text-center">
+<h2 class="font-headline-xl text-primary">The Hands Behind the Dough</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto mt-4">Three generations of bakers, makers, and innovators dedicated to the perfect loaf.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Team Member 1 -->
+<div class="text-center group">
+<div class="relative mb-6 rounded-[2.5rem] overflow-hidden aspect-square antigravity-float">
+<img alt="Master Baker" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Portrait of a smiling senior Barbadian man with flour-dusted apron, standing in a warm bakery kitchen, soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS8Yn0HZ6B3rKU1t9yXQ4btlUnOJ_R5eRPJXH-bZSK4U3HOK0A2syo26IMochiY5nmbWupCIKlKWJ4slZyK57s7TPixg95kgEEQnPkedUok0vos_wrybcHE8kcmjhWcLsmocD1Qflu6FewfkQCToZ9bN_hLY_bHWbOZpaR0v1566HKQwhaj6h-S8dxeEHOiKq1IWMuqty7cPyu2yzaIoLljcGismj6-Wp6t_2connpSwWdaagG_ujoc4E2mfzy65o97kzZjycGJPk"/>
+</div>
+<h4 class="font-headline-lg text-primary">Marcus Zephirin</h4>
+<p class="font-label-sm text-secondary uppercase tracking-widest mt-1">Master Baker &amp; Visionary</p>
+</div>
+<!-- Team Member 2 -->
+<div class="text-center group md:mt-12">
+<div class="relative mb-6 rounded-[2.5rem] overflow-hidden aspect-square antigravity-float">
+<img alt="Operations Manager" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Portrait of a professional young Caribbean woman in a light linen shirt, warm studio lighting with a soft brown background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDElvDgGvOcOZoUXxdnd3ZAQtl6kTnF5dRdf8mDc4zUDf07Kzw_WKCR6saoace19gB1xxAsaqJp7xKeFNVadLICa6sKEWCXGGnR3dnSFXaRQ5HwwVi13YOpP3yGjBUXgHpbyLESy_dxn_L74ZKTqroFymViqdt8Y-Km17CY4B46DQgjj63vjBRQW_YvjDgssnS7Jemssz8wR4h81nPbFWYJZ7KgM-n6JCoWlE3YHHMDDSPLfUJ4ufzOmKEIPbcbCGI9HsKVkkeqQOM"/>
+</div>
+<h4 class="font-headline-lg text-primary">Sarah Clarke</h4>
+<p class="font-label-sm text-secondary uppercase tracking-widest mt-1">Director of Heritage</p>
+</div>
+<!-- Team Member 3 -->
+<div class="text-center group">
+<div class="relative mb-6 rounded-[2.5rem] overflow-hidden aspect-square antigravity-float">
+<img alt="Head Pastry Chef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Portrait of a focused Caribbean male chef in white uniform, dusting sugar onto a pastry, high contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8K3gAFIOfk0hzDrGWbivJY4C2ruoM30A07O6Hb9IzagE3-vsPpuZ5Yi0xFzRBLj5-qjfSIR-3JMuP3uEVWXRNDZFLi25T7A4XWCIFF-Ldw6rLw585kyV9PA4n4-RKD4LlIRTLq3sc_Ea7iVbuY6ge62Pk3u7R03ugQmefO-WrXF9BV7Hv0camh8as2pulQzOzUY4zPqlGnwu8mjjHUTHkI26vymoFRODCDMGHUT-T4sWdOruNohnWERv71JwkXuzMynbCZjgmk18"/>
+</div>
+<h4 class="font-headline-lg text-primary">David Lynch</h4>
+<p class="font-label-sm text-secondary uppercase tracking-widest mt-1">Head Artisan Pastry</p>
+</div>
+</div>
+</section>
+<!-- Bakery Life (Masonry Gallery) -->
+<section class="max-w-7xl mx-auto px-8 pb-20">
+<div class="mb-12">
+<h2 class="font-headline-xl text-primary">Bakery Life</h2>
+<p class="font-body-md text-on-surface-variant">A glimpse behind the scenes at our island home.</p>
+</div>
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Dough prep" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Flour being sifted over a large mound of dough in a high-action shot with particles suspended in the air." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDORaq965SAP4rS3BUcALi9hvG278bGGlfbP6dJd7iJ5lE0bhR1e_jXSLU5RsfXUbSWhBVjp-04aQh0cOXQETrQqNEurVDxpqF9nQwm0Zn32S48fWtmBT94tEXzDjmrXRSy65kQy0GQpritnr0g1hmaEN9UXAAzoFxhcrisdSe4k4D5h9cs0VNlL2rrUbORY9yc8CEsBW5za6LnZbzr28IgEIeKc43OGrAGbvdL5TxNwUF7tvHIlv6_2ghvoe6ybbW5wuT1jTuGgx4"/>
+</div>
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Fresh Ingredients" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Top-down view of fresh island spices, nutmeg, and coconut flakes arranged artistically on a dark surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Z9i_vYNUJmtL5BpsduWq_ch_FvTArDzXgyI3q75QV_2b6miovX2atankm6al1STjGhuQ_DzQBrJmNYfiJg1WaA5MQpbNa8WdySFgmpQzIdsVV531ih9CMAXOYn5Lb3LwSdUznL6TdbCmDS1zRK-pnhjWqCv35YKCgquxt0Olnpm50d48fekLa8FFfVnyR_6FhqBHED4NHuUnsKnzQ_Ly0pU0t4Tzw-XGL7NCO2Y_5bz9kqUaYlimFPPDYSRggNYcawPhYwPKttA"/>
+</div>
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Stone Oven" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Interior of a traditional stone oven with glowing orange embers and loaves of bread baking to a golden brown." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjLIo26mUVk6O7G2MgX4TpMZ-y9ipe6x1mYVDghPVQ8Krnh_D_s1yOQ-7fYdgY6laJaQhZ7o8TKtz9X27mo-p7dPvGaXSEo-WVURZM82chD7Iq7_Fu-WnD1ZuiWwAcNDd5Tai66Lem9BNNIjgFZOR68X-7svNYeq7j9gC-vCVuzBo0LS0Rq24eTNCUp2awJjWXlU8TedVPWFcOvw5ZLxnAX2K8EOUNImPBiluhW4Mo5CgoJ9ipgTrNPiKN1cc9mTv8MHWsF__narU"/>
+</div>
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Old Photos" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Close-up of framed vintage family photos on a wooden bakery wall, slightly dusty with warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAofPR89aqZwbX1QbPqbhn42i4A-N9bV2kML2SRtV-A2NvIsN14GO1nfecVnZOzSGEuEHhiLk8-8ED0YTsSF-ttMN5JMZwGTkWddAYQAQLyvSg-LUBM2V-gLcCVb53CtmTbjy3a-yhzahLV_SJNgSSvLkSYEkO4PHiGHO_Jxsoz8StHHNumEUp0eeDRHAEasrCArYtpDUsdXRM3G4QA9G7IoE4UvNqgo2Hk16o62EAoQn0Zad_xBn-ZzUtDZ0EV4Mu2kwQgyM0p9kA"/>
+</div>
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Packing Bread" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Artisanal bread loaves wrapped in brown paper and tied with twine, arranged in a woven basket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhpT1dS-pdbwALHaooRonI9Q_40ZltwnK50S8YLMQmrfTo64zXRpP920_42tzBIHQiC753eZYszb8FEkIiqmsoMgsYEdLrpwJmOT8JRxlCG2feDcWSCbdQpPbmYK5DMzv4zavU4ShYj-v1swGO7nP9a_RlcU8GMcCdE-UvGn-f_vJkkRm5vt7cbSlbtW-KTB0gj88MueMQOndqL8u5Wh0IbqXO4QzxLnAmIvr9lgyni8gWvOOtNxD3r8LDDscOHGrklwP5T8ODTbk"/>
+</div>
+<div class="break-inside-avoid antigravity-float rounded-2xl overflow-hidden">
+<img alt="Morning Light" class="w-full hover:scale-110 transition-transform duration-700" data-alt="Dusty morning light rays cutting through a quiet bakery before opening, highlighting the textures of flour and wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCJ23ByfPCv-IA_-WYed1io1w3Np1tACqEVwV0pIVFJNdW7xmdBrUXS3AT05D_oG3GCw2lchJZvL1zZEG2iPVdY-5f0YpUB9-RqS8b1RTd_5leUmN6m5KC_Vs1_SD6GBzJ7L9h59rNrev9ClXoco3ec3U99X128JvsKgdTWzNDR2ZhFM77YVfFQM3NlllG8qnQmC1Hv-ePP4zqh6wAJRWoAGxVf0KIzH6XMKdFKpPwAl7gNnNYIkF5Zxil27ESWYVNVysrz9vkmvE"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#5C4033] dark:bg-black w-full relative mt-20 pt-16 pb-8 border-t border-[#EDE0D4]/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] font-light leading-relaxed">
+<div class="col-span-1 md:col-span-2">
+<div class="text-4xl font-black text-[#EDE0D4] opacity-20 uppercase tracking-widest mb-6">Zephirin’s</div>
+<p class="text-[#EDE0D4]/70 max-w-sm mb-8">Artisanal Bajan heritage, hand-baked daily with love since 1954. Experience the true taste of Barbados in every bite.</p>
+<div class="flex gap-4">
+<a class="text-[#EDE0D4] hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Instagram</a>
+<a class="text-[#EDE0D4] hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Facebook</a>
+<a class="text-[#EDE0D4] hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Twitter</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Explore</h5>
+<ul class="space-y-4">
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Our Breads</a></li>
+<li><a class="text-white underline hover:translate-x-1 transition-transform duration-200" href="#">Heritage</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Recipes</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Wholesale</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Contact</h5>
+<ul class="space-y-4">
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Shipping &amp; Returns</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Contact Us</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Privacy Policy</a></li>
+<li><a class="text-[#EDE0D4]/70 hover:text-[#D2691E] hover:translate-x-1 transition-transform duration-200" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-[#EDE0D4]/10 text-center text-[#EDE0D4]/50 text-sm">
+            © 2024 Zephirin’s Bakery. Artisanal Bajan Heritage.
+        </div>
+</footer>
+</body></html>

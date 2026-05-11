@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/katrinapayne/Claude/**)"
+    ],
+    "additionalDirectories": [
+      "/Users/katrinapayne/Claude"
+    ]
+  }
+}

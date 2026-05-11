@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#50453c",
+                        "background": "#fcf8f8",
+                        "outline": "#747878",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#1a1c1c",
+                        "secondary": "#6d5b4e",
+                        "inverse-primary": "#c6c6c7",
+                        "secondary-container": "#f4dbcb",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1edec",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#715f52",
+                        "tertiary": "#695c53",
+                        "on-primary-fixed-variant": "#454747",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#5d5f5f",
+                        "on-primary-container": "#747676",
+                        "secondary-fixed": "#f6dece",
+                        "on-secondary-fixed": "#25190f",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed-variant": "#544438",
+                        "primary-container": "#ffffff",
+                        "surface": "#fcf8f8",
+                        "tertiary-fixed": "#f1dfd3",
+                        "on-surface": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#231a13",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary": "#5d5f5f",
+                        "surface-bright": "#fcf8f8",
+                        "tertiary-container": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#ddd9d9",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d4c3b8",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "8px",
+                        "container-max": "1280px",
+                        "xl": "48px",
+                        "unit": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Newsreader"],
+                        "display-lg": ["Newsreader"],
+                        "label-sm": ["Newsreader"],
+                        "body-lg": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "body-md": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf8f8;
+            color: #1c1b1b;
+        }
+        input, textarea, select {
+            border: none !important;
+            border-bottom: 1px solid #c4c7c8 !important;
+            border-radius: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            background: transparent !important;
+        }
+        input:focus, textarea:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border-bottom: 1px solid #544438 !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-stone-50 border-b border-stone-200/30 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-24">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-stone-900" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-serif font-black tracking-tighter text-3xl text-stone-900">ZEPHIRIN'S</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-serif italic tracking-wide text-lg">
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Heritage</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Products</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Locator</a>
+<a class="text-stone-900 border-b-2 border-stone-800 pb-1" href="#">Wholesale</a>
+</nav>
+<div class="flex items-center">
+<button class="text-white px-6 py-2 rounded-lg font-serif italic transition-all duration-300 bg-[#e67e22] hover:bg-[#d35400]">
+                    Wholesale
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-xl">
+<!-- Hero Section -->
+<section class="grid lg:grid-cols-2 gap-xl items-center mb-xl">
+<div class="space-y-md">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-secondary">Est. 1944</span>
+<h1 class="font-display-lg text-display-lg text-stone-900">Partner with the Bajan Standard.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Join our network of premium grocers, boutique hotels, and restaurants across the island. We bring heritage-rich, artisan baking from our hearth to your tables.
+                </p>
+<div class="pt-md flex flex-wrap gap-lg border-t border-stone-200 mt-xl">
+<div>
+<p class="font-label-sm text-label-sm uppercase text-stone-400 mb-1">Direct Line</p>
+<p class="font-headline-md text-headline-md text-stone-900">+1 (246) 555-0199</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase text-stone-400 mb-1">Email Inquiry</p>
+<p class="font-headline-md text-headline-md text-stone-900">trade@zephirins.com</p>
+</div>
+</div>
+</div>
+<div class="relative aspect-square md:aspect-video lg:aspect-square overflow-hidden rounded-xl">
+<img alt="Artisan bread background" class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" data-alt="Close-up of freshly baked artisan salt bread in a rustic wooden basket with soft morning light through a bakery window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTirdrJV6auDFF7K-Lb3yr61OZNHqWsoWvOHZ3bggrLt3WuY_r33HWLSSWXCNGikE6mknvanBXOa2TKHzENEznKFNKdi8JntXZR1Gf0h4WXDiVajTB32-x9Mqo5TGH5EnBEC8tQ7Dhi19ogrXboVjeyEwIHzTmv6Ww-vThYllOKFc-1WecrNLmsRY3-6xgciMdRCvfE6Jt_0HQPNyH2AkaM_GgUwDyQyWn8kJImpqnuvWuYvnZGZsNm6D4-hCmoKfy7nP1TVzeQGU"/>
+<div class="absolute inset-0 bg-stone-900/10"></div>
+</div>
+</section>
+<!-- Bento Layout: Inquiry & Contact Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Wholesale Inquiry Form (2/3 width) -->
+<div class="lg:col-span-2 bg-white p-lg md:p-xl rounded-xl border border-stone-200/50">
+<h2 class="font-headline-lg text-headline-lg text-stone-900 mb-xl">Wholesale Inquiry</h2>
+<form class="space-y-lg">
+<div class="grid md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Contact Person</label>
+<input class="font-body-md text-stone-900 py-2" placeholder="Full Name" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Establishment Name</label>
+<input class="font-body-md text-stone-900 py-2" placeholder="Hotel, Café, or Store" type="text"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Email Address</label>
+<input class="font-body-md text-stone-900 py-2" placeholder="corporate@domain.com" type="email"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Business Phone</label>
+<input class="font-body-md text-stone-900 py-2" placeholder="+1 (246)" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Interested Products</label>
+<select class="font-body-md text-stone-900 py-2">
+<option>Select Product Line</option>
+<option>Artisan Salt Bread</option>
+<option>Traditional Bajan Sweet Bread</option>
+<option>Pastry Selection</option>
+<option>Custom Hospitality Range</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm uppercase text-stone-500">Message</label>
+<textarea class="font-body-md text-stone-900 py-2" placeholder="Tell us about your volume needs and delivery requirements..." rows="4"></textarea>
+</div>
+<div class="pt-md">
+<button class="text-white px-10 py-4 rounded-lg font-headline-md tracking-tight transition-colors w-full md:w-auto bg-[#e67e22] hover:bg-[#d35400]">
+                            Submit Trade Inquiry
+                        </button>
+</div>
+</form>
+</div>
+<!-- Side Info Cluster (1/3 width) -->
+<div class="flex flex-col gap-lg">
+<!-- Location Card -->
+<div class="bg-stone-50 p-lg rounded-xl border border-stone-200/50">
+<span class="material-symbols-outlined text-secondary mb-md" data-icon="location_on">location_on</span>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-sm">Head Office</h3>
+<address class="not-italic font-body-md text-on-surface-variant mb-md">
+                        12 Heritage Lane<br/>
+                        Bridgetown, St. Michael<br/>
+                        Barbados, BB11000
+                    </address>
+<div class="aspect-video w-full bg-stone-200 rounded-lg overflow-hidden border border-stone-300/30">
+<img alt="Map location" class="w-full h-full object-cover grayscale opacity-70" data-alt="Minimalist monochromatic map of Bridgetown Barbados showing major coastal roads and the bakery office location" data-location="Bridgetown, Barbados" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3tKUI5hCncDsdLOP4qZlAFImbz818JDPF3j2daZx6qdDfmPkOT0p1YauaMdihiYdGwAzAMCx3GZmR6yQT5GtNTkBZX_oTAqBO33c1_92cMCcL5MlvEDinGUdcImskeKL3ZLLH621GTOdtUJNB2zByQbQNZMyiGnd-E5hrQe6TU2eGoQxOs0lsNAonvIiXO-OEfkYdiEWdqHzlYLhy2BSVSzYAkRiusTldlbDiIOGlpJ4jN3J30NREKB2qJJXOFe1wh9iNJQOQKVM"/>
+</div>
+</div>
+<!-- Social Card -->
+<div class="bg-white p-lg rounded-xl border border-stone-200/50 flex flex-col justify-between h-full">
+<div>
+<h3 class="font-headline-md text-headline-md text-stone-900 mb-sm">Connect</h3>
+<p class="font-body-md text-on-surface-variant mb-xl">Follow our daily bake and community stories.</p>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<a class="flex items-center gap-2 p-3 border border-stone-200 rounded hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-600" data-icon="share">share</span>
+<span class="text-label-sm font-label-sm uppercase">Instagram</span>
+</a>
+<a class="flex items-center gap-2 p-3 border border-stone-200 rounded hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-600" data-icon="public">public</span>
+<span class="text-label-sm font-label-sm uppercase">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Heritage Quote -->
+<section class="py-xl my-xl border-y border-stone-200 text-center max-w-4xl mx-auto">
+<p class="font-display-lg italic text-stone-800 opacity-80 leading-snug">
+                "We don't just supply bread; we deliver the pulse of Bajan hospitality to your guests."
+            </p>
+<div class="mt-md font-label-sm text-label-sm uppercase tracking-[0.2em] text-stone-400">— Arthur Zephirin, Master Baker</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-50 dark:bg-stone-100 full-width py-16 px-8 border-t border-stone-200 mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-4">
+<span class="font-serif font-bold text-stone-900 text-xl">ZEPHIRIN'S</span>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500">© 1944 ZEPHIRIN'S BAKERY.<br/>ARTISAN BAJAN HERITAGE.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif font-bold text-stone-900 text-sm uppercase tracking-widest">Heritage</h4>
+<nav class="flex flex-col gap-2 font-serif text-sm tracking-widest uppercase text-stone-500">
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Our Story</a>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Techniques</a>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Archives</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif font-bold text-stone-900 text-sm uppercase tracking-widest">Navigation</h4>
+<nav class="flex flex-col gap-2 font-serif text-sm tracking-widest uppercase">
+<a class="text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Products</a>
+<a class="text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Locator</a>
+<a class="text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Recipes</a>
+<a class="font-bold text-stone-900" href="#">Wholesale</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif font-bold text-stone-900 text-sm uppercase tracking-widest">Connect</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-stone-900 transition-colors" data-icon="alternate_email">alternate_email</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-stone-900 transition-colors" data-icon="call">call</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-stone-900 transition-colors" data-icon="schedule">schedule</span>
+</div>
+<p class="font-serif text-xs text-stone-400 mt-4 leading-relaxed">
+                    Mon - Sat: 5:00 AM - 6:00 PM<br/>
+                    Sun: 6:00 AM - 12:00 PM
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zephirin's Bakery — Website Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:     #ff6824;
+      --orange-pale:#fff0e8;
+      --navy:       #0d1f3c;
+      --navy-deep:  #050b14;
+      --cream:      #fdf8f3;
+      --cream-mid:  #f5ece0;
+      --text:       #1a1a2e;
+      --muted:      #6b6b80;
+      --white:      #ffffff;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'Inter', -apple-system, sans-serif;
+      --radius:     16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+
+    /* ── HEADER ──────────────────────────────────────────── */
+    .page-header {
+      background: var(--navy-deep);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+
+    .page-header-logo {
+      height: 40px;
+      width: auto;
+      margin: 0 auto 2rem;
+      opacity: .85;
+      filter: brightness(0) invert(1);
+    }
+
+    .page-header-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    .page-header-kicker::before,
+    .page-header-kicker::after {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--orange);
+      opacity: .6;
+    }
+
+    .page-header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: .75rem;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: rgba(255,168,127,.9);
+    }
+
+    .page-header-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.55);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+
+    /* ── MAIN ────────────────────────────────────────────── */
+    .main {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+
+    /* ── CONCEPT GRID ────────────────────────────────────── */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+
+    /* ── CARD ────────────────────────────────────────────── */
+    .concept-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(5,11,20,.06), 0 8px 32px rgba(5,11,20,.05);
+      transition: transform .3s ease, box-shadow .3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .concept-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(5,11,20,.13), 0 2px 8px rgba(5,11,20,.06);
+    }
+
+    /* iframe preview area */
+    .card-preview {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #e8e0d8;
+      cursor: pointer;
+    }
+    .card-preview iframe {
+      width: 1440px;
+      height: 900px;
+      border: none;
+      transform-origin: top left;
+      pointer-events: none;
+      display: block;
+    }
+
+    /* Clickable overlay on preview */
+    .card-preview-link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+    .card-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13,31,60,0);
+      transition: background .3s;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-preview-overlay span {
+      background: var(--orange);
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: .6rem 1.4rem;
+      border-radius: 50px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .25s, transform .25s;
+    }
+    .concept-card:hover .card-preview-overlay {
+      background: rgba(13,31,60,.18);
+    }
+    .concept-card:hover .card-preview-overlay span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 1.75rem 1.75rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-number {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: .6rem;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.5rem;
+    }
+    .tag {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      padding: .25rem .7rem;
+      border-radius: 50px;
+      background: var(--orange-pale);
+      color: var(--orange);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: .65rem 1.4rem;
+      border-radius: 50px;
+      transition: background .2s, color .2s;
+      align-self: flex-start;
+    }
+    .card-link:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .page-footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid rgba(5,11,20,.07);
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .concepts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .concepts-grid { grid-template-columns: 1fr; }
+      .page-header { padding: 3rem 1.5rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────── -->
+<header class="page-header">
+  <img class="page-header-logo"
+       src="https://zephirinsbakery.com/wp-content/uploads/2018/08/zephirins-logo22.png"
+       alt="Zephirin's Bakery" />
+  <div class="page-header-kicker">Website Redesign</div>
+  <h1>Three Concepts for<br><em>Zephirin's Bakery</em></h1>
+  <p class="page-header-sub">
+    Each concept takes a distinct visual direction while keeping the brand's
+    100-year Bajan heritage at the centre.
+  </p>
+</header>
+
+
+<!-- ── CONCEPTS ────────────────────────────────────────────── -->
+<main class="main">
+  <div class="concepts-grid">
+
+    <!-- CONCEPT 1 -->
+    <div class="concept-card">
+      <div class="card-preview" id="preview-1">
+        <iframe src="concept.html" title="Concept 1 Preview" scrolling="no" tabindex="-1"></iframe>
+        <div class="card-preview-overlay"><span>Open Concept →</span></div>
+        <a href="concept.html" class="card-preview-link" aria-label="View Concept 1"></a>
+      </div>
+      <div class="card-body">
+        <div class="card-number">Concept 01</div>
+        <h2 class="card-title">Premium Heritage</h2>
+        <p class="card-desc">
+          Deep warm-brown hero gradient, centred layout, soft 12px radius throughout.
+          Playfair Display at large sizes with Inter body copy.
+          Scroll-triggered entrance animations and a heritage timeline.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Dark Hero</span>
+          <span class="tag">Warm Browns</span>
+          <span class="tag">Centred Layout</span>
+          <span class="tag">Timeline</span>
+        </div>
+        <a href="concept.html" class="card-link">View Concept →</a>
+      </div>
+    </div>
+
+    <!-- CONCEPT 2 -->
+    <div class="concept-card">
+      <div class="card-preview" id="preview-2">
+        <iframe src="concept2.html" title="Concept 2 Preview" scrolling="no" tabindex="-1"></iframe>
+        <div class="card-preview-overlay"><span>Open Concept →</span></div>
+        <a href="concept2.html" class="card-preview-link" aria-label="View Concept 2"></a>
+      </div>
+      <div class="card-body">
+        <div class="card-number">Concept 02</div>
+        <h2 class="card-title">Dynamic Showcase</h2>
+        <p class="card-desc">
+          Immersive slider hero showcasing featured baked goods, a modern visual product grid, and interactive recipe modals with Bajan culinary inspiration. Sticky nav and premium food photography.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Slider Hero</span>
+          <span class="tag">Recipe Modals</span>
+          <span class="tag">Visual Grid</span>
+          <span class="tag">Premium Imagery</span>
+        </div>
+        <a href="concept2.html" class="card-link">View Concept →</a>
+      </div>
+    </div>
+
+    <!-- CONCEPT 3 -->
+    <div class="concept-card">
+      <div class="card-preview" id="preview-3">
+        <iframe src="concept3.html" title="Concept 3 Preview" scrolling="no" tabindex="-1"></iframe>
+        <div class="card-preview-overlay"><span>Open Concept →</span></div>
+        <a href="concept3.html" class="card-preview-link" aria-label="View Concept 3"></a>
+      </div>
+      <div class="card-body">
+        <div class="card-number">Concept 03</div>
+        <h2 class="card-title">Fresh &amp; Modern</h2>
+        <p class="card-desc">
+          Full background product photography with a right-side text overlay.
+          Deep navy palette with brand orange accents on a warm cream base.
+          Spinning circular badge and left-aligned editorial typography.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Photo Hero</span>
+          <span class="tag">Deep Navy</span>
+          <span class="tag">Text Overlay</span>
+          <span class="tag">Left-Aligned</span>
+        </div>
+        <a href="concept3.html" class="card-link">View Concept →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="page-footer">
+  Zephirin's Bakery &mdash; Website Concepts &mdash; Antigravity
+</footer>
+
+
+<script>
+  function scalePreview(wrap) {
+    const iframe = wrap.querySelector('iframe');
+    if (!iframe) return;
+    const scale = wrap.offsetWidth / 1440;
+    iframe.style.transform = `scale(${scale})`;
+    wrap.style.height = Math.round(900 * scale) + 'px';
+  }
+
+  function scaleAll() {
+    document.querySelectorAll('.card-preview').forEach(scalePreview);
+  }
+
+  scaleAll();
+  window.addEventListener('resize', scaleAll);
+</script>
+
+</body>
+</html>

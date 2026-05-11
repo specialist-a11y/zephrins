@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZEPHIRIN'S | Artisan Bajan Heritage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#50453c",
+                        "background": "#fcf8f8",
+                        "outline": "#747878",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#1a1c1c",
+                        "secondary": "#6d5b4e",
+                        "inverse-primary": "#c6c6c7",
+                        "secondary-container": "#f4dbcb",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1edec",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#715f52",
+                        "tertiary": "#695c53",
+                        "on-primary-fixed-variant": "#454747",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#5d5f5f",
+                        "on-primary-container": "#747676",
+                        "secondary-fixed": "#f6dece",
+                        "on-secondary-fixed": "#25190f",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed-variant": "#544438",
+                        "primary-container": "#ffffff",
+                        "surface": "#fcf8f8",
+                        "tertiary-fixed": "#f1dfd3",
+                        "on-surface": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#231a13",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary-container": "#817369",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed-dim": "#d9c2b3",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline-variant": "#c4c7c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary": "#5d5f5f",
+                        "surface-bright": "#fcf8f8",
+                        "tertiary-container": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#ddd9d9",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d4c3b8",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "roasted-bean": "#433429",
+                        "oatmeal": "#F9F7F5",
+                        "silt": "#8C7E74"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "8px",
+                        "container-max": "1280px",
+                        "xl": "48px",
+                        "unit": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Newsreader"],
+                        "display-lg": ["Newsreader"],
+                        "label-sm": ["Newsreader"],
+                        "body-lg": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "body-md": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-behind-container {
+            display: grid;
+            grid-template-areas: "content";
+            align-items: center;
+        }
+        .text-behind-layer {
+            grid-area: content;
+            z-index: 1;
+        }
+        .image-overlay-layer {
+            grid-area: content;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .antigravity-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-stone-50 border-b border-stone-200/30 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-24">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-900" style="font-size: 32px;">bakery_dining</span>
+<h1 class="font-serif font-black tracking-tighter text-3xl text-stone-900">ZEPHIRIN'S</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-serif italic tracking-wide text-lg">
+<a class="text-stone-900 border-b-2 border-stone-800 pb-1" href="#">Heritage</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Products</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Locator</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Recipes</a>
+</nav>
+<div class="flex items-center">
+<button class="bg-roasted-bean text-white px-6 py-2 rounded-lg font-label-sm uppercase tracking-widest hover:opacity-90 transition-opacity" style="background-color: #E67E22; color: white;">Wholesale</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section: Text Behind Image & Antigravity -->
+<section class="relative min-h-[795px] flex flex-col justify-center items-center overflow-hidden py-xl bg-white">
+<div class="max-w-7xl w-full px-8 text-behind-container">
+<!-- Large Background Text -->
+<div class="text-behind-layer text-center">
+<h2 class="font-display-lg text-[12vw] leading-none opacity-[0.03] select-none uppercase font-black text-stone-900">
+                        The Hearth
+                    </h2>
+</div>
+<!-- Main Content Layer -->
+<div class="relative z-10 text-center max-w-3xl mx-auto">
+<span class="font-label-sm text-silt uppercase tracking-[0.3em] mb-md block">EST. 1944</span>
+<h1 class="font-display-lg text-on-surface mb-lg">Bajan Hearth &amp; Horizon</h1>
+<p class="font-body-lg text-on-surface-variant mb-xl px-4">
+                        Hand-kneaded heritage and salt-air tradition. We bring the authentic warmth of the Barbados morning to your table with artisan techniques passed down through generations.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-roasted-bean text-white px-8 py-4 rounded-lg font-label-sm uppercase tracking-widest hover:scale-95 transition-transform duration-200" style="background-color: #E67E22; color: white;">Discover Our Breads</button>
+<button class="border border-silt text-roasted-bean px-8 py-4 rounded-lg font-label-sm uppercase tracking-widest hover:bg-oatmeal transition-all duration-300" style="background-color: #E67E22; color: white; border: none;">Find a Bakery</button>
+</div>
+</div>
+<!-- Antigravity floating elements -->
+<div class="absolute top-1/4 -left-12 antigravity-float hidden lg:block opacity-80" style="animation-delay: 0s;">
+<img class="w-64 h-80 object-cover rounded-xl shadow-sm grayscale-[20%]" data-alt="a rustic loaf of sourdough bread floating against a clean white background, soft morning light, minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKBOyzHrTdYTigiqEsu7r8vsF6K3Dho43v6F91lP49Ypp3huodHTL_P2izPXW6oPWCw2aam7DjLH_FMnImHYkUnKGAyMlX9Sbam_mJtTEpC92K3zuW8t3-9qG6BijQOA3EMg3n1W7nb5hXh78slEr6vdsJ5w6MAJR6wgj1P5n6Dvfv_poD4jy9MGk9jak7uNiNa2ereG59BBnYZwCikehwQdgdJ91bRuV4wjKRMusp_BRrjoCGiaJJEq_k5TziFvqiiOtxD9jaioo"/>
+</div>
+<div class="absolute bottom-1/4 -right-12 antigravity-float hidden lg:block opacity-90" style="animation-delay: 1.5s;">
+<img class="w-72 h-64 object-cover rounded-xl shadow-sm" data-alt="freshly baked artisan pastries floating mid-air, golden brown textures, soft depth of field, high-end food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxqm10PGTu247ZPv22R4KSdWrf1IMfN3LjVWewGq0KplPtVu9DAj4_fjxxTRRa_GoZiJdRs3ZpbuKCPjfXBuQJzz7oSnnJmfj5U1xLCdLyFMwf-qvTkzBPQmzFlSyzS5mwiRTPkSMdYnWj3dFeSg8sf1mLPwjeQySSWrJxT7p8EOaAw_-j5QcjcOIuZK5MQ3ug-XdJixeVVgC0eVThf7ITZcPXOS2cGQKx0dWpXeWcTwoetFNBQTzM0A3LBs-SlrnMh5qkqP2NBns"/>
+</div>
+<div class="absolute top-10 right-20 antigravity-float hidden xl:block opacity-60" style="animation-delay: 3s;">
+<img class="w-40 h-40 object-cover rounded-full" data-alt="sprinkles of flour falling through air, ethereal lighting, moody dark brown and white palette, texture focused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl-9rcjvKfP69xLAVzQv9X0KW8lZDMjFcrwcS8vlXJR8Wu08Cz8alua9uFgzduRrjge80M5_hCNyQvB5JqP8Y14qfiVmsYf7Wfjx3BakYq7YZTa__-c1FTqF55FCgV8yzGGWykmjiRWSW-EC3N5eU0KRzGevOFvdOupsVmsA_a6hOjUZWSEhZx1hxfjQYEhefvJkTihEPKlrauEa8E-EHtYZuN4GewBSdww53ylJq_flyRTGzrhdu0_oJ7i4zZMIajge-YaH_Oub8"/>
+</div>
+</div>
+</section>
+<!-- Signature Products: Bento Grid Layout -->
+<section class="py-xl max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-gutter">
+<div class="max-w-xl">
+<h2 class="font-display-lg text-on-surface mb-sm">The Daily Bake</h2>
+<p class="font-body-md text-on-surface-variant italic">Every morning at 4:00 AM, the ovens at Zephirin's begin their rhythm.</p>
+</div>
+<a class="font-label-sm text-roasted-bean border-b border-roasted-bean pb-1" href="#">View All Collections</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter h-auto md:h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-lg bg-oatmeal border border-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up of traditional Bajan salt bread, crisp crust and soft interior, warm natural lighting on a stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCdOnWKlwRNnewzXKbXpIHIYzAkzhqEoRU9NQM2TfgAcg3n9BYAOYmKmjCm_-75TxrPt5mwdlqaDHSD1F0er1WcZkt2z0VbmTH073KTzIAUjzvXjfJXBOMv0awvp-jzZ0sXqZ2fLsGgA6bVGTGS7M-Mfbm8DZGOTx382kJEuMdfixnjEFfEwQuEDVzE7RuUG2hKB9XgQGxgc021XdBZKiSk7ai5rQJeno3WtCz2X1BX13hpuPDojTrou-BWAxvvLZDuDqBc41sIgE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-roasted-bean/60 to-transparent flex flex-col justify-end p-lg">
+<span class="text-white/80 font-label-sm uppercase mb-2">Signature Classic</span>
+<h3 class="text-white font-headline-lg">Traditional Salt Bread</h3>
+<p class="text-white/90 font-body-md mt-2 max-w-xs">The heart of the Bajan table. Crisp outside, pillowy within.</p>
+</div>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden rounded-lg bg-oatmeal border border-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="varied artisan pastries and croissants on a wooden cooling rack, cinematic side lighting, warm golden hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCxinhaCYVtiB4_aSJUFEXP5DvVK3UIS_ReDU4gxCVdyj_EE3XLUQ09BW9xl_xxnCGLonjKWg8HcTTLdbB33Oy2TtyVfjcWaIQ8v7QUgTyYhhCKMY3_xmsDTWbH1c-psoZOQRe3gOdBiQ9SLIaNMPcxxKVOd-0SA-P2BBy2fU0LfSTfLn4Cf9iWv8-G8E_671RHpkQrDDgh9ABt--_Q-gg605IcDfcFUFJl7Z7qYoWzqTqDLiXk-qSsjgBkLYmDbC7mYpySvR-rN0"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6">
+<h3 class="text-white font-headline-md">Morning Pastries</h3>
+<div class="flex gap-2 mt-2">
+<span class="bg-white/20 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full uppercase tracking-tighter">Artisan</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-1 relative group overflow-hidden rounded-lg bg-oatmeal border border-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="overhead shot of spiced buns with raisins, traditional Caribbean style, matte food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6jvXKL4D_sUVuDQmsnTDd9P-l_SdJUnrAzLASrpNVScSocq2G_dyjI51RD9GnQ6wQFPaPW4SkQKu2bytoO-Dj45-OoJfAT3dQny_wSaBtw1nt6Lv6Q6QPCnf-cmAQGRXpVXqj_UHO3xaBPu9FAOaTytPxa6n3V4pEpg8XwD1aBwWhWAb27W2WbdT4llsg6rRj-5KWfzON0pKMdUBjjJLkZog26sOjS_k0KTCTdi64mLyaNUGa8zlfvTIG_xHczKqJSaIOqrgKsf4"/>
+<div class="absolute inset-0 bg-roasted-bean/10 group-hover:bg-transparent transition-colors"></div>
+<div class="p-md absolute bottom-0 bg-white/90 backdrop-blur-sm w-full">
+<h3 class="font-headline-md text-roasted-bean text-lg">Spiced Buns</h3>
+</div>
+</div>
+<div class="md:col-span-1 relative group overflow-hidden rounded-lg bg-oatmeal border border-stone-200">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="freshly sliced whole grain bread showing internal crumb structure, organic wheat stalks nearby, soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Gu75AHqVT8G9Q5znUDteeRqpAZ19FXO3cGyhWJA_Vfke8F_ry5zTjvcH1Ohf_ZhpNdyHTqiT1OTBi5TwqRSRGmXjvApaLlru1__Y0I4hwsn4-4slId5BUzx85Hi71FvQw1R0u1KPe_kyC50QSKgwO4KHbrv8hbtHH5IVK8SImJtl4V_J0sCa_sQ4-YsCV34z8THULf8MVnc7ix5YWDsrA7L53XqDeezaASl2Mtu3l3PfrHH-UuYWW6CFRfBJ2K4QUsYHWRe8ETM"/>
+<div class="absolute inset-0 bg-roasted-bean/10 group-hover:bg-transparent transition-colors"></div>
+<div class="p-md absolute bottom-0 bg-white/90 backdrop-blur-sm w-full">
+<h3 class="font-headline-md text-roasted-bean text-lg">Ancient Grains</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage Section: Tactile & Textural -->
+<section class="bg-stone-100/50 py-24">
+<div class="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row items-center gap-xl">
+<div class="lg:w-1/2 space-y-md">
+<div class="w-12 h-[1px] bg-silt mb-xl"></div>
+<h2 class="font-display-lg text-on-surface">The Zephirin Legacy</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                        Since 1944, our family has been the keepers of the island's morning ritual. What began as a humble stone oven by the shore has grown into a pillar of the community, yet our recipe for the perfect crust remains unchanged.
+                    </p>
+<p class="font-body-md text-on-surface-variant/80 italic border-l-2 border-silt/30 pl-6 py-2">
+                        "The secret isn't just the flour, it's the Atlantic air and the hands that work the dough before the sun rises." — Elias Zephirin, Founder.
+                    </p>
+<button class="font-label-sm uppercase tracking-widest text-roasted-bean border border-roasted-bean px-8 py-3 rounded-lg hover:bg-roasted-bean hover:text-white transition-all" style="background-color: #E67E22; color: white; border: none;">Read Our Story</button>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="aspect-[4/5] bg-oatmeal p-4 rounded-sm border border-stone-200 rotate-1 shadow-sm">
+<img class="w-full h-full object-cover grayscale brightness-90" data-alt="vintage black and white photo aesthetic, hands kneading dough on a wooden table, nostalgic and heritage feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqEjDSDcoiOFVBu6_CfvrJqM6PKTZCaWi6KaXgiAWOZrj_0_EIh_YGOcVQrc8h7s8-x3CLbyBoyjiQMvo1dAE9m6MIyZBdCEet5bcbavFX9CVa0Pke6pjhBFVu6P1sUQ0ri-iDmvgKBUQ34GeNz2xQJzf2z6vEg6PQCzup4vJZxCxM0mtf4GIjCrD5hqqRThawYaNMyuqQqla5BgphlGIKENWIcQNs6ne1_k0xY5xyKEWxKsagaMpY2xNbGwmXE0CpalbJh-eRYmw"/>
+</div>
+<div class="absolute -bottom-8 -left-8 w-48 h-48 bg-white p-2 rounded-sm border border-stone-200 -rotate-3 shadow-md hidden sm:block">
+<img class="w-full h-full object-cover" data-alt="close-up of high quality flour texture with a wooden scoop, matte finish, soft archival style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsee7vUQt3SkhyjojSJMcmjxuR_jRhVbpGfI19pGXPcvtsc-GI8zmfhk5F-re_cQinzE-k8mxWWWAyn1bqYGafHwJLasIJPILPvf2qorSUPbG-LyCnO3G6qaEScNTVzxf1C_q-3E2d34e8ekBSiZzCWGE1kAtlV9VQrGOj4W4vAVDQeaXHV8hRKe6X-SQM1mBGAwXAAS8t56uzoYHvSm63HQtUmjMP7dpICnOe-KUYxS2rkhOohy16SCC2mT8IggPOyYkidMX_a1Y"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Community/Locator Section -->
+<section class="py-xl max-w-7xl mx-auto px-8">
+<div class="bg-roasted-bean rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 p-xl flex flex-col justify-center">
+<h3 class="font-display-lg text-white mb-md">Visit the Hearth</h3>
+<p class="text-white/80 font-body-lg mb-xl">From Bridgetown to the North Coast, find the warm scent of fresh bread at a Zephirin's near you.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-white/50">location_on</span>
+<div>
+<h4 class="font-headline-md text-white text-lg">Main Street, Bridgetown</h4>
+<p class="text-white/60 font-body-sm">Mon-Sat: 6:00 AM — 7:00 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-white/50">location_on</span>
+<div>
+<h4 class="font-headline-md text-white text-lg">Speightstown Waterfront</h4>
+<p class="text-white/60 font-body-sm">Mon-Sun: 5:00 AM — 2:00 PM</p>
+</div>
+</div>
+</div>
+<button class="mt-xl bg-white text-roasted-bean font-label-sm uppercase tracking-widest px-8 py-4 rounded-lg hover:bg-oatmeal transition-colors w-fit" style="background-color: #E67E22; color: white;">See All 12 Locations</button>
+</div>
+<div class="md:w-1/2 min-h-[400px] relative">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="a cozy, minimalist bakery interior with warm wood accents, large windows, and artisan breads on display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNA8ZavoRXkM66GS7yGRFohBTw71PlGarcM_Gj28ZZs-nKTERhDb7J1uaCPFTEqdyNBD7eSwyw3oc3xJWOjS7UEgNMxh3u2YGGgiTi1ncd1tWRFHFo6QL71roNAxNfdSsXrfy9EpKJH4ArY9xXUF0MhCDAaTVI_39Gx4acqn7J7IiEAlTA_NG-gpTZjyi11Q8AB_p2lx4VqgXzrJw4N0Y2c4ZsuCmsp4idbcNMbnKT4wUbr5P-8Wt2danqrWugKOaE35hd5EdXVUc"/>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Ritual -->
+<section class="py-24 border-t border-stone-200">
+<div class="max-w-2xl mx-auto text-center px-8">
+<span class="material-symbols-outlined text-silt mb-md" style="font-size: 48px;">mark_email_read</span>
+<h2 class="font-display-lg text-on-surface mb-md">Morning Rituals</h2>
+<p class="font-body-md text-on-surface-variant mb-xl">Join our community to receive seasonal recipes, heritage stories, and news from our ovens directly to your inbox.</p>
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-oatmeal border-none border-b-2 border-stone-200 focus:ring-0 focus:border-roasted-bean px-4 py-4 font-body-md" placeholder="Your email address" type="email"/>
+<button class="bg-roasted-bean text-white px-8 py-4 rounded-lg font-label-sm uppercase tracking-widest hover:bg-stone-800" style="background-color: #E67E22; color: white;" type="submit">Subscribe</button>
+</form>
+<p class="mt-md text-[11px] text-stone-400 uppercase tracking-widest">RESPECTING YOUR INBOX SINCE 1944</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-50 dark:bg-stone-100 border-t border-stone-200 full-width py-16 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<h4 class="font-serif font-bold text-stone-900 text-xl">ZEPHIRIN'S</h4>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500 leading-loose">
+                    © 1944 ZEPHIRIN'S BAKERY.<br/>ARTISAN BAJAN HERITAGE.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-sm text-stone-900 uppercase mb-2">Explore</h5>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Heritage</a>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Products</a>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Locator</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-sm text-stone-900 uppercase mb-2">Partnerships</h5>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Wholesale</a>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Catering</a>
+<a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4" href="#">Recipes</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-sm text-stone-900 uppercase mb-2">Social</h5>
+<div class="flex gap-4">
+<a class="text-stone-500 hover:text-stone-900 transition-colors opacity-80 hover:opacity-100" href="#">
+<span class="material-symbols-outlined">share_reviews</span>
+</a>
+<a class="text-stone-500 hover:text-stone-900 transition-colors opacity-80 hover:opacity-100" href="#">
+<span class="material-symbols-outlined">camera_indoor</span>
+</a>
+</div>
+<p class="text-[10px] text-stone-400 mt-4 leading-relaxed">
+                    ZEPHIRIN'S SUPPORTS LOCAL BARBADOS AGRICULTURE AND SMALL-SCALE SUGAR PRODUCERS.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

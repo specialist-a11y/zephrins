@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#5d5f5f",
+                        "outline": "#747878",
+                        "surface-container": "#f1edec",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "surface-tint": "#5d5f5f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#231a13",
+                        "on-surface": "#1c1b1b",
+                        "secondary-fixed-dim": "#d9c2b3",
+                        "secondary-container": "#f4dbcb",
+                        "secondary": "#6d5b4e",
+                        "on-primary-container": "#747676",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0ef",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#25190f",
+                        "on-tertiary-fixed-variant": "#50453c",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#f1dfd3",
+                        "surface": "#fcf8f8",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-bright": "#fcf8f8",
+                        "tertiary-fixed-dim": "#d4c3b8",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed-variant": "#544438",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary": "#695c53",
+                        "on-tertiary-container": "#817369",
+                        "tertiary-container": "#ffffff",
+                        "on-secondary-container": "#715f52",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "primary-fixed": "#e2e2e2",
+                        "outline-variant": "#c4c7c8",
+                        "surface-dim": "#ddd9d9",
+                        "inverse-primary": "#c6c6c7",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "background": "#fcf8f8",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed": "#f6dece"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "unit": "8px",
+                        "sm": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Newsreader"],
+                        "body-md": ["Newsreader"],
+                        "body-lg": ["Newsreader"],
+                        "display-lg": ["Newsreader"],
+                        "headline-lg": ["Newsreader"],
+                        "headline-md": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-behind-image-container {
+            perspective: 1000px;
+        }
+        .layered-title {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        .floating-bread {
+            position: relative;
+            z-index: 20;
+            filter: drop-shadow(0 20px 30px rgba(67, 52, 41, 0.15));
+        }
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#FFFFFF] dark:bg-stone-900 border-b border-[#8C7E74]/15 flex justify-between items-center px-6 h-16">
+<button class="text-[#433429] dark:text-[#F9F7F5] transition-colors hover:bg-[#F9F7F5] dark:hover:bg-stone-800 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Newsreader'] tracking-tight text-xl font-bold text-[#433429] dark:text-[#F9F7F5] uppercase tracking-widest">Zephirin's Bakery</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container border border-outline/10">
+<img alt="User profile" data-alt="close-up portrait of a person with warm skin tones against a neutral soft-lit background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrFwfcfgk2BH9bpuOmIL8-5LKQZ6Zf7GT1nicJAV2IRpgQoe44bqQwPaPf9sCi5Bt4zlc4h0DzSAOX_xxZ-wqIdBu8gpSKQLEQC0RJVFsCk2mX164HscLOcpLFud3GiOZP3nNxCea8qSmJgTXaVflaVpaqVL1SFZ8eCu7VrHSDpUkFuKX1YG6V5yOZTdqMHhvqjW0xfKCgYA8PiTJ1uz9ikUip5_LOUxQjUiBHQBQTr6QvkjZKCiDZvC3xlJ8amrHbB8dSMTkTEyg"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-16 pb-24 relative overflow-hidden flex flex-col items-center">
+<!-- Background Texture -->
+<div class="absolute inset-0 bg-grain pointer-events-none"></div>
+<!-- Hero Section -->
+<section class="w-full flex-1 flex flex-col items-center justify-center px-gutter relative text-behind-image-container">
+<!-- Behind Text -->
+<div class="layered-title w-full text-center pointer-events-none">
+<h2 class="font-display-lg text-display-lg text-[#8C7E74]/20 uppercase tracking-[0.2em] select-none scale-150">
+                    THE HEARTH
+                </h2>
+</div>
+<!-- Foreground Element -->
+<div class="floating-bread mt-xl mb-lg">
+<img alt="Artisan Bajan Salt Bread" class="w-72 h-auto object-contain mask-image-radial" data-alt="isolated close-up of a crusty artisan bajan salt bread loaf with dusted flour on top, soft warm lighting, high detail texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe2dHZEslrEh6ag7i1j1sVQVhGc2JVSnbxsCSNzhiXO08TIw8WmKHE1eyDGw6F4iZkOR-26RnH9StjUZ8bFefOdevXPL8_rcAercPdsmlwNUufXItXRHb0a81tpw9duzaA8rJin0jpTUv-0ThriYf15zFVwjuMUgHM9-VJ83CupoPeupEN40uync7L5GtX1uRxT87vaYdIJtf_tue5nXgHBLx0jdJUXNzlfHTEwoXUk5yyZUKARDvMTqKpjhUwfh7Bzk4SB79eyYE"/>
+</div>
+<!-- Content Details -->
+<div class="text-center z-30 max-w-sm">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-sm">Est. Bridgetown 1954</p>
+<h3 class="font-headline-lg text-headline-lg text-[#433429] mb-md leading-tight">Tradition baked into every golden crust.</h3>
+<!-- CTA Section -->
+<div class="mt-lg flex flex-col gap-md w-full px-lg">
+<!-- Vibrant Bajan Orange CTA mapped to secondary-container tone but elevated -->
+<button class="w-full bg-[#E67E22] text-white py-4 px-xl rounded-lg font-label-sm text-label-sm uppercase tracking-widest shadow-sm active:scale-95 transition-all duration-200 border border-[#D35400]">
+                        Experience the Heritage
+                    </button>
+<button class="w-full bg-transparent border border-outline/20 text-[#433429] py-4 px-xl rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-colors">
+                        Explore the Menu
+                    </button>
+</div>
+</div>
+</section>
+<!-- Subtle Heritage Accent -->
+<div class="w-full flex justify-center py-xl">
+<div class="w-24 h-[1px] bg-[#8C7E74]/30"></div>
+</div>
+<!-- Featured Section (Bento Preview) -->
+<section class="grid grid-cols-2 gap-md px-gutter w-full mb-xl">
+<div class="col-span-2 bg-surface-container-low rounded-xl p-md border border-outline/5">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Today's Batch</span>
+<p class="font-headline-md text-headline-md text-[#433429]">Spiced Currant Buns</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="restaurant_menu">restaurant_menu</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-md border border-outline/5 flex flex-col justify-between aspect-square">
+<span class="material-symbols-outlined text-[#433429]" data-icon="history_edu">history_edu</span>
+<p class="font-label-sm text-label-sm text-[#433429] uppercase">The Archive</p>
+</div>
+<div class="bg-secondary-container rounded-xl p-md flex flex-col justify-between aspect-square">
+<span class="material-symbols-outlined text-[#715f52]" data-icon="fireplace">fireplace</span>
+<p class="font-label-sm text-label-sm text-[#715f52] uppercase">Hearth Live</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-[#FFFFFF]/90 dark:bg-stone-900/90 backdrop-blur-md border-t border-[#8C7E74]/10">
+<!-- Heritage Tab -->
+<a class="flex flex-col items-center justify-center text-[#8C7E74] dark:text-stone-500 px-3 py-1 hover:text-[#433429] transition-colors tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-['Newsreader'] text-[10px] uppercase tracking-tighter mt-1">Heritage</span>
+</a>
+<!-- Menu Tab -->
+<a class="flex flex-col items-center justify-center text-[#8C7E74] dark:text-stone-500 px-3 py-1 hover:text-[#433429] transition-colors tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-['Newsreader'] text-[10px] uppercase tracking-tighter mt-1">Menu</span>
+</a>
+<!-- Orders Tab -->
+<a class="flex flex-col items-center justify-center text-[#8C7E74] dark:text-stone-500 px-3 py-1 hover:text-[#433429] transition-colors tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-['Newsreader'] text-[10px] uppercase tracking-tighter mt-1">Orders</span>
+</a>
+<!-- Hearth Tab (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-[#F9F7F5] dark:bg-stone-800 text-[#433429] dark:text-[#F9F7F5] rounded-xl px-3 py-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="fireplace" style="font-variation-settings: 'FILL' 1;">fireplace</span>
+<span class="font-['Newsreader'] text-[10px] uppercase tracking-tighter mt-1 font-semibold">Hearth</span>
+</a>
+</nav>
+</body></html>

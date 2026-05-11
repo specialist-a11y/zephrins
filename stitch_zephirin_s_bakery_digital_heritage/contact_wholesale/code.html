@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta_Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#e6bead",
+                      "on-secondary-container": "#794e2e",
+                      "surface-container-low": "#faf2ef",
+                      "surface": "#fff8f6",
+                      "surface-dim": "#e0d8d6",
+                      "tertiary-container": "#324b4b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#ffdcc5",
+                      "surface-bright": "#fff8f6",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#653d1e",
+                      "primary-fixed": "#ffdbcc",
+                      "surface-variant": "#e9e1de",
+                      "on-surface": "#1e1b1a",
+                      "on-background": "#1e1b1a",
+                      "tertiary": "#1b3434",
+                      "on-surface-variant": "#504440",
+                      "surface-container-highest": "#e9e1de",
+                      "on-primary-fixed-variant": "#5c4033",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f7efec",
+                      "secondary": "#805533",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#efe6e4",
+                      "tertiary-fixed": "#cce8e7",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#2c160b",
+                      "on-tertiary-fixed": "#051f20",
+                      "on-tertiary-container": "#9fbaba",
+                      "outline": "#82746f",
+                      "on-primary-container": "#d3ac9c",
+                      "primary": "#432a1e",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#33302e",
+                      "outline-variant": "#d4c3bd",
+                      "secondary-fixed-dim": "#f4bb92",
+                      "tertiary-fixed-dim": "#b0cccb",
+                      "on-secondary-fixed": "#301400",
+                      "inverse-primary": "#e6bead",
+                      "surface-container": "#f4ecea",
+                      "background": "#fff8f6",
+                      "primary-container": "#5c4033",
+                      "secondary-container": "#fdc39a",
+                      "on-tertiary-fixed-variant": "#324b4b",
+                      "surface-tint": "#765749"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "max-width": "1440px",
+                      "gutter": "24px",
+                      "margin-desktop": "80px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .antigravity-shadow {
+            box-shadow: 0 20px 40px rgba(92, 64, 51, 0.05);
+        }
+        .floating-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .floating-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(92, 64, 51, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+<nav class="fixed top-0 w-full z-50 bg-[#EDE0D4]/80 backdrop-blur-md dark:bg-[#5C4033]/80 shadow-[0_20px_40px_rgba(92,64,51,0.05)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#5C4033] dark:text-[#EDE0D4] hover:scale-105 transition-transform duration-300">
+                Zephirin’s Bakery
+            </div>
+<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors" href="#">Our Breads</a>
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors" href="#">Heritage</a>
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors" href="#">Recipes</a>
+<a class="text-[#5C4033] dark:text-[#EDE0D4] hover:text-[#D2691E] transition-colors" href="#">Wholesale</a>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-300" href="#">Where to Buy</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32">
+<header class="max-w-7xl mx-auto px-8 mb-20">
+<div class="flex flex-col items-start gap-4">
+<span class="text-secondary font-label-sm uppercase tracking-widest px-3 py-1 bg-secondary-fixed rounded-full">Contact Us</span>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter max-w-2xl">
+                    Let’s Connect.
+                </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                    Whether you're a bread lover or a business partner, we're here to share the warmth of our ovens with you.
+                </p>
+</div>
+</header>
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+<div class="bg-surface-container-low p-12 rounded-3xl flex flex-col justify-between antigravity-shadow">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-12">Get in touch.</h2>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 bg-primary-fixed-dim rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-1">Phone</p>
+<p class="text-body-lg font-semibold text-primary">+1 (246) 426-1234</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 bg-primary-fixed-dim rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-1">Email</p>
+<p class="text-body-lg font-semibold text-primary">hello@zephirinsbakery.com</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 bg-primary-fixed-dim rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-1">Main Bakery</p>
+<p class="text-body-lg font-semibold text-primary">Roebuck Street, Bridgetown,<br/>St. Michael, Barbados</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-12 border-t border-outline-variant/30 flex gap-6">
+<a class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+</a>
+</div>
+</div>
+<div class="relative rounded-3xl overflow-hidden antigravity-shadow min-h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern stylized map illustration of Barbados showing the location of Bridgetown with warm earthy color tones and minimalist aesthetic" data-location="Bridgetown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSAm3-VYZ4jVgFXpQnQT-YmRoWnrcJavc-U9lAI0Fj3Ur6dEFcLLyoAUK-VC2TrsNsHElG1Vjs0emcM2tLkM7nD91pLprMcRQGzhxpTA3hNvjY3RVyjVal-WIo5ISvJD1H7MLn2YNHas6w2bwrsVrvkCryFxc-S8Vq6o-zT20tlzocxjylEJ8QjLoZGv8JbQI6fWC-Lz8bI-pz0XBEjjIp9nQLwHJ-FX_HaMDybMmxi1jC26FDcw_z_Ng7O2HCwxlB8uQTkKpYJno"/>
+<div class="absolute inset-0 bg-primary/10 backdrop-none"></div>
+<div class="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl flex justify-between items-center">
+<div>
+<h4 class="font-bold text-primary">The Heritage Bakery</h4>
+<p class="text-on-surface-variant text-sm">Open daily: 6:00 AM — 6:00 PM</p>
+</div>
+<a class="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors" href="#">Get Directions</a>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-highest py-32">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-5 space-y-8">
+<span class="text-secondary font-label-sm uppercase tracking-widest">Partnership</span>
+<h2 class="font-display-lg text-headline-xl text-primary leading-tight">Wholesale Inquiry</h2>
+<p class="text-body-lg text-on-surface-variant">
+                        Join our heritage network. From luxury resorts to boutique cafés, we provide the artisanal backbone for Barbados' finest tables. 
+                    </p>
+<div class="p-8 bg-white/50 rounded-3xl border border-white/20">
+<div class="flex gap-4 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-semibold text-primary">Daily Island-wide Delivery</p>
+</div>
+<div class="flex gap-4 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-semibold text-primary">Custom Artisanal Recipes</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-semibold text-primary">Dedicated Account Manager</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<form class="bg-white p-12 rounded-[2rem] antigravity-shadow space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-primary">Full Name</label>
+<input class="w-full bg-surface-container-low border-none border-b border-primary-container p-4 rounded-xl focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-primary">Business Name</label>
+<input class="w-full bg-surface-container-low border-none border-b border-primary-container p-4 rounded-xl focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="Island Sands Resort" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-primary">Parish</label>
+<select class="w-full bg-surface-container-low border-none border-b border-primary-container p-4 rounded-xl focus:ring-2 focus:ring-primary-container/20 transition-all">
+<option>St. Michael</option>
+<option>St. James</option>
+<option>St. Peter</option>
+<option>Christ Church</option>
+<option>Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-primary">Inquiry Type</label>
+<select class="w-full bg-surface-container-low border-none border-b border-primary-container p-4 rounded-xl focus:ring-2 focus:ring-primary-container/20 transition-all">
+<option>New Wholesale Account</option>
+<option>Special Event Catering</option>
+<option>Custom Product Development</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-primary">Your Message</label>
+<textarea class="w-full bg-surface-container-low border-none border-b border-primary-container p-4 rounded-xl focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="Tell us about your business needs..." rows="4"></textarea>
+</div>
+<button class="w-full bg-[#D2691E] text-white font-bold py-5 rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-[#D2691E]/20" type="submit">
+                            Submit Wholesale Inquiry
+                        </button>
+</form>
+</div>
+</div>
+</section>
+<section class="max-w-4xl mx-auto px-8 py-32">
+<div class="text-center mb-16">
+<h3 class="font-headline-xl text-primary mb-4">Wholesale FAQ</h3>
+<p class="text-on-surface-variant">Everything you need to know about partnering with Zephirin's.</p>
+</div>
+<div class="space-y-4">
+<div class="bg-white rounded-2xl p-6 antigravity-shadow border border-surface-variant group">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-bold text-primary text-lg">What is the minimum order quantity for delivery?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="mt-4 text-on-surface-variant font-body-md">
+                        Our standard minimum for island-wide delivery is $150 BBD. For smaller orders, pick-up at our main bakery in Bridgetown is available starting from 6:00 AM.
+                    </div>
+</div>
+<div class="bg-white rounded-2xl p-6 antigravity-shadow border border-surface-variant group">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-bold text-primary text-lg">Do you offer gluten-free wholesale options?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="mt-4 text-on-surface-variant font-body-md">
+                        While our main facility focuses on heritage wheat breads, we have a dedicated section for gluten-sensitive bakes including cassava-based specialty breads. Contact our product team for custom allergen-safe development.
+                    </div>
+</div>
+<div class="bg-white rounded-2xl p-6 antigravity-shadow border border-surface-variant group">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-bold text-primary text-lg">How early do I need to place my daily order?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="mt-4 text-on-surface-variant font-body-md">
+                        For next-day delivery, orders must be placed via our portal or phone by 2:00 PM. This ensures our bakers have enough time to prepare your dough for the overnight rise.
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full relative mt-20 pt-16 pb-8 bg-[#5C4033] dark:bg-black border-t border-[#EDE0D4]/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+<div class="md:col-span-1">
+<div class="text-4xl font-black text-[#EDE0D4] opacity-20 uppercase tracking-widest mb-8">ZEPHIRIN’S</div>
+<p class="text-[#EDE0D4]/70 font-['Plus_Jakarta_Sans'] font-light leading-relaxed">
+                    Preserving the soul of Bajan baking since 1950. Every loaf tells a story of heritage and warmth.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-[#EDE0D4] font-bold mb-4">Explore</h5>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Our Breads</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Heritage Story</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Recipe Index</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Where to Buy</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-[#EDE0D4] font-bold mb-4">Support</h5>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Privacy Policy</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Terms of Service</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Shipping &amp; Returns</a>
+<a class="text-[#EDE0D4]/70 hover:text-[#D2691E] transition-all hover:translate-x-1" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-[#EDE0D4] font-bold mb-4">Newsletter</h5>
+<p class="text-[#EDE0D4]/70 text-sm mb-4">Fresh bakes in your inbox. No spam, just flour and joy.</p>
+<div class="flex">
+<input class="bg-white/10 border-none p-3 rounded-l-xl text-white placeholder:text-[#EDE0D4]/40 w-full" placeholder="Email Address" type="email"/>
+<button class="bg-[#D2691E] text-white p-3 rounded-r-xl">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-white/5 text-center text-[#EDE0D4]/40 text-sm">
+            © 2024 Zephirin’s Bakery. Artisanal Bajan Heritage.
+        </div>
+</footer>
+</body></html>

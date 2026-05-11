@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#50453c",
+                    "background": "#fcf8f8",
+                    "outline": "#747878",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#1a1c1c",
+                    "secondary": "#6d5b4e",
+                    "inverse-primary": "#c6c6c7",
+                    "secondary-container": "#f4dbcb",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f1edec",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#715f52",
+                    "tertiary": "#695c53",
+                    "on-primary-fixed-variant": "#454747",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#5d5f5f",
+                    "on-primary-container": "#747676",
+                    "secondary-fixed": "#f6dece",
+                    "on-secondary-fixed": "#25190f",
+                    "inverse-surface": "#313030",
+                    "on-secondary-fixed-variant": "#544438",
+                    "primary-container": "#ffffff",
+                    "surface": "#fcf8f8",
+                    "tertiary-fixed": "#f1dfd3",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#231a13",
+                    "surface-container-low": "#f6f3f2",
+                    "on-tertiary-container": "#817369",
+                    "surface-container-high": "#ebe7e7",
+                    "secondary-fixed-dim": "#d9c2b3",
+                    "inverse-on-surface": "#f4f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "outline-variant": "#c4c7c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "primary": "#5d5f5f",
+                    "surface-bright": "#fcf8f8",
+                    "tertiary-container": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#ddd9d9",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#d4c3b8",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "sm": "8px",
+                    "container-max": "1280px",
+                    "xl": "48px",
+                    "unit": "8px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Newsreader"],
+                    "display-lg": ["Newsreader"],
+                    "label-sm": ["Newsreader"],
+                    "body-lg": ["Newsreader"],
+                    "headline-md": ["Newsreader"],
+                    "body-md": ["Newsreader"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle
+    }
+.map-container {
+    background-image: linear-gradient(to bottom, rgba(252, 248, 248, 0.8), rgba(252, 248, 248, 0.8)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCOwP7FzjoaaJHqUHF3C3qoGhjOHrW0AwhTA93b5K5ucxcotHrV-s2rnpYSvJLQaH5AHhrA0tnEi3IpuS6_tclClgfUAKiN0SBV6Z7McTsFyvwnNpae7aK_DA7yTTZm4gunZbbXqmqoqN4Dkr7UAREY58nbUoKTLVTXSOhc3hZE6SWzmR_eoLPYRx8nCTWDC0-xDp9i4BGKKIDaxYfnFxL_LSp-LCXssjwIc7phCLnjWFkofKHvTjTKSe-OndBeUVdM9eeIbjYOMlE);
+    background-size: cover;
+    background-position: center
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<header class="bg-white dark:bg-stone-50 border-b border-stone-200/30 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-24">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-stone-900" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-serif font-black tracking-tighter text-3xl text-stone-900">ZEPHIRIN'S</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-serif italic tracking-wide text-lg text-stone-500 hover:text-stone-800 transition-colors" href="#">Heritage</a>
+<a class="font-serif italic tracking-wide text-lg text-stone-500 hover:text-stone-800 transition-colors" href="#">Products</a>
+<a class="font-serif italic tracking-wide text-lg text-stone-900 border-b-2 border-stone-800 pb-1" href="#">Locator</a>
+<a class="font-serif italic tracking-wide text-lg text-stone-500 hover:text-stone-800 transition-colors" href="#">Recipes</a>
+</nav>
+<div class="flex items-center">
+<button class="font-serif italic tracking-wide text-lg text-stone-900 px-6 py-2 border border-stone-900/10 hover:bg-stone-100/50 transition-all duration-300 bg-[#E67E22] text-white border-none">Wholesale</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen">
+<section class="max-w-7xl mx-auto px-8 py-xl">
+<div class="max-w-3xl mb-xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-md">Find Our Bread</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">From the bustling markets of Bridgetown to the quiet corners of St. Lucy, artisan Bajan heritage is closer than you think.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-4 space-y-md">
+<div class="bg-surface-container-lowest p-lg border border-stone-200/50">
+<label class="block font-label-sm text-label-sm uppercase mb-xs text-secondary">Search by Parish</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b border-stone-300 py-md px-2 focus:outline-none focus:border-stone-900 font-body-md transition-colors" placeholder="e.g. St. Michael" type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-stone-400" data-icon="search">search</span>
+</div>
+</div>
+<div class="space-y-sm overflow-y-auto max-h-[600px] pr-2">
+<div class="bg-surface-container-lowest p-lg border border-stone-200/50 hover:bg-stone-50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-stone-900">Massy Stores - Warrens</h3>
+<span class="bg-stone-100 text-stone-600 px-2 py-1 text-[10px] uppercase tracking-widest font-bold">Primary Partner</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-md">Warrens, St. Michael, Barbados</p>
+<div class="flex items-center gap-4 text-sm text-stone-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 7:00 AM - 10:00 PM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 1.2 km</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg border border-stone-200/50 hover:bg-stone-50 transition-colors cursor-pointer group">
+<h3 class="font-headline-md text-headline-md text-stone-900">Carlton Supermarket</h3>
+<p class="font-body-md text-on-surface-variant mb-md">Black Rock, St. Michael</p>
+<div class="flex items-center gap-4 text-sm text-stone-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 8:00 AM - 9:00 PM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 2.8 km</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg border border-stone-200/50 hover:bg-stone-50 transition-colors cursor-pointer group">
+<h3 class="font-headline-md text-headline-md text-stone-900">Eddies Supermarket</h3>
+<p class="font-body-md text-on-surface-variant mb-md">Speightstown, St. Peter</p>
+<div class="flex items-center gap-4 text-sm text-stone-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 7:30 AM - 8:30 PM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 12.4 km</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg border border-stone-200/50 hover:bg-stone-50 transition-colors cursor-pointer group">
+<h3 class="font-headline-md text-headline-md text-stone-900">Emerald City</h3>
+<p class="font-body-md text-on-surface-variant mb-md">Six Roads, St. Philip</p>
+<div class="flex items-center gap-4 text-sm text-stone-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 8:00 AM - 9:00 PM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 18.1 km</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 min-h-[500px] bg-stone-100 border border-stone-200/50 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 map-container opacity-40 grayscale" data-location="Barbados" style=""></div>
+<div class="relative z-10 text-center px-lg">
+<div class="inline-block p-xl bg-white/80 backdrop-blur-sm border border-stone-200 shadow-sm max-w-sm">
+<span class="material-symbols-outlined text-stone-900 text-4xl mb-md" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<h4 class="font-headline-md text-headline-md text-stone-900 mb-sm">Interactive Map</h4>
+<p class="font-body-md text-on-surface-variant mb-lg">Select a parish to view local stockists and delivery availability.</p>
+<button class="text-white font-label-sm text-label-sm uppercase tracking-widest px-8 py-4 rounded-lg hover:opacity-90 transition-opacity" style="background-color: #E67E22;">Explore Barbados</button>
+</div>
+</div>
+<div class="absolute bottom-8 right-8 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+<button class="w-10 h-10 bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-stone-50 border-y border-stone-200/50 py-xl">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-stone-900">Retail Partners</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl mx-auto">We collaborate with the island's finest grocers to ensure freshness daily.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-xl items-center opacity-60">
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Massy Stores Logo" class="h-12 object-contain" data-alt="minimalist corporate logo for a major grocery chain in clean dark typography on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqXwkrf0lZXa_Y0A7jM6Fp3ZpP8IKBpTkCBBWI-6vzMf2fJ0FmmvB_UPt0koY_fsE3KayJwbo_WSh5P3J-j-h7mWqkBdJU4R49u0_CyDTdb9nRKdibqhJmCHCK3vN24ci9B6IkaqRy0hyc35Ba-JyCf8hB6x2NZIrCnbUdYl-7bFz4J66GTglNd9Inlz6o7hH3eG7403pLkU2KwHP3S0fVVPp6XnIszSCC9JKAN3RUMmbC62ffwPPAwAYaDb2t1l3rEzZEYcHdDfA"/>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Carlton Logo" class="h-10 object-contain" data-alt="elegant serif logo for a premium food market in dark brown tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1bAg3551m-GgKZlju4VgCNvfDjs5vVvRoCHhnwCmeR79jhtcU1oliXj1GoMgdwehNdk8PdqBS_5skQ3HA3iwsU8tJX8GgYruhLIuwbq7gpcJrEXiZ30aQUGADvOHSo7tO4y6i7uBYuF87DgCLRMgW4UwFEwadIB9V8JXN9Ia_Syo0VjpE3RUcF2tQSOms_7-ERdsk9jaPmty8Kah7TTDdLCmCbwN_JQ_wvSGMdDTJ2tSZy0Y3WO2lh1czf1116buDoudITObhco0"/>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Emerald City Logo" class="h-14 object-contain" data-alt="vintage style circular logo for an island market with botanical elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwuPRSc2zHyORxF61Y-qp4jREBzKYl5HpHs7Dosc7In6w56VQWplHgZkpL4yCUFGUX3OAyVhaNG2iiWaHaElPda2ZesqWeAcRBADIYR8-aKi_OMQNk7_OjaYCN2aIQuxuUCtujishTkyt9t9yGKmgHd-z5neI9hGEkXHn0UWb2RwaDPJAWJXxXgwVWou9wN6-ceVj_eEyPcGW6cl60zvE8WnLW5zbGtAgRn2ftf-Mx6ybkirVCH8TNxymbXHrGeBasUKaJ-dSkJWM"/>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Super Centre Logo" class="h-10 object-contain" data-alt="modern bold geometric typography logo for a retail center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3fJ2aYbiJ2OCNDFvOVL3vdqVe3S-c6eJUop2EE3xKIvNW6_z5k4w-LyBwC40nnQZgXYIhHjEOQQQZcdYMnPhn-Vc9jNfh7c6yOzJGmmjFd372p6SX1u5HBKPk4sgdhJuA1M73zUkjCCg0ef93xaPvU9W0irp3UPvpjZRIrgHiEVhOXU5cSozC3FgKCnWz5a4h4i92X976vdYX_FK9UyfUv71jFJTO3hGtk7UgNT2MNlQO_C7E6qDIwUdiC4FxKCUQxoDRi7rXCw8"/>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Jordans Logo" class="h-8 object-contain" data-alt="classic simple logo for a family owned grocery business" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu9gMMfNuy7qg2G89lCw64HTJepVwAl0P8V5DgNy7-dkxivr2MVVXZKvcAyKdusjhCOrXcc7qAacBfNWyWVnCfg4OVa3e_eyNYhQ0ZbsKcNnOtzS-zJTu7f2kWYUXdR9uOg2xBx4ibIKdoFe3skSRzOuX8sekoOMXtx-z987smlrxTwku4zU2ZzkRuk-mdOkqJ55qoOUsmZ8cn_tIrpmCZsChix_MACtQ2slHW_Xnru-arxKwiNuPJj-e6MYfFTX3J9EV8DSrLG9Q"/>
+</div>
+<div class="flex justify-center grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Trimart Logo" class="h-10 object-contain" data-alt="clean minimal retail brand logo with sans serif font" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzDCnkO1Nhl9VZpLwkkaccgQ6EHHswbjKgVQa-NHlISmYgaeqyH7XcNNHFK1UhzNu1u6XJYrdyn532Zgsy8dIkIHDuSvzxZ4hLZ5MawseDFYRMo8VPoh78Sjj5xKNqtxi0NO3dASahhW9MWJ9EVr3UHyofceBKLJq2Q7sG5CW5gsi6LOt5fvxaxA6EBeis5FCjkeSiZ7phDJOwBROV-NhUJmWmUHqyJDu0JPYG32cNEoXsTS255F582iG-TzZS-ST5nCXFPIXktBw"/>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 py-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="aspect-[4/5] bg-stone-100 overflow-hidden">
+<img alt="Fresh bread delivery" class="w-full h-full object-cover" data-alt="warm sunlit photo of artisan bread loaves being loaded into a rustic wooden crate for delivery with flour dusting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qBuXGVSrDQ0kvoZ1OfdEmQmf8YkijZCLsz8lLuYYETwHKSa46-hCrKH4xbBs8gGa8mM5qy0cuz4_SX1D3u5GyZVyLlOxoJMgvVIjBnoaL5dwYUZjp9gG9MJVYgiiBIe0C3pT6a5ZdfcuMiqaG5ryir9MlVC07ljbeIpSuZP5Cz9eo38ihM2vbtZX0q1nvr41k66qFiuv_P36ld8c4Nw_aRObNvFA-jhd2VgV_PuV0CDyLmi3_f29yaeHHlnPyFi6_Rg1RFy_1vE"/>
+</div>
+<div class="space-y-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em]">Wholesale &amp; Events</span>
+<h2 class="font-display-lg text-display-lg text-stone-900 leading-tight">Bring Zephirin's to your business.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We partner with hotels, restaurants, and villas across the island to provide authentic Bajan artisan bread. Inquire about our customized delivery schedules and artisanal variety packs.</p>
+<div class="pt-md">
+<a class="inline-block border-b-2 border-stone-900 pb-2 font-headline-md text-stone-900 hover:text-stone-600 transition-colors border-[#E67E22] text-[#E67E22]" href="#">Become a partner</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-stone-50 dark:bg-stone-100 border-t border-stone-200 full-width py-16 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-md">
+<span class="font-serif font-bold text-stone-900 text-xl">ZEPHIRIN'S BAKERY</span>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500 mt-4 leading-relaxed">
+                    © 1944 ZEPHIRIN'S BAKERY. ARTISAN BAJAN HERITAGE.
+                </p>
+</div>
+<div>
+<h4 class="font-serif font-bold text-stone-900 text-sm mb-6 uppercase tracking-widest">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Heritage</a></li>
+<li><a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Products</a></li>
+<li><a class="font-serif text-sm tracking-widest uppercase font-bold text-stone-900 hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Locator</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif font-bold text-stone-900 text-sm mb-6 uppercase tracking-widest">Connect</h4>
+<ul class="space-y-4">
+<li><a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Recipes</a></li>
+<li><a class="font-serif text-sm tracking-widest uppercase text-stone-500 hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Wholesale</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif font-bold text-stone-900 text-sm mb-6 uppercase tracking-widest">Contact</h4>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500 mb-2">Tudor Street, Bridgetown</p>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500">Barbados, W.I.</p>
+</div>
+</div>
+</footer>
+</body></html>

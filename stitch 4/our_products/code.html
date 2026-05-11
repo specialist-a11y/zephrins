@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#50453c",
+                    "background": "#fcf8f8",
+                    "outline": "#747878",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#1a1c1c",
+                    "secondary": "#6d5b4e",
+                    "inverse-primary": "#c6c6c7",
+                    "secondary-container": "#f4dbcb",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f1edec",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#715f52",
+                    "tertiary": "#695c53",
+                    "on-primary-fixed-variant": "#454747",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#5d5f5f",
+                    "on-primary-container": "#747676",
+                    "secondary-fixed": "#f6dece",
+                    "on-secondary-fixed": "#25190f",
+                    "inverse-surface": "#313030",
+                    "on-secondary-fixed-variant": "#544438",
+                    "primary-container": "#ffffff",
+                    "surface": "#fcf8f8",
+                    "tertiary-fixed": "#f1dfd3",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#231a13",
+                    "surface-container-low": "#f6f3f2",
+                    "on-tertiary-container": "#817369",
+                    "surface-container-high": "#ebe7e7",
+                    "secondary-fixed-dim": "#d9c2b3",
+                    "inverse-on-surface": "#f4f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "outline-variant": "#c4c7c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "primary": "#5d5f5f",
+                    "surface-bright": "#fcf8f8",
+                    "surface-dim": "#ddd9d9",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#d4c3b8",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "sm": "8px",
+                    "container-max": "1280px",
+                    "xl": "48px",
+                    "unit": "8px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Newsreader"],
+                    "display-lg": ["Newsreader"],
+                    "label-sm": ["Newsreader"],
+                    "body-lg": ["Newsreader"],
+                    "headline-md": ["Newsreader"],
+                    "body-md": ["Newsreader"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf8f8;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-secondary-container">
+<!-- TopAppBar -->
+<nav class="bg-white dark:bg-stone-50 border-b border-stone-200/30 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-24">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-900 text-3xl" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-serif font-black tracking-tighter text-3xl text-stone-900">ZEPHIRIN'S</span>
+</div>
+<div class="hidden md:flex items-center gap-10 font-serif italic tracking-wide text-lg">
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Heritage</a>
+<a class="text-stone-900 border-b-2 border-stone-800 pb-1" href="#">Products</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Locator</a>
+<a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Recipes</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-serif italic tracking-wide text-lg text-[#E67E22] hover:bg-[#E67E22]/10 transition-all duration-300 px-4 py-2 rounded-lg">Wholesale</button>
+<button class="md:hidden material-symbols-outlined text-stone-900" data-icon="menu">menu</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 py-xl">
+<!-- Hero Section -->
+<header class="mb-xl text-center max-w-3xl mx-auto">
+<p class="text-label-sm font-label-sm text-secondary uppercase tracking-[0.2em] mb-sm">Artisan Collections</p>
+<h1 class="text-display-lg font-display-lg text-on-surface mb-md italic">The Daily Bake</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Since 1944, our ovens have been the heart of the community. Explore our selection of traditional Bajan breads and contemporary pastries, crafted with time-honored heritage.</p>
+</header>
+<!-- Product Grid - Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Product Card 1: Bajan Salt Bread -->
+<div class="md:col-span-8 group bg-white border border-outline-variant/20 overflow-hidden">
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-3/5 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of golden brown artisan salt bread rolls with a dusting of flour on a rustic wooden table, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeNiM6uws1NHDJQUuxafmtyOjdDnf3roYSFb66NV7bI3Jvscp5-p40QFkMOaF_VaHTmZk8UNtpGj1_DKKlu82kkmk6yImSKRxWa7DHWuZABnbOvtR4exfkRwwLwMnDhAj2ZPG73V_0-FYjU9RTS0eMIPJ7Mh7L2cpjq37xHf052hXyFOiV-5rCxgSKEuaWImV0asDhoA3EQ7L9IbUz5kM4a7-XihuJknbUT8UpXcngfEXxQ1Qt_zDb9l8DV2EmlXaYlFUI1fg4ANc"/>
+</div>
+<div class="md:w-2/5 p-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<h3 class="text-headline-md font-headline-md text-on-surface italic">Bajan Salt Bread</h3>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Signature</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-md">Our legendary crusty roll with a soft, airy interior. A Barbadian staple since our first bake.</p>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-md border border-outline-variant/10">
+<p class="text-label-sm font-label-sm text-secondary uppercase mb-xs">Serving Suggestion</p>
+<p class="text-body-md font-body-md italic text-on-surface">"Best enjoyed warm with a thick slice of New Zealand cheddar or flying fish."</p>
+</div>
+</div>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-headline-md font-headline-md">$1.50 <span class="text-sm font-normal not-italic">/ pc</span></span>
+<button class="flex items-center gap-2 group/btn text-[#E67E22]">
+<span class="text-label-sm font-label-sm uppercase tracking-widest group-hover/btn:mr-2 transition-all">Details</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Nutriton Card (Mini) -->
+<div class="md:col-span-4 bg-secondary text-white p-lg flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-md" data-icon="info">info</span>
+<h3 class="text-headline-md font-headline-md mb-md italic">Heritage Grains</h3>
+<p class="text-body-md font-body-md opacity-90 mb-lg">We use locally sourced cassava and stone-milled flours to maintain high fiber and mineral content in every loaf.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="border-l border-white/30 pl-4">
+<p class="text-[24px] font-serif">100%</p>
+<p class="text-[10px] uppercase tracking-widest opacity-70">Natural</p>
+</div>
+<div class="border-l border-white/30 pl-4">
+<p class="text-[24px] font-serif">0%</p>
+<p class="text-[10px] uppercase tracking-widest opacity-70">Additives</p>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Coconut Turnover -->
+<div class="md:col-span-4 group bg-white border border-outline-variant/20 overflow-hidden flex flex-col">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" data-alt="Freshly baked coconut turnover pastry with golden flaky crust and sweet coconut filling peeking out, matte food photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXj4J3cj8BWyh3XRN7ScsIcU0fJe20N6MMqUMY4i3C3BgBQddOdrYd-ektQwgLPdGY5o6B2ds4Ix6dnt_OzSonLchU29UE4uqOnBHLh4xaBfHzy7i1cSd5vPWbQkP6sXFKbaheYn4ldCnFjrzt98Kkh8IK3up5VL9i5q3RA5t2oXJdHaQxSjVEq3NNZXf9cW-TI638n80XVI_qJ8GuzyDX-KxVs341G4AKSsthe4A9mwJMf0NJiQMFCvpGAlekhOOkWf5WvQSLK9Q"/>
+</div>
+<div class="p-lg flex-1 flex flex-col">
+<h3 class="text-headline-md font-headline-md text-on-surface italic mb-sm">Coconut Turnover</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-1 mb-lg">Hand-stretched pastry filled with spiced, grated coconut and brown sugar.</p>
+<div class="pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-headline-md font-headline-md">$2.75</span>
+<div class="flex gap-2">
+<div class="bg-surface-container text-on-secondary-container px-2 py-1 text-[10px] uppercase font-bold tracking-tighter">Vegan</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4: Cassava Bread -->
+<div class="md:col-span-4 group bg-white border border-outline-variant/20 overflow-hidden flex flex-col">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" data-alt="Dense rustic cassava bread loaf on a linen cloth, surrounded by raw cassava root, earthy tones, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8gBVc7CxyheCxLqlhwZHjHGd3iuYbQtNGf6ZeTXt1AbJYFyVkjiDIGjcR4ilpdvMQvxr28JHx7q41yJosvoE2UtjRo-n4MOsaMTI83WUsznVBT13ML7GyDemGzi6bQk7JBk0Nm8eyGpbT_hvI7OvkzH2SjwuOtHVMle-DquATpQPAcGQoq0Vflji9WD5bnGZ0Haf_cv-rXAJnGJ6T8udll2e7iw6_GF75vuIu6AEnia90OTtXmyZ5OTq3t30aqxkmmc6GHubnG8I"/>
+</div>
+<div class="p-lg flex-1 flex flex-col">
+<h3 class="text-headline-md font-headline-md text-on-surface italic mb-sm">Cassava Loaf</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-1 mb-lg">A dense, nutrient-rich bread made with traditional root flour. Earthy and filling.</p>
+<div class="pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-headline-md font-headline-md">$5.50</span>
+<div class="flex gap-2">
+<div class="bg-surface-container text-on-secondary-container px-2 py-1 text-[10px] uppercase font-bold tracking-tighter">GF Option</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 5: Nutriton Deep Dive -->
+<div class="md:col-span-4 bg-surface-container-low p-lg border border-outline-variant/20">
+<h4 class="text-label-sm font-label-sm text-secondary uppercase tracking-widest mb-md">Nutrition Snapshot</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-body-md font-headline-md italic">Calories</span>
+<span class="text-body-lg font-serif">180 - 320</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-body-md font-headline-md italic">Whole Grains</span>
+<span class="text-body-lg font-serif">75% Avg.</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-body-md font-headline-md italic">Fiber</span>
+<span class="text-body-lg font-serif">High</span>
+</div>
+</div>
+<p class="mt-lg text-[12px] text-on-surface-variant italic leading-relaxed">
+                    *Based on standard serving size. Our breads are baked fresh daily without preservatives.
+                </p>
+<div class="mt-lg">
+<button class="w-full border border-[#E67E22] text-[#E67E22] py-3 text-label-sm font-label-sm uppercase tracking-widest hover:bg-[#E67E22] hover:text-white transition-colors duration-300">Download Full Menu</button>
+</div>
+</div>
+<!-- Product Card 6: Current Specials Banner -->
+<div class="md:col-span-12 relative h-96 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Wide shot of an artisan bakery interior with wooden shelves full of fresh bread, warm golden light filtering through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNoW77keL6WnxyZNdksFgEEURIGICqTw8Cg89Vaeiu-INOkdCUyrprqqhnCj885Y5jDtMPPDS7_E29KiihmhZPxL4H_ZAMxV0Bn2GkgDka5khBDr0yqTJx0bwXP-ZIzbjVWNLGf5iMto38gifXGe-gVpUJ2ehW8eNiISFTUjyLAPS-GG8ZA7FM05EVLQbTelWaJ5uqUKeOO70aHVu3fHGHeHrgUxUK0eXvqNI2LbvMwlm9dwiPM3EMYtb3o-z-0ufWCeXUxWS3Wn0"/>
+<div class="absolute inset-0 bg-stone-900/40 flex items-center justify-center text-center p-8">
+<div class="max-w-2xl bg-white/95 p-xl backdrop-blur-sm">
+<p class="text-label-sm font-label-sm text-secondary uppercase tracking-widest mb-sm">Limited Time</p>
+<h2 class="text-display-lg font-display-lg text-stone-900 italic mb-md">Sweet Potato Sourdough</h2>
+<p class="text-body-md font-body-md text-stone-700 mb-lg">A seasonal specialty blending our wild yeast starter with roasted Caribbean sweet potatoes for a subtle sweetness and violet hue.</p>
+<button class="bg-[#E67E22] text-white px-8 py-4 text-label-sm font-label-sm uppercase tracking-widest hover:bg-[#D35400] transition-all">Reserve a Loaf</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Features Section -->
+<section class="py-xl grid grid-cols-1 md:grid-cols-3 gap-xl border-t border-outline-variant/20 mt-xl">
+<div class="text-center md:text-left">
+<span class="material-symbols-outlined text-secondary text-3xl mb-md" data-icon="history_edu">history_edu</span>
+<h4 class="text-headline-md font-headline-md italic mb-sm">Time-Honored</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">We still use the original 1944 fermentation techniques for our signature starters.</p>
+</div>
+<div class="text-center md:text-left">
+<span class="material-symbols-outlined text-secondary text-3xl mb-md" data-icon="local_shipping">local_shipping</span>
+<h4 class="text-headline-md font-headline-md italic mb-sm">Island Delivery</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Fresh bakes delivered to your doorstep across the island before the sun peaks.</p>
+</div>
+<div class="text-center md:text-left">
+<span class="material-symbols-outlined text-secondary text-3xl mb-md" data-icon="workspace_premium">workspace_premium</span>
+<h4 class="text-headline-md font-headline-md italic mb-sm">Premium Sourcing</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Only the finest non-GMO flours and authentic Bajan spices enter our kitchen.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-50 dark:bg-stone-100 full-width py-16 px-8 border-t border-stone-200">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="lg:col-span-1">
+<h3 class="font-serif font-bold text-stone-900 mb-6">ZEPHIRIN'S BAKERY</h3>
+<p class="font-serif text-sm tracking-widest uppercase text-stone-500 mb-4 leading-relaxed">
+                    © 1944 ZEPHIRIN'S BAKERY. ARTISAN BAJAN HERITAGE.
+                </p>
+</div>
+<div class="flex flex-col gap-3 font-serif text-sm tracking-widest uppercase text-stone-500">
+<p class="text-stone-900 font-bold mb-2">The Bakery</p>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Heritage</a>
+<a class="font-bold text-stone-900" href="#">Products</a>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Locator</a>
+</div>
+<div class="flex flex-col gap-3 font-serif text-sm tracking-widest uppercase text-stone-500">
+<p class="text-stone-900 font-bold mb-2">Connect</p>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Recipes</a>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Wholesale</a>
+<a class="hover:underline decoration-stone-300 underline-offset-4 opacity-80 hover:opacity-100 transition-all" href="#">Instagram</a>
+</div>
+<div class="flex flex-col gap-3 font-serif text-sm tracking-widest uppercase text-stone-500">
+<p class="text-stone-900 font-bold mb-2">Visit Us</p>
+<p class="opacity-80">Bridgetown Market</p>
+<p class="opacity-80">St. Michael, Barbados</p>
+<p class="opacity-80">Mon-Sat: 6am - 6pm</p>
+</div>
+</div>
+</footer>
+</body></html>
