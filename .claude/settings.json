@@ -1,10 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Read(//Users/katrinapayne/Claude/**)"
+      "Read(//Users/katrinapayne/Claude/**)",
+      "Read(//Users/katrinapayne/**)",
+      "Read(//Users/katrinapayne/Desktop/**)",
+      "Bash(xargs ls *)",
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow available'\\)\")",
+      "Bash(pip3 install *)"
     ],
     "additionalDirectories": [
-      "/Users/katrinapayne/Claude"
+      "/Users/katrinapayne/Claude",
+      "/Users/katrinapayne/Downloads"
     ]
   }
 }

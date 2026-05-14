@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Redesign Proposal — Zephirin's Bakery</title>
+  <title>Website Redesign Proposal · Zephirin's Bakery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem;
+      padding: 6rem 2rem 5rem;
       position: relative;
       overflow: hidden;
     }
@@ -114,11 +114,11 @@
     }
 
     .cover-logo {
-      height: 52px;
-      width: auto;
-      margin: 0 auto 3rem;
-      opacity: .9;
-      position: relative;
+      max-width: 360px;
+      width: 70%;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.5rem;
     }
 
     .cover-label {
@@ -1145,7 +1145,7 @@
 <section class="cover" id="cover">
 
   <img class="cover-logo"
-       src="images/zephirins-logo-color.png"
+       src="images/zephirin-bakeries-logo-transparent.png"
        alt="Zephirin's Bakery" />
 
   <div class="cover-label">Website Redesign Proposal</div>
@@ -1188,7 +1188,7 @@
 ════════════════════════════════════════════════════════ -->
 <nav class="sticky-nav" id="stickyNav">
   <div class="sticky-nav-inner">
-    <div class="nav-brand">Zephirin's Bakery — Proposal</div>
+    <div class="nav-brand">Zephirin's Bakery · Proposal</div>
     <div class="nav-links">
       <a href="#opportunity" data-section="opportunity">Opportunity</a>
       <a href="#concepts"    data-section="concepts">Concepts</a>
@@ -1400,7 +1400,7 @@
     </div>
 
     <div class="concept-selection-note reveal" id="selectionNote">
-      ✓ You've selected <strong id="selectionLabel">Concept 1 — Premium Heritage</strong>.
+      ✓ You've selected <strong id="selectionLabel">Concept 1: Premium Heritage</strong>.
       This preference will carry through to your proposal acceptance.
     </div>
   </div>
@@ -1773,7 +1773,7 @@
           </div>
           <div class="sig-field">
             <label>Your Role</label>
-            <input type="text" placeholder="e.g. Owner" />
+            <input type="text" placeholder="e.g. Owner" id="sigRole" />
           </div>
           <div class="sig-field">
             <label>Email Address</label>
@@ -1801,8 +1801,7 @@
      FOOTER
 ════════════════════════════════════════════════════════ -->
 <footer class="page-footer">
-  Zephirin's Bakery Website Redesign Proposal &mdash; Prepared by Marc Media &mdash; April 2026
-  &mdash; Confidential
+  Zephirin's Bakery Website Redesign Proposal &nbsp;·&nbsp; Prepared by Marc Media &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Confidential
 </footer>
 
 
@@ -1870,10 +1869,10 @@
   /* ── concept selection ───────────────────────────────── */
   let selectedConcept = null;
   const conceptNames = {
-    '1': 'Concept 1 — Premium Heritage',
-    '2': 'Concept 2 — Editorial Magazine',
-    '3': 'Concept 3 — Fresh & Modern',
-    '4': 'Concept 4 — Heritage Digital (With CMS)'
+    '1': 'Concept 1: Premium Heritage',
+    '2': 'Concept 2: Editorial Magazine',
+    '3': 'Concept 3: Fresh & Modern',
+    '4': 'Concept 4: Heritage Digital (With CMS)'
   };
 
   function selectConcept(card) {
@@ -1909,7 +1908,7 @@
   const breakdownData = {
     standard: {
       starter: {
-        label: 'Starter — Agency-Managed',
+        label: 'Starter (Agency-Managed)',
         total: '2,800',
         items: [
           ['Discovery & Strategy',     '2 hrs',   '$300'],
@@ -1921,7 +1920,7 @@
         ]
       },
       professional: {
-        label: 'Professional — Agency-Managed',
+        label: 'Professional (Agency-Managed)',
         total: '5,000',
         items: [
           ['Discovery & Strategy',            '4 hrs',  '$550'],
@@ -1936,7 +1935,7 @@
         ]
       },
       premium: {
-        label: 'Premium — Agency-Managed',
+        label: 'Premium (Agency-Managed)',
         total: '8,000',
         items: [
           ['Discovery & Strategy',            '6 hrs',   '$800'],
@@ -1952,7 +1951,7 @@
     },
     cms: {
       starter: {
-        label: 'Starter — WordPress CMS',
+        label: 'Starter (WordPress CMS)',
         total: '3,800',
         items: [
           ['Discovery & Strategy',     '2 hrs',   '$350'],
@@ -1965,7 +1964,7 @@
         ]
       },
       professional: {
-        label: 'Professional — WordPress CMS',
+        label: 'Professional (WordPress CMS)',
         total: '6,400',
         items: [
           ['Discovery & Strategy',            '4 hrs',  '$550'],
@@ -1981,7 +1980,7 @@
         ]
       },
       premium: {
-        label: 'Premium — WordPress CMS',
+        label: 'Premium (WordPress CMS)',
         total: '10,400',
         items: [
           ['Discovery & Strategy',            '6 hrs',   '$800'],
@@ -2090,15 +2089,50 @@
   /* ── accept proposal ──────────────────────────────────── */
   function acceptProposal() {
     const name  = document.getElementById('sigName').value.trim();
+    const role  = document.getElementById('sigRole').value.trim();
     const email = document.getElementById('sigEmail').value.trim();
+    const date  = document.getElementById('sigDate').value;
+
     if (!name || !email) {
       alert('Please enter your name and email address to accept the proposal.');
       return;
     }
+
+    const conceptLabel = conceptNames[selectedConcept] || 'Not selected';
+    const p            = tierPricing[activeTier];
+    const pkgPrices    = { starter: p.starter.usd, professional: p.professional.usd, premium: p.premium.usd };
+    const packageLabel = selectedPkg
+      ? `${selectedPkg.charAt(0).toUpperCase() + selectedPkg.slice(1)} (US$${pkgPrices[selectedPkg]})`
+      : 'Not selected';
+    const tierLabel = activeTier === 'cms' ? 'WordPress CMS Build' : 'Agency-Managed Build';
+
+    const subject = `Proposal Acceptance: Zephirin's Bakery Website Redesign`;
+    const body = [
+      `PROPOSAL ACCEPTANCE`,
+      `Zephirin's Bakery Website Redesign`,
+      ``,
+      `CLIENT DETAILS`,
+      `Name:       ${name}`,
+      `Role:       ${role || 'Not provided'}`,
+      `Email:      ${email}`,
+      `Date:       ${date}`,
+      ``,
+      `SELECTED OPTIONS`,
+      `Template:   ${conceptLabel}`,
+      `Package:    ${packageLabel}`,
+      `Build Type: ${tierLabel}`,
+      ``,
+      `This acceptance was submitted via the Zephirin's Bakery Website Redesign Proposal.`
+    ].join('\n');
+
+    const link  = document.createElement('a');
+    link.href   = `mailto:specialist@katrinapayne.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    link.click();
+
     const btn = document.querySelector('.accept-btn');
-    btn.textContent = '✓  Proposal Accepted — Thank You!';
+    btn.innerHTML       = '✓ &nbsp;Proposal Submitted. Thank You!';
     btn.style.background = '#1e4d34';
-    btn.disabled = true;
+    btn.disabled        = true;
   }
 
 </script>
