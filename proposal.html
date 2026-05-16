@@ -1581,6 +1581,7 @@
           <li>Design from chosen concept</li>
           <li>Mobile responsive build</li>
           <li>Store locator (parish list)</li>
+          <li>Image gallery</li>
           <li>Basic SEO setup</li>
           <li>Google Analytics 4</li>
           <li>2 rounds of revisions</li>
@@ -1604,6 +1605,7 @@
           <li>Advanced mobile optimisation</li>
           <li>Parish-filterable store locator</li>
           <li>Full product gallery &amp; filters</li>
+          <li>Image gallery</li>
           <li>Newsletter signup integration</li>
           <li>SEO + Analytics + Search Console</li>
           <li>Social media feed integration</li>
@@ -1627,6 +1629,7 @@
           <li>Copywriting for up to 6 pages</li>
           <li>Advanced performance optimisation</li>
           <li>Full SEO content strategy</li>
+          <li>Image gallery</li>
           <li>Analytics dashboard setup</li>
           <li>Heatmap &amp; user experience tracking</li>
           <li>4 rounds of revisions</li>
@@ -2087,7 +2090,7 @@
 
 
   /* ── accept proposal ──────────────────────────────────── */
-  function acceptProposal() {
+  async function acceptProposal() {
     const name  = document.getElementById('sigName').value.trim();
     const role  = document.getElementById('sigRole').value.trim();
     const email = document.getElementById('sigEmail').value.trim();
@@ -2106,33 +2109,45 @@
       : 'Not selected';
     const tierLabel = activeTier === 'cms' ? 'WordPress CMS Build' : 'Agency-Managed Build';
 
-    const subject = `Proposal Acceptance: Zephirin's Bakery Website Redesign`;
-    const body = [
-      `PROPOSAL ACCEPTANCE`,
-      `Zephirin's Bakery Website Redesign`,
-      ``,
-      `CLIENT DETAILS`,
-      `Name:       ${name}`,
-      `Role:       ${role || 'Not provided'}`,
-      `Email:      ${email}`,
-      `Date:       ${date}`,
-      ``,
-      `SELECTED OPTIONS`,
-      `Template:   ${conceptLabel}`,
-      `Package:    ${packageLabel}`,
-      `Build Type: ${tierLabel}`,
-      ``,
-      `This acceptance was submitted via the Zephirin's Bakery Website Redesign Proposal.`
-    ].join('\n');
-
-    const link  = document.createElement('a');
-    link.href   = `mailto:specialist@katrinapayne.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    link.click();
-
     const btn = document.querySelector('.accept-btn');
-    btn.innerHTML       = '✓ &nbsp;Proposal Submitted. Thank You!';
-    btn.style.background = '#1e4d34';
-    btn.disabled        = true;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
+
+    // TODO: Replace YOUR_FORM_ID with your actual Formspree ID
+    // Example: 'https://formspree.io/f/xabcdefg'
+    const formspreeURL = 'https://formspree.io/f/xgodgjyb';
+
+    try {
+      const response = await fetch(formspreeURL, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          subject: `Proposal Acceptance: Zephirin's Bakery Website Redesign`,
+          name: name,
+          email: email,
+          role: role,
+          date: date,
+          concept: conceptLabel,
+          package: packageLabel,
+          buildType: tierLabel
+        })
+      });
+
+      if (response.ok) {
+        btn.innerHTML = '✓ &nbsp;Proposal Submitted. Thank You!';
+        btn.style.background = '#1e4d34';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      alert('There was an error sending the proposal. Please check your connection and try again.');
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
   }
 
 </script>
